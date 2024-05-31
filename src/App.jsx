@@ -6,7 +6,7 @@ import './App.css'
 function App() {  
 
   return (
-    <div class="wrapper">
+    <div className="wrapper">
 	<Header />		
   <Main />
     </div>

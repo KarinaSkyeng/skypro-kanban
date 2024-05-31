@@ -1,11 +1,11 @@
 import { Column } from "../Column";
 export const Main = () => {
     return (
-        <main class="main">
-			<div class="container">
+        <main className="main">
+			<div className="cNameontainer">
 				
-				<div class="main__block">
-					<div class="main__content">
+				<div className="main__block">
+					<div className="main__content">
 					<Column title="Без заголовка"/>
 					<Column title="Нужно сделать"/>
 					<Column title="В работе"/>
