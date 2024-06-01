@@ -2,7 +2,7 @@ import { Column } from "../Column";
 export const Main = () => {
     return (
         <main className="main">
-			<div className="cNameontainer">
+			<div className="container">
 				
 				<div className="main__block">
 					<div className="main__content">
