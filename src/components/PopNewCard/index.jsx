@@ -24,7 +24,7 @@ export const PopNewCard = () => {
                     name="name"
                     id="formTitle"
                     placeholder="Введите название задачи..."
-                    autoFocus="true"
+                    autoFocus={true}
                   />
                 </div>
                 <div className="form-new__block">
