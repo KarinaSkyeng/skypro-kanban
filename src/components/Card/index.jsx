@@ -61,5 +61,5 @@ export const Card = ({ itemTitle }) => {
           </div>
         </div>
       </div>
-    )
+    );
 }

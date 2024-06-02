@@ -148,4 +148,4 @@ export const PopNewCard = () => {
       </div>
     </div>
   );
-};
+}

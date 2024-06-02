@@ -67,5 +67,5 @@ export const PopBrowse = () => {
 					</div>
 				</div>
 			</div>
-    )
+    );
 }

@@ -14,4 +14,4 @@ export const Column = ({ title }) => {
       </div>
     </div>
   );
-};
+}

@@ -16,5 +16,5 @@ export const Main = () => {
 				</div>
 			</div>
 		</main>
-    )
+    );
 }
