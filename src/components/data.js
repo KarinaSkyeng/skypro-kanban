@@ -1,3 +1,5 @@
+export const statusList = ["Без статуса", "Нужно сделать", "В работе", "Тестирование", "Готово"]
+
 export const tasks = [
     {
         id: 1,
@@ -25,33 +27,33 @@ export const tasks = [
         date: '30.1.2023',
         topic: "Research",
         title: "Название задачи",
-        status: "Без статуса",
+        status: "Нужно сделать",
     },
     {
         id: 3,
         date: '30.1.2023',
         topic: "Copywriting",
         title: "Название задачи",
-        status: "Без статуса",
+        status: "В работе",
     },
     {
         id: 4,
         date: '30.1.2023',
         topic: "Research",
         title: "Название задачи",
-        status: "Без статуса",
+        status: "Тестирование",
     },
     {
         id: 5,
         date: '30.1.2023',
-        topic: "Web Design",
+        topic: "Copywriting",
         title: "Название задачи",
-        status: "Без статуса",
+        status: "Готово",
     },
     {
         id: 6,
         date: '30.1.2023',
-        topic: "Web Design",
+        topic: "Research",
         title: "Название задачи",
         status: "Без статуса",
     },

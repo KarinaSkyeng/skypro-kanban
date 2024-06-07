@@ -1,19 +1,16 @@
-export const Card = ({ itemTitle }) => {
-    let themeClass = "";
-    if (itemTitle === "Web Design") {
-      themeClass = "_orange";
-    } else if (itemTitle === "Research") {
-      themeClass = "_green";
-    } else if (itemTitle === "Copywriting") {
-      themeClass = "_purple";
-    }
+export const Card = ({title, topic, date}) => {
+  const colors = {
+    "Web Design": "_orange",
+    "Copywriting": "_purple",
+    "Research": "_green",
+  }
 
     return (
         <div className="cards__item">
         <div className="cards__card card">
           <div className="card__group">
-            <div className={`card__theme ${themeClass}`}>
-              <p className={themeClass}>{itemTitle}</p>
+            <div className={`card__theme ${colors[topic]}`}>
+              <p className={'card__name'}>{topic}</p>
             </div>
             <a href="#popBrowse" target="_self">
               <div className="card__btn">
@@ -25,7 +22,7 @@ export const Card = ({ itemTitle }) => {
           </div>
           <div className="card__content">
             <a href="" target="_blank">
-              <h3 className="card__title">Название задачи</h3>
+              <h3 className="card__title">{title}</h3>
             </a>
             <div className="card__date">
               <svg
@@ -56,7 +53,7 @@ export const Card = ({ itemTitle }) => {
                   </clipPath>
                 </defs>
               </svg>
-              <p>30.10.23</p>
+              <p>{date}</p>
             </div>
           </div>
         </div>

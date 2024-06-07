@@ -1,17 +1,22 @@
 import { Column } from "../Column";
+import { tasks, statusList } from "../data.js";
 
 export const Main = () => {
+	
     return (
         <main className="main">
 			<div className="container">
 				
 				<div className="main__block">
 					<div className="main__content">
-					<Column title="Без заголовка"/>
-					<Column title={'Нужно сделать'} cards={<Card name={'Web design'} color={'_orange'} />} />
-					<Column title="В работе"/>
-					<Column title="Тестирование"/>
-					<Column title="Готово"/>
+						{statusList.map((status, i) => (
+							<Column
+							key={i} 
+							title={status} 
+							cards={tasks.filter((card) => card.status === status)}
+						/>
+						))}					
+									
 					</div>
 				
 				</div>
