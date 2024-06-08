@@ -5,21 +5,33 @@ import { PopNewCard } from "./components/PopNewCard";
 import { PopUser } from "./components/PopUser";
 import './App.css'
 import { tasks } from "./components/data";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 function App() {  
     const [cards, setCards] = useState(tasks)
+    const [isLoading, setIsLoading] = useState(false)
 
     const addCard = () => {
       const newCard = {
-        id: 13,
+        id: cards.length + 1,
         date: '30.1.2023',
         topic: "Web Design",
         title: "Новая задача",
         status: "Без статуса",
     }
     setCards([...cards, newCard]);
-    }    
+    }  
+
+    useEffect(() => {
+      setIsLoading(true)
+      setTimeout(() => {
+        setIsLoading(false)
+      }, 3000)    
+    }, []);
+    
+    if(isLoading) {
+      return "Loading..."
+    }
   return (
     <div className="wrapper">
         <Header addCard={addCard}/>		

@@ -55,6 +55,6 @@ export const tasks = [
         date: '30.1.2023',
         topic: "Research",
         title: "Название задачи",
-        status: "Без статуса",
+        status: "Нужно сделать",
     },
 ]
