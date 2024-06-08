@@ -1,7 +1,7 @@
 import { Column } from "../Column";
-import { tasks, statusList } from "../data.js";
+import { statusList } from "../data.js";
 
-export const Main = () => {
+export const Main = ({cards}) => {
 	
     return (
         <main className="main">
@@ -13,7 +13,7 @@ export const Main = () => {
 							<Column
 							key={i} 
 							title={status} 
-							cards={tasks.filter((card) => card.status === status)}
+							cards={cards.filter((card) => card.status === status)}
 						/>
 						))}					
 									
