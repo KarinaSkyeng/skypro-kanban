@@ -26,16 +26,13 @@ function App() {
       setIsLoading(true)
       setTimeout(() => {
         setIsLoading(false)
-      }, 3000)    
+      }, 2000)    
     }, []);
-    
-    if(isLoading) {
-      return "Loading..."
-    }
+  
   return (
     <div className="wrapper">
         <Header addCard={addCard}/>		
-        <Main cards={cards}/>     
+        {isLoading ? <p className="loader">Данные загружаются...</p> : <Main cards={cards}/>}     
         <PopBrowse />
         <PopNewCard />
         <PopUser />
