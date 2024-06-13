@@ -1,4 +1,4 @@
-import { Column } from "../Column";
+import { Column } from "../Column/Column.jsx";
 import { statusList } from "../data.js";
 
 export const Main = ({cards}) => {
