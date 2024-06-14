@@ -3,18 +3,18 @@
   margin-top: 20px;
 }
 
-* {
+/** {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-*:before,
-*:after {
-  box-sizing: border-box;
-}
+    *:before,
+    *:after {
+    box-sizing: border-box;
+    }
 
-a,
+    a,
 a:visited {
   text-decoration: none;
   cursor: pointer;
@@ -40,6 +40,7 @@ ul li {
     opacity: 1;
   }
 }
+
 html,
 body {
   width: 100%;
@@ -61,7 +62,7 @@ body {
   width: 100%;
   margin: 0 auto;
   padding: 0 30px;
-}
+}*/
 
 ._hover01:hover {
   background-color: #33399b;
@@ -718,11 +719,12 @@ body {
   display: none;
 }
 
-.header {
+/*.header {
   width: 100%;
   margin: 0 auto;
   background-color: #FFFFFF;
-}
+}*/
+
 .header__block {
   height: 70px;
   display: flex;

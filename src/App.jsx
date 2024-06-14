@@ -6,6 +6,7 @@ import { PopUser } from "./components/PopUser/PopUser";
 import './App.css'
 import { tasks } from "./components/data";
 import {useEffect, useState} from "react";
+import { GlobalStyle, Wrapper} from "./globalStyle.styled";
 
 function App() {  
     const [cards, setCards] = useState(tasks)
@@ -35,13 +36,17 @@ function App() {
   };
   
   return (
-    <div className={`wrapper ${isDarkTheme ? 'dark-theme' : 'light-theme'}`}>
+    <>
+    <GlobalStyle/>
+    <Wrapper>
         <Header addCard={addCard} toggleTheme={toggleTheme} isDarkTheme={isDarkTheme} />		
         {isLoading ? <p className="loader">Данные загружаются...</p> : <Main cards={cards}/>}     
         <PopBrowse />
         <PopNewCard />
         <PopUser />
-    </div>
+    </Wrapper>
+    </>
+    
     );
 }
 

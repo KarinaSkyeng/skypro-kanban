@@ -1,4 +1,5 @@
 import {useState} from "react";
+//import * as S from "./header.styled.js";
 
 export const Header = ({addCard}) => {
   const [isOpen, setIsOpen] = useState(false)
