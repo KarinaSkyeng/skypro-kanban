@@ -1,5 +1,6 @@
 import {useState} from "react";
-//import * as S from "./header.styled.js";
+import * as S from "./header.styled.js";
+import { Container } from "./header.styled.js";
 
 export const Header = ({addCard}) => {
   const [isOpen, setIsOpen] = useState(false)
@@ -8,9 +9,9 @@ export const Header = ({addCard}) => {
    }
   
   return (
-    <header className="header">
-      <div className="container">
-        <div className="header__block">
+    <S.Header>
+      <Container>
+        <S.HeaderBlock>
           <div className="header__logo _show _light">
             <a href="" target="_self">
               <img src="images/logo.png" alt="logo" />
@@ -42,8 +43,8 @@ export const Header = ({addCard}) => {
             </div>
             }
           </nav>
-        </div>
-      </div>
-    </header>
+        </S.HeaderBlock>
+      </Container>
+    </S.Header>
   );
 }

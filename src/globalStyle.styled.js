@@ -35,7 +35,8 @@ body {
   font-family: "Roboto", Arial, Helvetica, sans-serif;
   color: #000000;
 }
-`
+`;
+
 export const Wrapper = styled.div`
 .wrapper {
   max-width: 100%;
@@ -44,10 +45,11 @@ export const Wrapper = styled.div`
   overflow: hidden;
   background-color: #F1F1F1;
 }
-`
-export const Container = styled.div`
+`;
+
+/*export const Container = styled.div`
   max-width: 1260px;
   width: 100%;
   margin: 0 auto;
   padding: 0 30px;
-`
+`*/
