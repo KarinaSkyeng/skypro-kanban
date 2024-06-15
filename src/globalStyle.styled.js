@@ -1,4 +1,4 @@
-import { styled, createGlobalStyle } from "styled-components";
+import { styled, createGlobalStyle, css } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
 * {
@@ -47,9 +47,27 @@ export const Wrapper = styled.div`
 }
 `;
 
-/*export const Container = styled.div`
+export const Container = styled.div`
   max-width: 1260px;
   width: 100%;
   margin: 0 auto;
   padding: 0 30px;
-`*/
+`
+
+export const Hover01 = css`
+    &:hover {
+  background-color: #33399b;
+}
+`;
+
+export const Hover02 = css`
+    &:hover {
+        color: #33399b;
+      
+        &::after {
+            border-left-color: #33399b;
+            border-bottom-color: #33399b;
+        }
+}
+`;
+

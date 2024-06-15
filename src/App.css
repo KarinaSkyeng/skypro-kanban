@@ -62,11 +62,11 @@ body {
   width: 100%;
   margin: 0 auto;
   padding: 0 30px;
-}*/
+}
 
 ._hover01:hover {
   background-color: #33399b;
-}
+}*/
 
 ._hover02:hover, .header__user:hover {
   color: #33399b;
@@ -747,7 +747,7 @@ body {
   align-items: center;
   justify-content: center;
 }
-.header__btn-main-new {
+/*.header__btn-main-new {
   width: 178px;
   height: 30px;
   border-radius: 4px;
@@ -761,7 +761,7 @@ body {
 }
 .header__btn-main-new a {
   color: #FFFFFF;
-}
+}*/
 .header__user {
   height: 20px;
   display: flex;

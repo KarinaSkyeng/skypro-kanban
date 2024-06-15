@@ -1,6 +1,6 @@
 import {useState} from "react";
 import * as S from "./header.styled.js";
-import { Container } from "./header.styled.js";
+import { Container } from "../../globalStyle.styled";
 
 export const Header = ({addCard}) => {
   const [isOpen, setIsOpen] = useState(false)
@@ -23,11 +23,11 @@ export const Header = ({addCard}) => {
             </a>
           </div>
           <nav className="header__nav">
-            <button onClick={addCard} className="header__btn-main-new _hover01" id="btnMainNew">
+            <S.HeaderBtnNew onClick={addCard} id="btnMainNew">
               <a>Создать новую задачу</a>
-            </button>
-            <a className="header__user _hover02" onClick= {toggleOpenUser}>
-              Ivan Ivanov</a>
+            </S.HeaderBtnNew>
+            <S.HeaderUser onClick= {toggleOpenUser}>
+              Ivan Ivanov</S.HeaderUser>
             {isOpen &&  
             <div className="header__pop-user-set pop-user-set" id="user-set-target">
               {/*<a href="">x</a>*/}
