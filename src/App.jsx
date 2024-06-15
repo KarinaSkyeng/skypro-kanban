@@ -7,6 +7,8 @@ import './App.css'
 import { tasks } from "./components/data";
 import {useEffect, useState} from "react";
 import { GlobalStyle, Wrapper} from "./globalStyle.styled";
+import { ThemeProvider } from "styled-components";
+import { dark } from "./theme";
 
 function App() {  
     const [cards, setCards] = useState(tasks)
@@ -36,7 +38,7 @@ function App() {
   };
   
   return (
-    <>
+    <ThemeProvider them={dark}>
     <GlobalStyle/>
     <Wrapper>
         <Header addCard={addCard} toggleTheme={toggleTheme} isDarkTheme={isDarkTheme} />		
@@ -45,7 +47,7 @@ function App() {
         <PopNewCard />
         <PopUser />
     </Wrapper>
-    </>
+    </ThemeProvider>
     
     );
 }
