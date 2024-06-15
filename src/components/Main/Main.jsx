@@ -1,10 +1,11 @@
 import { Column } from "../Column/Column.jsx";
 import { statusList } from "../data.js";
+import * as S from "./main.styled.js";
 
 export const Main = ({cards}) => {
 	
     return (
-        <main className="main">
+        <S.Main>
 			<div className="container">
 				
 				<div className="main__block">
@@ -21,6 +22,6 @@ export const Main = ({cards}) => {
 				
 				</div>
 			</div>
-		</main>
+		</S.Main>
     );
 }

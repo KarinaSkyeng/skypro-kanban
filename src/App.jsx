@@ -8,12 +8,12 @@ import { tasks } from "./components/data";
 import {useEffect, useState} from "react";
 import { GlobalStyle, Wrapper} from "./globalStyle.styled";
 import { ThemeProvider } from "styled-components";
-import { dark } from "./theme";
+import { dark, light } from "./theme";
 
 function App() {  
     const [cards, setCards] = useState(tasks)
     const [isLoading, setIsLoading] = useState(false)
-    const [isDarkTheme, setIsDarkTheme] = useState(false);
+    const [isDarkTheme, setIsDarkTheme] = useState(light);
 
     const addCard = () => {
       const newCard = {
@@ -30,7 +30,7 @@ function App() {
       setIsLoading(true)
       setTimeout(() => {
         setIsLoading(false)
-      }, 2000)    
+      }, 1000)    
     }, []);
 
     const toggleTheme = () => {
@@ -38,7 +38,7 @@ function App() {
   };
   
   return (
-    <ThemeProvider them={dark}>
+    <ThemeProvider theme={isDarkTheme === "light" ? light : dark}>
     <GlobalStyle/>
     <Wrapper>
         <Header addCard={addCard} toggleTheme={toggleTheme} isDarkTheme={isDarkTheme} />		
