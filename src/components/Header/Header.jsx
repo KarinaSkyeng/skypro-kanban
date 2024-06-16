@@ -16,9 +16,9 @@ export const Header = ({addCard, isDarkTheme, setIsDarkTheme}) => {
     <S.Header>
       <Container>
         <S.HeaderBlock>
-          <div className="header__logo _show _light">
+          <div className={`header__logo ${isDarkTheme ? "_dark" : "_show _light"}`}>
             <a href="" target="_self">
-              <img src="images/logo.png" alt="logo" />
+              <img src={`images/logo${isDarkTheme ? "_dark" : ""}.png`} alt="logo" />
             </a>
           </div>
           <div className="header__logo _dark">
@@ -38,7 +38,7 @@ export const Header = ({addCard, isDarkTheme, setIsDarkTheme}) => {
               <p className="pop-user-set__name">Ivan Ivanov</p>
               <p className="pop-user-set__mail">ivan.ivanov@gmail.com</p>
               <div className="pop-user-set__theme">
-                <p>Темная тема</p>
+                <p>{isDarkTheme ? "Темная тема" : "Светлая тема"}</p>
                 <input checked={isDarkTheme === "dark"} onClick={onChangeTheme} type="checkbox" className="checkbox" name="checkbox" />
               </div>
               <button type="button" className="_hover03">

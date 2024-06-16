@@ -72,3 +72,9 @@ width: auto;
   line-height: 10px;
 }
 `;
+
+export const CardTitle = styled.h3`
+  font-size: 16px;
+  font-weight: 600;
+  color: ${({ theme }) => theme.textColor};
+`;

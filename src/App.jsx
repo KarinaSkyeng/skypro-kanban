@@ -13,7 +13,7 @@ import { dark, light } from "./theme";
 function App() {  
     const [cards, setCards] = useState(tasks);
     const [isLoading, setIsLoading] = useState(false);
-    const [isDarkTheme, setIsDarkTheme] = useState(light);
+    const [isDarkTheme, setIsDarkTheme] = useState("light");
 
     const addCard = () => {
       const newCard = {

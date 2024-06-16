@@ -54,12 +54,6 @@ export const Container = styled.div`
   padding: 0 30px;
 `;
 
-export const colors = {
-    "Web Design": "_orange",
-    "Copywriting": "_purple",
-    "Research": "_green",
-  }
-
 export const Orange = css`
 background-color: ${({theme}) => theme.orangeBg};
 color: ${({theme}) => theme.orangeText};
@@ -96,4 +90,6 @@ export const Hover02 = css`
         }
 }
 `;
+
+
 

@@ -20,7 +20,7 @@ export const light = {
 export const dark = {
     body: "#151419",
     colors: {
-        background: "#333333",
+       background: "#333333",
         text: "#FFFFFF",
         cardBackground: "#20202C",
         cardText: "#FFFFFF",

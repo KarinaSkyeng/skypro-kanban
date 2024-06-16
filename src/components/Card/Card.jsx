@@ -1,11 +1,6 @@
 import * as S from "./card.styled.js";
 
 export const Card = ({ title, topic, date }) => {
-  /*const colors = {
-    "Web Design": "_orange",
-    Copywriting: "_purple",
-    Research: "_green",
-  };*/
 
   return (
     <S.CardsItem>
@@ -24,7 +19,7 @@ export const Card = ({ title, topic, date }) => {
         </S.CardGroup>
         <div className="card__content">
           <a href="" target="_blank">
-            <h3 className="card__title">{title}</h3>
+          <S.CardTitle>{title}</S.CardTitle>
           </a>
           <div className="card__date">
             <svg
