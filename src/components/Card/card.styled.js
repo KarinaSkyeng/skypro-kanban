@@ -1,5 +1,5 @@
-import styled, {keyframes} from "styled-components";
-import {Orange, Purple, Green} from "../../globalStyle.styled";
+import styled, {keyframes, css} from "styled-components";
+//import {Orange, Purple, Green} from "../../globalStyle.styled";
 
 const cardAnimation = keyframes`
 0% {
@@ -22,7 +22,8 @@ export const CardsItem = styled.div`
 export const Card = styled.div`
   width: 220px;
   height: 130px;
-  background-color: #FFFFFF;
+  background-color: ${({ theme }) => theme.colors.cardBackground};
+  color: ${({ theme }) => theme.colors.cardText};
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -46,9 +47,23 @@ width: auto;
   padding: 5px 14px;
   border-radius: 18px;
 
-  ${({$color}) => $color === "Web Design" && Orange}
-  ${({$color}) => $color === "Copywriting" && Purple}
-  ${({$color}) => $color === "Research" && Green}
+  ${({ $color, theme }) =>
+    $color === "Web Design" && css`
+      background-color: ${theme.colors.orangeBg};
+      color: ${theme.colors.orangeText};
+    `}
+
+  ${({ $color, theme }) =>
+    $color === "Copywriting" && css`
+      background-color: ${theme.colors.purpleBg};
+      color: ${theme.colors.purpleText};
+    `}
+
+  ${({ $color, theme }) =>
+    $color === "Research" && css`
+      background-color: ${theme.colors.greenBg};
+      color: ${theme.colors.greenText};
+    `}
    
 
   p {
@@ -56,4 +71,4 @@ width: auto;
   font-weight: 600;
   line-height: 10px;
 }
-`
+`;

@@ -61,23 +61,23 @@ export const colors = {
   }
 
 export const Orange = css`
-background-color: #FFE4C2;
-color: #FF6D00;
+background-color: ${({theme}) => theme.orangeBg};
+color: ${({theme}) => theme.orangeText};
 `;
 
 export const Green = css`
-background-color: #B4FDD1;
-color: #06B16E;
+background-color: ${({theme}) => theme.greenBg};
+color: ${({theme}) => theme.greenText};
 `;
 
 export const Purple = css`
-background-color: #E9D4FF;
-color: #9A48F1;
+background-color: ${({theme}) => theme.purpleBg};
+color: ${({theme}) => theme.purpleText};
 `;
 
 export const Grey = css`
-background: #94A6BE;
-color: #FFFFFF;
+background: ${({theme}) => theme.greyBg};
+color: ${({theme}) => theme.greyText};
 `;
 
 export const Hover01 = css`
