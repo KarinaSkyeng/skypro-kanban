@@ -9,7 +9,7 @@
   box-sizing: border-box;
 }
 
-*:before,
+/**:before,
 *:after {
   box-sizing: border-box;
 }
@@ -28,7 +28,7 @@ button,
 
 ul li {
   list-style: none;
-}
+}*/
 
 @keyframes card-animation {
   0% {
@@ -40,7 +40,7 @@ ul li {
     opacity: 1;
   }
 }
-html,
+/*html,
 body {
   width: 100%;
   height: 100%;
@@ -73,7 +73,7 @@ body {
 ._hover02:hover::after, .header__user:hover::after {
   border-left-color: #33399b;
   border-bottom-color: #33399b;
-}
+}*/
 
 ._hover03:hover {
   background-color: #33399b;
@@ -718,7 +718,7 @@ body {
   display: none;
 }
 
-.header {
+/*.header {
   width: 100%;
   margin: 0 auto;
   background-color: #FFFFFF;
@@ -780,7 +780,7 @@ body {
   transform: rotate(-45deg);
   margin: -6px 0 0 5px;
   padding: 0;
-}
+}*/
 .header__pop-user-set {
   display: block;
   position: absolute;

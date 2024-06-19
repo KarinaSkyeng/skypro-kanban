@@ -1,4 +1,4 @@
-import { Header } from "./components/Header";
+import { Header } from "./components/Header/Header.jsx";
 import { Main } from "./components/Main";
 import { PopBrowse } from "./components/PopBrowse";
 import { PopNewCard } from "./components/PopNewCard";
@@ -6,6 +6,7 @@ import { PopUser } from "./components/PopUser";
 import './App.css'
 import { tasks } from "./components/data";
 import {useEffect, useState} from "react";
+import { GlobalStyle, Wrapper } from "./glogalStyle.styled.js";
 
 function App() {  
     const [cards, setCards] = useState(tasks)
@@ -30,13 +31,17 @@ function App() {
     }, []);
   
   return (
-    <div className="wrapper">
+    <>
+    <GlobalStyle />
+    <Wrapper>
         <Header addCard={addCard}/>		
         {isLoading ? <p className="loader">Данные загружаются...</p> : <Main cards={cards}/>}     
         <PopBrowse />
         <PopNewCard />
         <PopUser />
-    </div>
+    </Wrapper>
+    </>
+    
     );
 }
 

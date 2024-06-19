@@ -1,4 +1,6 @@
 import {useState} from "react";
+import * as S from "./header.styled.js";
+import { Container } from "../../glogalStyle.styled.js";
 
 export const Header = ({addCard}) => {
   const [isOpen, setIsOpen] = useState(false)
@@ -7,10 +9,10 @@ export const Header = ({addCard}) => {
    }
   
   return (
-    <header className="header">
-      <div className="container">
-        <div className="header__block">
-          <div className="header__logo _show _light">
+    <S.Header>
+      <Container>
+        <S.HeaderBlock>
+          <div className=" _show _light">
             <a href="" target="_self">
               <img src="images/logo.png" alt="logo" />
             </a>
@@ -20,12 +22,12 @@ export const Header = ({addCard}) => {
               <img src="images/logo_dark.png" alt="logo" />
             </a>
           </div>
-          <nav className="header__nav">
-            <button onClick={addCard} className="header__btn-main-new _hover01" id="btnMainNew">
+          <S.HeaderNav>
+            <S.HeaderBtnNew onClick={addCard}>
               <a>Создать новую задачу</a>
-            </button>
-            <a className="header__user _hover02" onClick= {toggleOpenUser}>
-              Ivan Ivanov</a>
+            </S.HeaderBtnNew>
+            <S.HeaderUser onClick= {toggleOpenUser}>
+              Ivan Ivanov</S.HeaderUser>
             {isOpen &&  
             <div className="header__pop-user-set pop-user-set" id="user-set-target">
               {/*<a href="">x</a>*/}
@@ -40,9 +42,9 @@ export const Header = ({addCard}) => {
               </button>
             </div>
             }
-          </nav>
-        </div>
-      </div>
-    </header>
+          </S.HeaderNav>
+        </S.HeaderBlock>
+      </Container>
+    </S.Header>
   );
 }
