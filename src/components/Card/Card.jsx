@@ -1,17 +1,13 @@
-export const Card = ({title, topic, date}) => {
-  const colors = {
-    "Web Design": "_orange",
-    "Copywriting": "_purple",
-    "Research": "_green",
-  }
+import * as S from "./Card.Styled.js";
 
-    return (
-        <div className="cards__item">
-        <div className="cards__card card">
-          <div className="card__group">
-            <div className={`card__theme ${colors[topic]}`}>
-              <p className={'card__name'}>{topic}</p>
-            </div>
+export const Card = ({title, topic, date}) => {
+   return (
+      <S.CardsItem>
+        <S.Card>
+          <S.CardGroup>
+            <S.CardTheme $color={topic}>
+              <p>{topic}</p>
+            </S.CardTheme>
             <a href="#popBrowse" target="_self">
               <div className="card__btn">
                 <div></div>
@@ -19,7 +15,7 @@ export const Card = ({title, topic, date}) => {
                 <div></div>
               </div>
             </a>
-          </div>
+          </S.CardGroup>
           <div className="card__content">
             <a href="" target="_blank">
               <h3 className="card__title">{title}</h3>
@@ -56,7 +52,7 @@ export const Card = ({title, topic, date}) => {
               <p>{date}</p>
             </div>
           </div>
-        </div>
-      </div>
+        </S.Card>
+      </S.CardsItem>
     );
 }

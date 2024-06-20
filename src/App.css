@@ -28,7 +28,7 @@ button,
 
 ul li {
   list-style: none;
-}*/
+}
 
 @keyframes card-animation {
   0% {
@@ -40,7 +40,7 @@ ul li {
     opacity: 1;
   }
 }
-/*html,
+html,
 body {
   width: 100%;
   height: 100%;
@@ -73,7 +73,7 @@ body {
 ._hover02:hover::after, .header__user:hover::after {
   border-left-color: #33399b;
   border-bottom-color: #33399b;
-}*/
+}
 
 ._hover03:hover {
   background-color: #33399b;
@@ -81,7 +81,7 @@ body {
 }
 ._hover03:hover a {
   color: #FFFFFF;
-}
+}*/
 
 .pop-user-set:target,
 .pop-exit:target,
@@ -90,7 +90,7 @@ body {
   display: block;
 }
 
-._orange {
+/*._orange {
   background-color: #FFE4C2;
   color: #FF6D00;
 }
@@ -108,7 +108,7 @@ body {
 ._gray {
   background: #94A6BE;
   color: #FFFFFF;
-}
+}*/
 
 ._active-category {
   opacity: 1 !important;
@@ -217,7 +217,7 @@ body {
   justify-content: space-between;
 }
 
-.pop-user-set__name {
+/*.pop-user-set__name {
   color: #000;
   font-size: 14px;
   font-weight: 500;
@@ -231,7 +231,7 @@ body {
   line-height: 21px;
   letter-spacing: -0.14px;
   margin-bottom: 10px;
-}
+}*/
 .pop-user-set__theme {
   display: flex;
   align-items: center;
@@ -780,7 +780,7 @@ body {
   transform: rotate(-45deg);
   margin: -6px 0 0 5px;
   padding: 0;
-}*/
+}
 .header__pop-user-set {
   display: block;
   position: absolute;
@@ -800,7 +800,7 @@ body {
 .main {
   width: 100%;
   background-color: #EAEEF6;
-}
+}*/
 .main__block {
   width: 100%;
   margin: 0 auto;
@@ -833,7 +833,7 @@ body {
   display: block;
   position: relative;
 }
-.cards__item {
+/*.cards__item {
   padding: 5px;
   animation-name: card-animation;
   animation-duration: 500ms;
@@ -869,7 +869,7 @@ body {
   font-size: 10px;
   font-weight: 600;
   line-height: 10px;
-}
+}*/
 .card__btn {
   width: 24px;
   height: 24px;

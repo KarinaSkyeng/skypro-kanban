@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Hover01, Hover02 } from "../../glogalStyle.styled";
+import { Hover01, Hover02, Hover03 } from "../../glogalStyle.styled";
 
 export const Header = styled.header`
  width: 100%;
@@ -72,3 +72,45 @@ export const HeaderNav = styled.nav`
   justify-content: center;
 `;
 
+export const HeaderLogo = styled.div`
+img {
+  width: 85px;
+}
+`;
+
+export const HeaderBtnExit = styled.button`
+${Hover03}
+`;
+
+export const HeaderUserSet = styled.div`
+display: block;
+  position: absolute;
+  top: 61px;
+  right: 0;
+  width: 213px;
+  height: 205px;
+  border-radius: 10px;
+  border: 0.7px solid rgba(148, 166, 190, 0.4);
+  background: #FFF;
+  box-shadow: 0px 10px 39px 0px rgba(26, 56, 101, 0.21);
+  padding: 34px;
+  text-align: center;
+  z-index: 2;
+`;
+
+export const PopUserSetName = styled.p`
+ color: #000;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  letter-spacing: -0.14px;
+  margin-bottom: 4px;
+`;
+
+export const PopUserSetMail = styled.p`
+color: #94A6BE;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: -0.14px;
+  margin-bottom: 10px;
+`
