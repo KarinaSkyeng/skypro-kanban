@@ -29,6 +29,11 @@ export const Card = styled.div`
   align-items: flex-start;
   justify-content: stretch;
   padding: 15px 13px 19px;
+  color: ${({ theme }) => theme.text};
+
+  h3 {
+    color: ${({ theme }) => theme.text}; 
+  }
 `;
 
 export const CardGroup = styled.div`

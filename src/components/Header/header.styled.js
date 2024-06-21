@@ -4,7 +4,7 @@ import { Hover01, Hover02, Hover03 } from "../../glogalStyle.styled";
 export const Header = styled.header`
  width: 100%;
   margin: 0 auto;
-  background-color: ${({ theme }) => theme.body};
+  background-color: ${({ theme }) => theme.headerBg};
 `;
 
 export const HeaderBlock = styled.div`
