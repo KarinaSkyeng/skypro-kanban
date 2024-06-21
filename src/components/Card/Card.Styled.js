@@ -22,7 +22,7 @@ export const CardsItem = styled.div`
 export const Card = styled.div`
   width: 220px;
   height: 130px;
-  background-color: #FFFFFF;
+  background-color: ${({ theme }) => theme.cardBg};;
   border-radius: 10px;
   display: flex;
   flex-direction: column;

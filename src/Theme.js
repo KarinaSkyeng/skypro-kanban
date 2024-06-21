@@ -19,9 +19,9 @@ export const light = {
 export const dark = {
     body: "#151419",
     text: "#FFFFFF",
-    cardBg: "#1C1C1E",
+    cardBg: "#20202C",
     logo: "images/logo_dark.png",
-    popupBg: "#2C2C2E",
+    popupBg: "#20202C",
     
     orangeBg: "#FF6D00",
     orangeText: "#FFE4C2",

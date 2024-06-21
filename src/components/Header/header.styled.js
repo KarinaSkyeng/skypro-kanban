@@ -4,7 +4,7 @@ import { Hover01, Hover02, Hover03 } from "../../glogalStyle.styled";
 export const Header = styled.header`
  width: 100%;
   margin: 0 auto;
-  background-color: #FFFFFF;
+  background-color: ${({ theme }) => theme.body};
 `;
 
 export const HeaderBlock = styled.div`
@@ -46,7 +46,7 @@ export const HeaderUser = styled.a`
   justify-content: center;
   font-size: 14px;
   line-height: 20px;
-  color: #565EEF;
+  color: ${({ theme }) => theme.text};
 
   &:after {
   content: "";
@@ -54,8 +54,8 @@ export const HeaderUser = styled.a`
   width: 6px;
   height: 6px;
   border-radius: 1px;
-  border-left: 1.9px solid #565EEF;
-  border-bottom: 1.9px solid #565EEF;
+  border-left: 1.9px solid ${({ theme }) => theme.text};
+  border-bottom: 1.9px solid ${({ theme }) => theme.text};
   transform: rotate(-45deg);
   margin: -6px 0 0 5px;
   padding: 0;
@@ -73,8 +73,16 @@ export const HeaderNav = styled.nav`
 `;
 
 export const HeaderLogo = styled.div`
+ &._light {
+    display: ${({ theme }) => (theme.logo === "images/logo.png" ? "block" : "none")};
+  }
+
+  &._dark {
+    display: ${({ theme }) => (theme.logo === "images/logo_dark.png" ? "block" : "none")};
+  }
 img {
   width: 85px;
+  src: ${({ theme }) => theme.logo};
 }
 `;
 
@@ -91,7 +99,7 @@ display: block;
   height: 205px;
   border-radius: 10px;
   border: 0.7px solid rgba(148, 166, 190, 0.4);
-  background: #FFF;
+  background: ${({ theme }) => theme.popupBg};
   box-shadow: 0px 10px 39px 0px rgba(26, 56, 101, 0.21);
   padding: 34px;
   text-align: center;
@@ -99,7 +107,7 @@ display: block;
 `;
 
 export const PopUserSetName = styled.p`
- color: #000;
+ color: ${({ theme }) => theme.text};
   font-size: 14px;
   font-weight: 500;
   line-height: 21px;
