@@ -231,7 +231,7 @@ body {
   line-height: 21px;
   letter-spacing: -0.14px;
   margin-bottom: 10px;
-}*/
+}
 .pop-user-set__theme {
   display: flex;
   align-items: center;
@@ -268,7 +268,7 @@ body {
 }
 .pop-user-set__theme input:checked[type=checkbox]::before {
   left: 12px;
-}
+}*/
 .pop-user-set button {
   width: 72px;
   height: 30px;
