@@ -28,12 +28,7 @@ export const Card = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: stretch;
-  padding: 15px 13px 19px;
-  color: ${({ theme }) => theme.text};
-
-  h3 {
-    color: ${({ theme }) => theme.text}; 
-  }
+  padding: 15px 13px 19px; 
 `;
 
 export const CardGroup = styled.div`
@@ -59,6 +54,7 @@ export const CardTheme = styled.div`
   line-height: 10px;
 }
 `;
+
 
 export const CardBtn = styled.div`
  width: 24px;
@@ -91,5 +87,5 @@ export const CardTitle = styled.h3`
   color: #000000;
   margin-bottom: 10px;
 
-  color: ${({ theme }) => theme.cardTitleColor};
+  ${({ $color }) => themeColor($color)}
 `;

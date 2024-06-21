@@ -50,7 +50,7 @@ max-width: 1260px;
   padding: 0 30px;
 `;
 
-export const Orange = css`
+/*export const Orange = css`
 background-color: ${({theme}) => theme.orangeBg};
 color: ${({theme}) => theme.orangeText};
 `;
@@ -68,13 +68,25 @@ color: ${({theme}) => theme.greenText};
 export const Gray = css`
 background: ${({theme}) => theme.grayBg};
 color: ${({theme}) => theme.grayText};
-`;
+`;*/
 
 export const themeColor = ($color) => css`
-  ${$color === "Web Design" && Orange}
-  ${$color === "Copywriting" && Purple}
-  ${$color === "Research" && Green}
-  ${!$color && Gray}
+  ${$color === "Web Design" && css`
+  background-color: ${({ theme }) => theme.colors.orangeBg};
+    color: ${({ theme }) => theme.colors.orangeText};
+`}
+  ${$color === "Copywriting" && css`
+  background-color: ${({ theme }) => theme.colors.purpleBg};
+    color: ${({ theme }) => theme.colors.purpleText};
+`}
+  ${$color === "Research" && css`
+   background-color: ${({ theme }) => theme.colors.greenBg};
+    color: ${({ theme }) => theme.colors.greenText};
+`}
+  ${!$color && css`
+  background-color: ${({ theme }) => theme.colors.grayBg};
+    color: ${({ theme }) => theme.colors.grayText};
+`}
 `;
 
 export const Hover01 = css`
