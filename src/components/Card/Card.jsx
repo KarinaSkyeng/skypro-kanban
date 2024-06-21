@@ -9,16 +9,16 @@ export const Card = ({title, topic, date}) => {
               <p>{topic}</p>
             </S.CardTheme>
             <a href="#popBrowse" target="_self">
-              <div className="card__btn">
+              <S.CardBtn>
                 <div></div>
                 <div></div>
                 <div></div>
-              </div>
+              </S.CardBtn>
             </a>
           </S.CardGroup>
-          <div className="card__content">
+          <S.CardContent>
             <a href="" target="_blank">
-              <h3 className="card__title">{title}</h3>
+              <S.CardTitle>{title}</S.CardTitle>
             </a>
             <div className="card__date">
               <svg
@@ -51,7 +51,7 @@ export const Card = ({title, topic, date}) => {
               </svg>
               <p>{date}</p>
             </div>
-          </div>
+          </S.CardContent>
         </S.Card>
       </S.CardsItem>
     );

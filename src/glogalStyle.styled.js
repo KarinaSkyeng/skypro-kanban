@@ -70,6 +70,13 @@ background: ${({theme}) => theme.grayBg};
 color: ${({theme}) => theme.grayText};
 `;
 
+export const themeColor = ($color) => css`
+  ${$color === "Web Design" && Orange}
+  ${$color === "Copywriting" && Purple}
+  ${$color === "Research" && Green}
+  ${!$color && Gray}
+`;
+
 export const Hover01 = css`
   &:hover {
   background-color: #33399b;
