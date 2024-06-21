@@ -14,4 +14,8 @@ export const MainBlock = styled.div`
 export const MainContent = styled.div`
     width: 100%;
     display: flex;
+
+    @media (max-width: 768px) {
+    flex-direction: column;
+  }  
 `;

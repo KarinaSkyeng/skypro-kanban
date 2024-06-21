@@ -5,6 +5,10 @@ export const Header = styled.header`
  width: 100%;
   margin: 0 auto;
   background-color: ${({ theme }) => theme.headerBg};
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 export const HeaderBlock = styled.div`
@@ -33,6 +37,7 @@ export const HeaderBtnNew = styled.button`
 
   a {
   color: #FFFFFF;
+  text-decoration: none;
 }
 
 ${Hover01}
@@ -47,6 +52,7 @@ export const HeaderUser = styled.a`
   font-size: 14px;
   line-height: 20px;
   color: ${({ theme }) => theme.text};
+  cursor: pointer;
 
   &:after {
   content: "";
@@ -70,6 +76,11 @@ export const HeaderNav = styled.nav`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 10px;
+    }
 `;
 
 export const HeaderLogo = styled.div`
@@ -84,6 +95,10 @@ img {
   width: 85px;
   src: ${({ theme }) => theme.logo};
 }
+
+@media (max-width: 768px) {
+    margin-bottom: 10px;
+  }
 `;
 
 export const HeaderBtnExit = styled.button`
@@ -116,7 +131,7 @@ export const PopUserSetName = styled.p`
 `;
 
 export const PopUserSetMail = styled.p`
-color: #94A6BE;
+  color: #94A6BE;
   font-size: 14px;
   line-height: 21px;
   letter-spacing: -0.14px;
@@ -124,7 +139,7 @@ color: #94A6BE;
 `;
 
 export const PopUserSetTheme = styled.div`
-display: flex;
+  display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 30px;
@@ -143,9 +158,8 @@ input[type=checkbox] {
   border-radius: 100px;
   background: #EAEEF6;
   outline: none;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  appearance: none;
+  cursor: pointer;
 }
 
 input[type=checkbox]::before {

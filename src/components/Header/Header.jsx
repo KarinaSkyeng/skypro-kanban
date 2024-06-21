@@ -4,6 +4,7 @@ import { Container } from "../../glogalStyle.styled.js";
 
 export const Header = ({addCard, isDarkTheme, setIsDarkTheme}) => {
   const [isOpen, setIsOpen] = useState(false)
+  
   const toggleOpenUser = () => {
     setIsOpen(!isOpen)
    };
