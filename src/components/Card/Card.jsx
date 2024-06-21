@@ -20,7 +20,7 @@ export const Card = ({title, topic, date, color}) => {
             <a href="" target="_blank">
               <S.CardTitle $color={color}>{title}</S.CardTitle>
             </a>
-            <div className="card__date">
+            <S.CardDate>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="13"
@@ -50,7 +50,7 @@ export const Card = ({title, topic, date, color}) => {
                 </defs>
               </svg>
               <p>{date}</p>
-            </div>
+            </S.CardDate>
           </S.CardContent>
         </S.Card>
       </S.CardsItem>

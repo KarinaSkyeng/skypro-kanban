@@ -89,3 +89,21 @@ export const CardTitle = styled.h3`
 
   ${({ $color }) => themeColor($color)}
 `;
+
+export const CardDate = styled.div`
+ display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  svg {
+  width: 13px;
+
+  p {
+  margin-left: 6px;
+  font-size: 10px;
+  line-height: 13px;
+  color: #94A6BE;
+  letter-spacing: 0.2px;
+}
+}
+`;
