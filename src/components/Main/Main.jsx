@@ -1,3 +1,4 @@
+import { Container } from "../../glogalStyle.styled.js";
 import { Column } from "../Column/index.jsx";
 import { statusList } from "../data.js";
 import * as S from "./main.styled.js"
@@ -5,9 +6,9 @@ import * as S from "./main.styled.js"
 export const Main = ({ cards }) => {
   return (
     <S.Main>
-      <div className="container">
-        <div className="main__block">
-          <div className="main__content">
+      <Container>
+        <S.MainBlock>
+          <S.MainContent>
             {statusList.map((status, i) => (
               <Column
                 key={i}
@@ -15,9 +16,9 @@ export const Main = ({ cards }) => {
                 cards={cards.filter((card) => card.status === status)}
               />
             ))}
-          </div>
-        </div>
-      </div>
+          </S.MainContent>
+        </S.MainBlock>
+      </Container>
     </S.Main>
   );
 };
