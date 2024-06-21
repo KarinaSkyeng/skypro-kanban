@@ -37,10 +37,10 @@ export const Header = ({addCard, isDarkTheme, setIsDarkTheme}) => {
               {/*<a href="">x</a>*/}
               <S.PopUserSetName>Ivan Ivanov</S.PopUserSetName>
               <S.PopUserSetMail>ivan.ivanov@gmail.com</S.PopUserSetMail>
-              <div className="pop-user-set__theme">
+              <S.PopUserSetTheme>
                 <p>Темная тема</p>
                 <input checked={isDarkTheme === "dark"} onClick={onChangeTheme} type="checkbox" className="checkbox" name="checkbox" />
-              </div>
+              </S.PopUserSetTheme>
               <S.HeaderBtnExit>
                 <a href="#popExit">Выйти</a>
               </S.HeaderBtnExit>

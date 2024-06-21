@@ -121,4 +121,12 @@ color: #94A6BE;
   line-height: 21px;
   letter-spacing: -0.14px;
   margin-bottom: 10px;
-`
+`;
+
+export const PopUserSetTheme = styled.div`
+display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+`;
+
