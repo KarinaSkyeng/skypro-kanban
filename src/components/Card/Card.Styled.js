@@ -45,6 +45,7 @@ export const CardTheme = styled.div`
   height: 20px;
   padding: 5px 14px;
   border-radius: 18px;
+  color: ${({ theme }) => theme.text};
 
   ${({ $color }) => themeColor($color)}
 
@@ -52,6 +53,7 @@ export const CardTheme = styled.div`
   font-size: 10px;
   font-weight: 600;
   line-height: 10px;
+  color: ${({ theme }) => theme.text};
   ${({ $color }) => themeColor($color)}
 }
 `;
@@ -85,7 +87,7 @@ export const CardTitle = styled.h3`
  font-size: 14px;
   font-weight: 500;
   line-height: 18px;
-  color: #000000;
+  color: ${({ theme }) => theme.text};
   margin-bottom: 10px;
 
   ${({ $color }) => themeColor($color)}
@@ -103,7 +105,7 @@ export const CardDate = styled.div`
   margin-left: 6px;
   font-size: 10px;
   line-height: 13px;
-  color: #94A6BE;
+  color: ${({ theme }) => theme.text};
   letter-spacing: 0.2px;
 }
 }
