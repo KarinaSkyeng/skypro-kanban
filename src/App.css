@@ -800,7 +800,7 @@ body {
 .main {
   width: 100%;
   background-color: #EAEEF6;
-}*/
+}
 .main__block {
   width: 100%;
   margin: 0 auto;
@@ -809,7 +809,7 @@ body {
 .main__content {
   width: 100%;
   display: flex;
-}
+}*/
 .main__column {
   width: 20%;
   margin: 0 auto;
@@ -828,12 +828,12 @@ body {
   text-transform: uppercase;
 }
 
-.cards {
+/*.cards {
   width: 100%;
   display: block;
   position: relative;
 }
-/*.cards__item {
+.cards__item {
   padding: 5px;
   animation-name: card-animation;
   animation-duration: 500ms;

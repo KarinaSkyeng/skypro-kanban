@@ -3,7 +3,7 @@ export const light = {
     body: "#EAEEF6",
     text: "#000000",
     cardBg: "#FFFFFF",
-    headerBg: "#EAEEF6",
+    headerBg: "#FFFFFF",
     logo: "images/logo.png",
     popupBg: "#FFFFFF",
     colors: {
