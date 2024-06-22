@@ -6,7 +6,7 @@ import { PopUser } from "./components/PopUser";
 import "./App.css";
 import { tasks } from "./components/data";
 import { useEffect, useState } from "react";
-import { GlobalStyle, Wrapper } from "./glogalStyle.styled.js";
+import { GlobalStyle, Wrapper, Loader } from "./glogalStyle.styled.js";
 import { ThemeProvider } from "styled-components";
 import { dark, light } from "./Theme.js";
 
@@ -39,7 +39,7 @@ function App() {
       <Wrapper>
         <Header addCard={addCard} setIsDarkTheme={setIsDarkTheme} isDarkTheme={isDarkTheme} />
         {isLoading ? (
-          <p className="loader">Данные загружаются...</p>
+          <Loader>Данные загружаются...</Loader>
         ) : (
           <Main cards={cards} />
         )}

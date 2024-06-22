@@ -1,4 +1,4 @@
-.loader {
+/*.loader {
   text-align: center;
   margin-top: 20px;
 }
@@ -9,7 +9,7 @@
   box-sizing: border-box;
 }
 
-/**:before,
+*:before,
 *:after {
   box-sizing: border-box;
 }

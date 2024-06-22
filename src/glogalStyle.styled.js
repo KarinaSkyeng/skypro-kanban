@@ -7,6 +7,8 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -33,6 +35,11 @@ body {
   font-family: "Roboto", Arial, Helvetica, sans-serif;
   color: #000000;
 }
+`;
+
+export const Loader = styled.p`
+text-align: center;
+margin-top: 20px;
 `;
 
 export const Wrapper = styled.div`
