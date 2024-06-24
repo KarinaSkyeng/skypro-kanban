@@ -1,10 +1,11 @@
 import {useState} from "react";
 import * as S from "./header.styled.js";
 import { Container } from "../../glogalStyle.styled.js";
+import { Link } from "react-router-dom";
+import { routes } from "../../router/routes.js";
 
 export const Header = ({addCard, isDarkTheme, setIsDarkTheme}) => {
   const [isOpen, setIsOpen] = useState(false)
-  
   const toggleOpenUser = () => {
     setIsOpen(!isOpen)
    };
@@ -12,7 +13,7 @@ export const Header = ({addCard, isDarkTheme, setIsDarkTheme}) => {
    const onChangeTheme = () => {
     setIsDarkTheme(isDarkTheme === "light" ? "dark" : "light");  
    };
-  
+    
   return (
     <S.Header>
       <Container>
@@ -43,7 +44,7 @@ export const Header = ({addCard, isDarkTheme, setIsDarkTheme}) => {
                 <input checked={isDarkTheme === "dark"} onClick={onChangeTheme} type="checkbox" className="checkbox" name="checkbox" />
               </S.PopUserSetTheme>
               <S.HeaderBtnExit>
-                <a href="#popExit">Выйти</a>
+                <Link to={routes.exit}>Выйти</Link>
               </S.HeaderBtnExit>
             </S.HeaderUserSet>
             }
