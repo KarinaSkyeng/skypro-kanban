@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Hover01, Hover03 } from "../../glogalStyle.styled";
 
 export const PopExit = styled.div`
-    width: 100%;
+  width: 100%;
   height: 100%;
   min-width: 320px;
   min-height: 100vh;
@@ -25,7 +25,7 @@ export const PopExitContainer = styled.div`
 `;
 
 export const PopExitBlock = styled.div`
-      display: block;
+  display: block;
   margin: 0 auto;
   background-color: #FFFFFF;
   max-width: 370px;
@@ -42,13 +42,13 @@ export const PopExitBlock = styled.div`
 
 export const PopExitTitle = styled.div`
     h2 {
-  text-align: center;
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 30px;
-  letter-spacing: -0.4px;
-  margin-bottom: 20px;
-}
+      text-align: center;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 30px;
+      letter-spacing: -0.4px;
+      margin-bottom: 20px;
+    }
 `;
 
 export const PopExitForm = styled.form` 
@@ -67,7 +67,7 @@ export const PopExitFormGroup = styled.div`
 `;
 
 export const PopExitYes = styled.button`
-width: 153px;
+  width: 153px;
   height: 30px;
   background-color: #565EEF;
   border-radius: 4px;
@@ -84,12 +84,12 @@ width: 153px;
   margin-right: 10px;
 
   a {
-  width: 100%;
-  height: 100%;
-  color: #FFFFFF;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 ${Hover01}
@@ -103,28 +103,28 @@ ${Hover01}
 `;
 
 export const PopExitNo = styled.button`
-width: 153px;
-  height: 30px;
-  background-color: transparent;
-  border-radius: 4px;
-  border: 0.7px solid var(--palette-navy-60, #565EEF);
-  outline: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  line-height: 21px;
-  font-weight: 500;
-  letter-spacing: -0.14px;
-  color: #FFFFFF;
+   width: 153px;
+    height: 30px;
+    background-color: #FFFFFF;
+    border-radius: 4px;
+    border: 0.7px solid var(--palette-navy-60, #565EEF);
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 500;
+    letter-spacing: -0.14px;
+    color: #565EEF;
 
   a {
-  width: 100%;
-  height: 100%;
-  color: #565EEF;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: #565EEF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 ${Hover03}

@@ -1,5 +1,4 @@
 import { Link, useNavigate } from "react-router-dom";
-import "./Login.css";
 import { routes } from "../../router/routes";
 import * as S from "./loginPage.styled.js";
 
@@ -12,7 +11,7 @@ export const LoginPage = ({setIsAuth}) => {
         navigate(routes.main)
     }
     return (
-        <S.PageWrapper>
+        <S.LoginWrapper>
         <S.ContainerSignin>
             <S.Modal>
 				<S.ModalBlock>
@@ -31,6 +30,6 @@ export const LoginPage = ({setIsAuth}) => {
 				</S.ModalBlock>
             </S.Modal>
         </S.ContainerSignin>
-    </S.PageWrapper>
+    </S.LoginWrapper>
     )
 }

@@ -101,5 +101,12 @@ export const Hover03 = css`
 a {
   color: #FFFFFF;
 }
-`
+`;
+
+export const ContainerSignin = styled.div`
+    display: block;
+    width: 100vw;
+    min-height: 100vh;
+    margin: 0 auto;
+`;
 

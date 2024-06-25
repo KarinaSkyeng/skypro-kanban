@@ -1,28 +1,29 @@
+
 import { Link } from "react-router-dom";
-import "./Register.css";
 import { routes } from "../../router/routes";
+import * as S from "./register.styled.js";
 
 export const Register = () => {
     return (
-        <div className="wrapper">
-        <div className="container-signup">
-            <div className="modal">
-				<div className="modal__block">
-					<div className="modal__ttl">
+        <S.RegisterWrapper>
+        <S.ContainerSignup>
+            <S.ModalReg>
+				<S.ModalBlockReg>
+					<S.ModalTitleReg>
 						<h2>Регистрация</h2>
-					</div>
-					<form className="modal__form-login" id="formLogUp" action="#">
-						<input className="modal__input first-name" type="text" name="first-name" id="first-name" placeholder="Имя"/>
-						<input className="modal__input login" type="text" name="login" id="loginReg" placeholder="Эл. почта"/>
-						<input className="modal__input password-first" type="password" name="password" id="passwordFirst" placeholder="Пароль"/>
-						<button className="modal__btn-signup-ent _hover01" id="SignUpEnter"><a href="../main.html">Зарегистрироваться</a> </button>
-						<div className="modal__form-group">
-							<p>Уже есть аккаунт?  <Link to={routes.login} >Войдите здесь</Link></p>
-						</div>
-					</form>
-				</div>
-			</div>
-        </div>
-    </div>
+					</S.ModalTitleReg>
+					<S.ModalFormLogin id="formLogUp" action="#">
+						<S.ModalInputReg type="text" name="first-name" id="first-name" placeholder="Имя"/>
+						<S.ModalInputReg type="text" name="login" id="loginReg" placeholder="Эл. почта"/>
+						<S.ModalInputReg type="password" name="password" id="passwordFirst" placeholder="Пароль"/>
+						<S.ModalBtnSignupEnt id="SignUpEnter"><a href="../main.html">Зарегистрироваться</a> </S.ModalBtnSignupEnt>
+						<S.ModarFormGroup>
+							<p>Уже есть аккаунт?  <Link to={routes.login}>Войдите здесь</Link></p>
+						</S.ModarFormGroup>
+					</S.ModalFormLogin>
+				</S.ModalBlockReg>
+			</S.ModalReg>
+        </S.ContainerSignup>
+    </S.RegisterWrapper>
     )
 }

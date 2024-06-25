@@ -2,7 +2,7 @@
 import styled from "styled-components";
 import { Hover01 } from "../../glogalStyle.styled";
 
-export const PageWrapper = styled.div`
+export const LoginWrapper = styled.div`
     width: 100%;
     height: 100%;
     overflow-x: hidden;
@@ -17,7 +17,7 @@ export const ContainerSignin = styled.div`
     margin: 0 auto;
 `;
 
-export const Modal = styled.div`
+export const ModalReg = styled.div`
     width: 100%;
     height: 100%;
     min-width: 320px;
