@@ -1,4 +1,3 @@
-//import { GlobalStyle } from "../../glogalStyle.styled";
 import styled from "styled-components";
 import { Hover01 } from "../../glogalStyle.styled";
 
@@ -17,7 +16,7 @@ export const ContainerSignin = styled.div`
     margin: 0 auto;
 `;
 
-export const ModalReg = styled.div`
+export const Modal = styled.div`
     width: 100%;
     height: 100%;
     min-width: 320px;

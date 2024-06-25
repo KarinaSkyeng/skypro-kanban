@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Hover01 } from "../../glogalStyle.styled";
+import { Hover01 } from "../../glogalStyle.styled.js";
 
 export const RegisterWrapper = styled.div`
     width: 100%;
@@ -63,7 +63,7 @@ export const ModalTitleReg = styled.div`
     }
 `;
 
-export const ModalFormLogin = styled.form`
+export const ModalFormLoginReg = styled.form`
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -136,7 +136,7 @@ export const ModalBtnSignupEnt = styled.button`
  }
 `;
 
-export const ModarFormGroup = styled.div`
+export const ModarFormGroupReg = styled.div`
         text-align: center;
 
         p, a {
