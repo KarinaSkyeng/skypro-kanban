@@ -105,7 +105,7 @@ ${Hover01}
 export const PopExitNo = styled.button`
    width: 153px;
     height: 30px;
-    background-color: #FFFFFF;
+    background-color: transparent;
     border-radius: 4px;
     border: 0.7px solid var(--palette-navy-60, #565EEF);
     outline: none;
