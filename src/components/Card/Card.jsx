@@ -1,33 +1,26 @@
-export const Card = ({ itemTitle }) => {
-    let themeClass = "";
-    if (itemTitle === "Web Design") {
-      themeClass = "_orange";
-    } else if (itemTitle === "Research") {
-      themeClass = "_green";
-    } else if (itemTitle === "Copywriting") {
-      themeClass = "_purple";
-    }
+import * as S from "./Card.Styled.js";
 
-    return (
-        <div className="cards__item">
-        <div className="cards__card card">
-          <div className="card__group">
-            <div className={`card__theme ${themeClass}`}>
-              <p className={themeClass}>{itemTitle}</p>
-            </div>
+export const Card = ({title, topic, date, color}) => {
+   return (
+      <S.CardsItem>
+        <S.Card>
+          <S.CardGroup>
+            <S.CardTheme $color={topic}>
+              <p>{topic}</p>
+            </S.CardTheme>
             <a href="#popBrowse" target="_self">
-              <div className="card__btn">
+              <S.CardBtn>
                 <div></div>
                 <div></div>
                 <div></div>
-              </div>
+              </S.CardBtn>
             </a>
-          </div>
-          <div className="card__content">
+          </S.CardGroup>
+          <S.CardContent>
             <a href="" target="_blank">
-              <h3 className="card__title">Название задачи</h3>
+              <S.CardTitle $color={color}>{title}</S.CardTitle>
             </a>
-            <div className="card__date">
+            <S.CardDate>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="13"
@@ -56,10 +49,10 @@ export const Card = ({ itemTitle }) => {
                   </clipPath>
                 </defs>
               </svg>
-              <p>30.10.23</p>
-            </div>
-          </div>
-        </div>
-      </div>
+              <p>{date}</p>
+            </S.CardDate>
+          </S.CardContent>
+        </S.Card>
+      </S.CardsItem>
     );
 }
