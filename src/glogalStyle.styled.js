@@ -57,26 +57,6 @@ max-width: 1260px;
   padding: 0 30px;
 `;
 
-/*export const Orange = css`
-background-color: ${({theme}) => theme.orangeBg};
-color: ${({theme}) => theme.orangeText};
-`;
-
-export const Purple = css`
-background-color: ${({theme}) => theme.purpleBg};
-color: ${({theme}) => theme.purpleText};
-`;
-
-export const Green = css`
-background-color: ${({theme}) => theme.greenBg};
-color: ${({theme}) => theme.greenText};
-`;
-
-export const Gray = css`
-background: ${({theme}) => theme.grayBg};
-color: ${({theme}) => theme.grayText};
-`;*/
-
 export const themeColor = ($color) => css`
   ${$color === "Web Design" && css`
   background-color: ${({ theme }) => theme.colors.orangeBg};
