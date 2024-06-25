@@ -6,7 +6,7 @@ import { PopNewCard } from "../../components/PopNewCard";
 import { Wrapper, Loader } from "../../glogalStyle.styled.js";
 import { Outlet } from "react-router-dom";
 
-export const MainPage = (isDarkTheme, setIsDarkTheme, setIsAuth) => {
+export const MainPage = ({isDarkTheme, setIsDarkTheme, setIsAuth}) => {
     const [cards, setCards] = useState(tasks);
     const [isLoading, setIsLoading] = useState(false);
 

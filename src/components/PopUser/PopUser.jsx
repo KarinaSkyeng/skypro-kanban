@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { routes } from "../../router/routes";
+import * as S from "./popUser.styled.js";
 
 export const PopUser = ({setIsAuth}) => {
     const nav = useNavigate()
@@ -8,20 +9,20 @@ export const PopUser = ({setIsAuth}) => {
 		nav(routes.login)
 	}
 	return (
-        <div className="pop-exit" id="popExit">
-				<div className="pop-exit__container">
-					<div className="pop-exit__block">
-						<div className="pop-exit__ttl">
+        <S.PopExit>
+				<S.PopExitContainer>
+					<S.PopExitBlock>
+						<S.PopExitTitle>
 							<h2>Выйти из аккаунта?</h2>
-						</div>
-						<form className="pop-exit__form" id="formExit" action="#">
-							<div className="pop-exit__form-group">
-								<button className="pop-exit__exit-yes _hover01" id="exitYes" onClick={handleLogout}><a>Да, выйти</a> </button>
-								<button className="pop-exit__exit-no _hover03" id="exitNo"><Link to={routes.main}>Нет, остаться</Link> </button>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
+						</S.PopExitTitle>
+						<S.PopExitForm id="formExit" action="#">
+							<S.PopExitFormGroup>
+								<S.PopExitYes onClick={handleLogout}><a>Да, выйти</a> </S.PopExitYes>
+								<S.PopExitNo><Link to={routes.main}>Нет, остаться</Link> </S.PopExitNo>
+							</S.PopExitFormGroup>
+						</S.PopExitForm>
+					</S.PopExitBlock>
+				</S.PopExitContainer>
+			</S.PopExit>
     );
 }
