@@ -98,9 +98,6 @@ export const Hover03 = css`
   background-color: #33399b;
   color: #FFFFFF;
 }
-a {
-  color: #FFFFFF;
-}
 `;
 
 export const ContainerSignin = styled.div`

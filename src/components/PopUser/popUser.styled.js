@@ -127,6 +127,14 @@ export const PopExitNo = styled.button`
     justify-content: center;
 }
 
+&:hover {
+    color: #ffffff;
+  }
+
+  a:hover {
+    color: #ffffff;
+  }
+
 ${Hover03}
 
 @media only screen and (max-width: 375px) {

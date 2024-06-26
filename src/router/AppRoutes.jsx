@@ -15,13 +15,14 @@ export const AppRoutes = ({isDarkTheme, setIsDarkTheme}) => {
         <BrowserRouter>
             <Routes>
                 <Route element={<ProtectedRoutes isAuth={isAuth}/>}>
-                    <Route path= {routes.main} element={<MainPage isDarkTheme={isDarkTheme} setIsDarkTheme={setIsDarkTheme} />} />
+                    <Route path={routes.main} element={<MainPage isDarkTheme={isDarkTheme} setIsDarkTheme={setIsDarkTheme} />}>
                         <Route path={routes.exit} element={<ExitPage setIsAuth={setIsAuth} />} />
                         <Route path={routes.card} element={<CardPage />} />
                     </Route>
-                <Route path= {routes.login} element={<LoginPage setIsAuth={setIsAuth} />} />
-                <Route path= {routes.register} element={<Register/>} />
-                <Route path= {routes.notFound} element={<NotFound/>} />
+                </Route>
+                <Route path={routes.login} element={<LoginPage setIsAuth={setIsAuth} />} />
+                <Route path={routes.register} element={<Register/>} />
+                <Route path={routes.notFound} element={<NotFound/>} />
             </Routes>
         </BrowserRouter>
     )
