@@ -17,19 +17,27 @@ export const signIn = async({login, password}) => {
     return response.json() 
 }
 
-export const signUp = async (userData) => {
-    const response = await fetch('/api/register', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(userData),
-    });
+export const signUp = async ({ login, name, password }) => {
+    const response = await fetch("https://wedev-api.sky.pro/api/user", 
+        {
+          method: "POST",
+          body: JSON.stringify({
+            login,
+            name,
+            password,
+          }),
+        });
 
-    if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || 'Ошибка регистрации');
-    }
-
-    return response.json();
-};
+        if (response.status === 401) {
+            throw new Error("Нет авторизации");
+          }
+          if (response.status === 400) {
+            throw new Error("Пользователь с таким логином уже существует");
+          }
+            if (response.status === 500) {
+              throw new Error("Сервер сломался");
+            }else {
+            const data = await response.json();
+            return data;
+          }
+        }

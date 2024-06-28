@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom";
-import { Calendar } from "../Calendar";
+import Calendar from "../../components/Calendar/Calendar";
 import { routes } from "../../router/routes";
+
 
 export const PopBrowse = () => {
 	const {id} = useParams()

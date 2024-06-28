@@ -6,11 +6,13 @@ import { PopNewCard } from "../../components/PopNewCard";
 import { Wrapper, Loader } from "../../glogalStyle.styled.js";
 import { Outlet } from "react-router-dom";
 import { getTasks } from "../../api/tasks.js";
+import { useUser } from "../../hooks/useUser.js";
 
-export const MainPage = ({isDarkTheme, setIsDarkTheme, user, setUser}) => {
+export const MainPage = ({isDarkTheme, setIsDarkTheme, setUser}) => {
     const [cards, setCards] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState("");
+    const { user } = useUser();
 
     const addCard = () => {
         const newCard = {
@@ -45,5 +47,5 @@ export const MainPage = ({isDarkTheme, setIsDarkTheme, user, setUser}) => {
             {isLoading ? (<Loader>Данные загружаются...</Loader>) : error ? <p>{error}</p> : (<Main cards={cards} />) }        
           <PopNewCard />        
         </Wrapper>
-    )
+    );
 }

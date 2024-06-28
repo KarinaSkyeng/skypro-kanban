@@ -8,9 +8,10 @@ import { ProtectedRoutes } from "./ProtectedRoutes.jsx";
 import { useState } from "react";
 import { ExitPage } from "../Pages/ExitPage/ExitPage.jsx";
 import { CardPage } from "../Pages/CardPage/CardPage.jsx";
-    
-export const AppRoutes = ({isDarkTheme, setIsDarkTheme}) => {
-    const [user, setUser] = useState(null)
+
+export const AppRoutes = ({ isDarkTheme, setIsDarkTheme }) => {
+    const [user, setUser] = useState(null);
+
     return (
         <BrowserRouter>
             <Routes>
@@ -21,9 +22,9 @@ export const AppRoutes = ({isDarkTheme, setIsDarkTheme}) => {
                     </Route>
                 </Route>
                 <Route path={routes.login} element={<LoginPage setUser={setUser} />} />
-                <Route path={routes.register} element={<Register/>} />
-                <Route path={routes.notFound} element={<NotFound/>} />
+                <Route path={routes.register} element={<Register />} />
+                <Route path={routes.notFound} element={<NotFound />} />
             </Routes>
         </BrowserRouter>
-    )
-}
+    );
+};
