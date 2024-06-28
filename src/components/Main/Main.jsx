@@ -1,5 +1,5 @@
 import { Container } from "../../glogalStyle.styled.js";
-import { Column } from "../Column/index.jsx";
+import { Column } from "../Column/Column.jsx";
 import { statusList } from "../data.js";
 import * as S from "./main.styled.js"
 

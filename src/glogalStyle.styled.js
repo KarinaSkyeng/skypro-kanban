@@ -57,26 +57,6 @@ max-width: 1260px;
   padding: 0 30px;
 `;
 
-/*export const Orange = css`
-background-color: ${({theme}) => theme.orangeBg};
-color: ${({theme}) => theme.orangeText};
-`;
-
-export const Purple = css`
-background-color: ${({theme}) => theme.purpleBg};
-color: ${({theme}) => theme.purpleText};
-`;
-
-export const Green = css`
-background-color: ${({theme}) => theme.greenBg};
-color: ${({theme}) => theme.greenText};
-`;
-
-export const Gray = css`
-background: ${({theme}) => theme.grayBg};
-color: ${({theme}) => theme.grayText};
-`;*/
-
 export const themeColor = ($color) => css`
   ${$color === "Web Design" && css`
   background-color: ${({ theme }) => theme.colors.orangeBg};
@@ -118,8 +98,12 @@ export const Hover03 = css`
   background-color: #33399b;
   color: #FFFFFF;
 }
-a {
-  color: #FFFFFF;
-}
-`
+`;
+
+export const ContainerSignin = styled.div`
+    display: block;
+    width: 100vw;
+    min-height: 100vh;
+    margin: 0 auto;
+`;
 
