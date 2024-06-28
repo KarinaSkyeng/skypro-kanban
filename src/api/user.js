@@ -16,3 +16,20 @@ export const signIn = async({login, password}) => {
     { throw new Error ("Не удалось загрузить данные, попробуйте позже")}
     return response.json() 
 }
+
+export const signUp = async (userData) => {
+    const response = await fetch('/api/register', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userData),
+    });
+
+    if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Ошибка регистрации');
+    }
+
+    return response.json();
+};
