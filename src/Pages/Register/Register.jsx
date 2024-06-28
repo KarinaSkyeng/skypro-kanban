@@ -14,11 +14,11 @@ export const Register = () => {
         login: "",
         password: "",
     });
-    const [offButton, setOffButton] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     const handleRegister = async (e) => {
         e.preventDefault();
-        setOffButton(true); // Включаем индикацию загрузки
+        setLoading(true); // Включаем индикацию загрузки
 
         try {
             const { login, name, password } = formData;
@@ -35,7 +35,7 @@ export const Register = () => {
         } catch (error) {
             setError(error.message);
         } finally {
-            setOffButton(false); // Выключаем индикацию загрузки
+            setLoading(false); // Выключаем индикацию загрузки
         }
     };
 
@@ -73,7 +73,7 @@ export const Register = () => {
                                 placeholder="Пароль"
                             />
                             {error && <p>{error}</p>}
-                            <S.ModalBtnSignupEnt type="submit" disabled={offButton}>
+                            <S.ModalBtnSignupEnt type="submit" disabled={loading}>
                                 Зарегистрироваться
                             </S.ModalBtnSignupEnt>
                             <S.ModarFormGroupReg>

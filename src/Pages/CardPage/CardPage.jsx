@@ -1,5 +1,5 @@
 import Calendar from "../../components/Calendar/Calendar";
-import * as S from "./cardPage.styled.js";
+import * as S from "./cardPage.styled.js"
 import { Link, useParams } from 'react-router-dom';
 import { useState } from "react";
 
