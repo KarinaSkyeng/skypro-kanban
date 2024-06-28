@@ -1,4 +1,4 @@
-//import { tasks } from "../../components/data.js";
+
 import { useEffect, useState } from "react";
 import { Header } from "../../components/Header/Header.jsx";
 import { Main } from "../../components/Main/Main.jsx";
@@ -24,31 +24,26 @@ export const MainPage = ({isDarkTheme, setIsDarkTheme, user, setUser}) => {
       };
     
       useEffect(() => {
+        setIsLoading(true);
         getTasks(user.token)
         .then((res) => {
           setCards(res.tasks)         
         })
         .catch((error) => {
-          console.log(error.message)
-          setError(error.message)
+          console.log(error.message);
+          setError(error.message);
         })
         .finally(() => {
-          setIsLoading(false)
-        })
-        //setIsLoading(true);
-        setTimeout(() => {
           setIsLoading(false);
-        }, 3000);
-      });
+        });        
+      },[user.token]);
    
     return (
         <Wrapper>
-        <Outlet/>
-        <Header addCard={addCard} setUser={setUser} setIsDarkTheme={setIsDarkTheme} isDarkTheme={isDarkTheme} />
-        {isLoading ? (<Loader>Данные загружаются...</Loader>) : error ? <p>{error}</p> : (<Main cards={cards} />) }
-        {/*<PopBrowse />*/}
-        <PopNewCard />
-        {/*<PopUser />*/}
+          <Outlet/>
+            <Header addCard={addCard} setUser={setUser} setIsDarkTheme={setIsDarkTheme} isDarkTheme={isDarkTheme} />
+            {isLoading ? (<Loader>Данные загружаются...</Loader>) : error ? <p>{error}</p> : (<Main cards={cards} />) }        
+          <PopNewCard />        
         </Wrapper>
     )
 }

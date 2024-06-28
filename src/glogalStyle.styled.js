@@ -38,8 +38,14 @@ body {
 `;
 
 export const Loader = styled.p`
-text-align: center;
-margin-top: 20px;
+  text-align: center;
+  margin-top: 20px;
+  background: url('/images/loader.gif') no-repeat center center;
+  background-size: 50px 50px; 
+  height: 100px;
+  line-height: 100px; 
+  font-size: 1.5rem; 
+  color: #333;
 `;
 
 export const Wrapper = styled.div`
