@@ -9,10 +9,10 @@ import { getTasks } from "../../api/tasks.js";
 import { useUser } from "../../hooks/useUser.js";
 
 export const MainPage = ({isDarkTheme, setIsDarkTheme, setUser}) => {
+    const { user } = useUser();
     const [cards, setCards] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    const [error, setError] = useState("");
-    const { user } = useUser();
+    const [error, setError] = useState("");    
 
     const addCard = () => {
         const newCard = {
@@ -26,6 +26,16 @@ export const MainPage = ({isDarkTheme, setIsDarkTheme, setUser}) => {
       };
     
       useEffect(() => {
+        console.log("user:", user);
+
+        if (user || user.token) {
+          console.error("Пользователь не авторизован");
+          setError("Пользователь не авторизован");
+          setIsLoading(false);
+
+          return;
+        }
+
         setIsLoading(true);
         getTasks(user.token)
         .then((res) => {
@@ -38,7 +48,7 @@ export const MainPage = ({isDarkTheme, setIsDarkTheme, setUser}) => {
         .finally(() => {
           setIsLoading(false);
         });        
-      },[user.token]);
+      },[user]);
    
     return (
         <Wrapper>

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { topicStyles } from "../../ColorStyles/topic";
+import { themeColor } from "../../glogalStyle.styled";
 
 export const PopBrowse = styled.div`
     width: 100%;
@@ -307,17 +307,16 @@ font-size: 14px;
 `;
 
 export const CategoriesTheme = styled.div`
-display: inline-block;
-width: auto;
-height: 30px;
-padding: 8px 20px;
-border-radius: 24px;
-margin-right: 7px;
-opacity: 0.4;
-background-color: ${({ $themeColor }) =>
-  topicStyles[$themeColor]?.backgroundColor || "#b4fdd1"};
+  display: inline-block;
+  width: auto;
+  height: 30px;
+  padding: 8px 20px;
+  border-radius: 24px;
+  margin-right: 7px;
+  opacity: 0.4;
+  background-color: ${({ $themeColor }) => themeColor($themeColor)};
 
   ${ThemesP} {
-    color: ${({ $themeColor }) => topicStyles[$themeColor]?.color || "#06b16e"};
+    color: ${({ $themeColor }) => themeColor($themeColor)};
   }
 `;

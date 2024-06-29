@@ -6,7 +6,7 @@ import { LoginPage } from "../Pages/LoginPage/LoginPage.jsx";
 import { Register } from "../Pages/Register/Register.jsx";
 import { ProtectedRoutes } from "./ProtectedRoutes.jsx";
 import { useState } from "react";
-import { ExitPage } from "../Pages/ExitPage/ExitPage.jsx";
+import { PopUser as ExitPage } from "../Pages/ExitPage/ExitPage.jsx";
 import { CardPage } from "../Pages/CardPage/CardPage.jsx";
 
 export const AppRoutes = ({ isDarkTheme, setIsDarkTheme }) => {
