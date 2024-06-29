@@ -6,10 +6,10 @@ import { PopNewCard } from "../../components/PopNewCard";
 import { Wrapper, Loader } from "../../glogalStyle.styled.js";
 import { Outlet } from "react-router-dom";
 import { getTasks } from "../../api/tasks.js";
-import { useUser } from "../../hooks/useUser.js";
+import { useUserContext } from "../../context/UserContext.js";
 
-export const MainPage = ({isDarkTheme, setIsDarkTheme, setUser}) => {
-    const { user } = useUser();
+export const MainPage = ({isDarkTheme, setIsDarkTheme}) => {
+    const { user, setUser } = useUserContext();
     const [cards, setCards] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState("");    
@@ -26,9 +26,8 @@ export const MainPage = ({isDarkTheme, setIsDarkTheme, setUser}) => {
       };
     
       useEffect(() => {
-        console.log("user:", user);
 
-        if (user || user.token) {
+        if (!user || !user.token) {
           console.error("Пользователь не авторизован");
           setError("Пользователь не авторизован");
           setIsLoading(false);

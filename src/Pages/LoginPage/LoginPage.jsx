@@ -3,15 +3,16 @@ import { routes } from "../../router/routes";
 import * as S from "./loginPage.styled.js";
 import { useState } from "react";
 import { signIn } from "../../api/user.js";
+import { useUserContext } from "../../context/UserContext.js";
 
-export const LoginPage = ({ setUser }) => {
+export const LoginPage = () => {
     const navigate = useNavigate();
-    const [error, setError] = useState("");
-
+    const { setUser } = useUserContext();
     const [formData, setFormData] = useState({
         login: "",
         password: "",
     });
+    const [error, setError] = useState(null);
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -34,9 +35,10 @@ export const LoginPage = ({ setUser }) => {
         try {
             const res = await signIn(formData);
             setUser(res.user);
+            localStorage.setItem('user', JSON.stringify(res));
             navigate(routes.main);
         } catch (error) {
-            setError(error.message);
+            setError(error.response ? error.response.data : error.message);
         }
     };
 
@@ -53,6 +55,7 @@ export const LoginPage = ({ setUser }) => {
                                 onChange={(e) => setFormData({...formData, login: e.target.value})}
                                 type="text"
                                 name="login"
+                                value={formData.login}
                                 id="formlogin"
                                 placeholder="Эл. почта"
                             />
@@ -60,6 +63,7 @@ export const LoginPage = ({ setUser }) => {
                                 onChange={(e) => setFormData({...formData, password: e.target.value})}
                                 type="password"
                                 name="password"
+                                value={formData.password}
                                 id="formpassword"
                                 placeholder="Пароль"
                             />
