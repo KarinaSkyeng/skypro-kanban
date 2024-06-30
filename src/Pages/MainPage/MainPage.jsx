@@ -25,13 +25,12 @@ export const MainPage = ({isDarkTheme, setIsDarkTheme}) => {
         setCards([...cards, newCard]);
       };
     
-      useEffect(() => {
-
+      useEffect(() => { 
+        console.log("user:", user);       
         if (!user || !user.token) {
           console.error("Пользователь не авторизован");
           setError("Пользователь не авторизован");
           setIsLoading(false);
-
           return;
         }
 
@@ -41,7 +40,7 @@ export const MainPage = ({isDarkTheme, setIsDarkTheme}) => {
           setCards(res.tasks)         
         })
         .catch((error) => {
-          console.log(error.message);
+          console.log("Error loading tasks:", error.message);
           setError(error.message);
         })
         .finally(() => {
