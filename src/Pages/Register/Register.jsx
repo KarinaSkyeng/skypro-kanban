@@ -6,7 +6,7 @@ import { signUp } from "../../api/user.js";
 import { useUser } from "../../hooks/useUser";
 
 export const Register = () => {
-    const { setUser } = useUser(); // Предполагается, что useUser - это ваш кастомный хук для работы с пользователем
+    const { setUser } = useUser();
     const navigate = useNavigate();
     const [error, setError] = useState(null);
     const [formData, setFormData] = useState({

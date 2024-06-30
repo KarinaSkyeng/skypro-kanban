@@ -6,7 +6,7 @@ import { PopNewCard } from "../../components/PopNewCard";
 import { Wrapper, Loader } from "../../glogalStyle.styled.js";
 import { Outlet } from "react-router-dom";
 import { getTasks } from "../../api/tasks.js";
-import { useUserContext } from "../../context/UserContext.js";
+import { useUserContext } from "../../context/useUserContext";
 
 export const MainPage = ({isDarkTheme, setIsDarkTheme}) => {
     const { user, setUser } = useUserContext();

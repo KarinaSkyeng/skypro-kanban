@@ -3,7 +3,7 @@ import { routes } from "../../router/routes";
 import * as S from "./loginPage.styled.js";
 import { useState } from "react";
 import { signIn } from "../../api/user.js";
-import { useUserContext } from "../../context/UserContext.js";
+import { useUserContext } from "../../context/useUserContext";
 
 export const LoginPage = () => {
     const navigate = useNavigate();
