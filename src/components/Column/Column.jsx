@@ -6,11 +6,11 @@ export const Column = ({ title, cards}) => {
       <div className="column__title">
         <p>{title}</p>
         <div className="cards">
-          {cards.map((card) => {
+          {cards.map((card, index) => {
             return (
               <Card 
-                key={card.id} 
-                id={card.id}
+                key={index} 
+                id={card._id}
                 title={card.title}
                 topic={card.topic} 
                 date={card.date}
