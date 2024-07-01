@@ -5,9 +5,10 @@ import { Link } from "react-router-dom";
 import { routes } from "../../router/routes.js";
 
 export const Header = ({addCard, isDarkTheme, setIsDarkTheme}) => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+
   const toggleOpenUser = () => {
-    setIsOpen(!isOpen)
+    setIsOpen(!isOpen);
    };
 
    const onChangeTheme = () => {
@@ -30,7 +31,7 @@ export const Header = ({addCard, isDarkTheme, setIsDarkTheme}) => {
           </S.HeaderLogo >
           <S.HeaderNav>
             <S.HeaderBtnNew onClick={addCard}>
-              <a>Создать новую задачу</a>
+              Создать новую задачу
             </S.HeaderBtnNew>
             <S.HeaderUser onClick= {toggleOpenUser}>
               Ivan Ivanov</S.HeaderUser>
@@ -41,7 +42,7 @@ export const Header = ({addCard, isDarkTheme, setIsDarkTheme}) => {
               <S.PopUserSetMail>ivan.ivanov@gmail.com</S.PopUserSetMail>
               <S.PopUserSetTheme>
                 <p>Темная тема</p>
-                <input checked={isDarkTheme === "dark"} onClick={onChangeTheme} type="checkbox" className="checkbox" name="checkbox" />
+                <input checked={isDarkTheme === "dark"} onChange={onChangeTheme} type="checkbox" className="checkbox" name="checkbox" />
               </S.PopUserSetTheme>
               <S.HeaderBtnExit>
                 <Link to={routes.exit}>Выйти</Link>
@@ -53,4 +54,4 @@ export const Header = ({addCard, isDarkTheme, setIsDarkTheme}) => {
       </Container>
     </S.Header>
   );
-}
+};
