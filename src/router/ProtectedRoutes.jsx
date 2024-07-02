@@ -3,7 +3,9 @@ import { routes } from "./routes";
 import { useUserContext } from "../context/useUserContext";
 
 export const ProtectedRoutes = () => {
-    const {user} = useUserContext()
+    const {user} = useUserContext();
 
-    return user && user.token ? <Outlet /> : <Navigate to={routes.login} />
-}
+    const isAuthenticated = user && user.token;
+
+    return isAuthenticated ? <Outlet /> : <Navigate to={routes.login} />
+};

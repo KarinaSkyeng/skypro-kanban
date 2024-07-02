@@ -4,7 +4,8 @@ export const UserContext = createContext(null);
 
 const getUserFromLocalStorage = () => {
   try {
-    return JSON.parse(localStorage.getItem('user'));
+    const user = JSON.parse(localStorage.getItem('user'));
+    return user && user.token ? user : null; // Проверка на наличие токена
   } catch (_) {
     return null;
   }
@@ -14,7 +15,11 @@ export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(getUserFromLocalStorage());
 
   useEffect(() => {
-    localStorage.setItem('user', JSON.stringify(user));
+    if (user) {
+      localStorage.setItem('user', JSON.stringify(user));
+    } else {
+      localStorage.removeItem('user');
+    }
   }, [user]);
 
   return (
@@ -23,4 +28,3 @@ export const UserProvider = ({ children }) => {
     </UserContext.Provider>
   );
 };
-

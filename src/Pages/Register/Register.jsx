@@ -3,10 +3,10 @@ import { routes } from "../../router/routes";
 import * as S from "./register.styled.js";
 import { useState } from "react";
 import { signUp } from "../../api/user.js";
-import { useUser } from "../../hooks/useUser";
+import { useUserContext } from "../../context/useUserContext.js";
 
 export const Register = () => {
-    const { setUser } = useUser();
+    const { setUser } = useUserContext();
     const navigate = useNavigate();
     const [error, setError] = useState(null);
     const [formData, setFormData] = useState({
@@ -18,16 +18,18 @@ export const Register = () => {
 
     const handleRegister = async (e) => {
         e.preventDefault();
+        
+        const { login, name, password } = formData;
+        // Проверяем заполнение всех полей
+        if (!login || !name || !password) {
+            setError("Заполните все поля");
+            return;
+        }
+
         setLoading(true); // Включаем индикацию загрузки
-
-        try {
-            const { login, name, password } = formData;
-
-            // Проверяем заполнение всех полей
-            if (!login || !name || !password) {
-                throw new Error("Заполните все поля");
-            }
-
+        setError(null); // Сбрасываем предыдущее сообщение об ошибке
+       
+        try {   
             const response = await signUp({ login, name, password });
             setUser(response); // Устанавливаем пользователя в состояние при успешной регистрации
             localStorage.setItem("user", JSON.stringify(response)); // Сохраняем пользователя в локальное хранилище
