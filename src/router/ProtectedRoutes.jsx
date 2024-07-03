@@ -7,5 +7,5 @@ export const ProtectedRoutes = () => {
 
     const isAuthenticated = user && user.token;
 
-    return isAuthenticated ? <Outlet /> : <Navigate to={routes.login} />
+    return isAuthenticated ? <Outlet /> : <Navigate to={routes.login} />;
 };

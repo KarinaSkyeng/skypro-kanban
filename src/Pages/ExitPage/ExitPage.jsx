@@ -1,7 +1,9 @@
+import { useUserContext } from '../../context/useUserContext.js';
 import * as S from './exitPage.styled.js';
 import { Link, useNavigate } from 'react-router-dom';
 
-export function PopUser({ setUser }) {
+export function PopUser() {
+    const { setUser } = useUserContext();
     const navigate = useNavigate();
 
     function logout() {
