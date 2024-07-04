@@ -25,9 +25,7 @@ export function PopUser() {
                                 <S.PopExitYesA>Да, выйти</S.PopExitYesA>
                             </S.PopExitYesButton>
                             <S.PopExitNoButton id="exitNo">
-                                <Link to="/">
-                                    <S.PopExitNoA>Нет, остаться</S.PopExitNoA>
-                                </Link>
+                                <Link to="/">Нет, остаться </Link>
                             </S.PopExitNoButton>
                         </S.PopExitFormGroup>
                     </S.PopExitForm>

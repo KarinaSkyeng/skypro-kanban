@@ -1,8 +1,9 @@
 import { Card } from "../Card/Card";
+import * as S from "./column.styled";
 
 export const Column = ({ title, cards}) => {
   return (
-    <div className="main__column column">
+    <S.MainColumn>
       <div className="column__title">
         <p>{title}</p>
         <div className="cards">
@@ -16,10 +17,9 @@ export const Column = ({ title, cards}) => {
                 date={card.date}
                 />
             )
-          })}
-                               
+          })}                               
         </div>
       </div>      
-    </div>
+    </S.MainColumn>
   );
-}
+};
