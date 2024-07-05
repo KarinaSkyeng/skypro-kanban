@@ -3,7 +3,7 @@ import * as S from "./calendar.styled.js";
 import "react-day-picker/dist/style.css";
 import ru from "date-fns/locale/ru";
 import { format } from "date-fns";
-import { DayPicker } from "react-day-picker";
+
 
 export default function Calendar({ selected, setSelected }) {
   let footer = <S.CalendarContentP>Пожалуйста, введите дату</S.CalendarContentP>;
@@ -17,7 +17,7 @@ export default function Calendar({ selected, setSelected }) {
 
   return (
     <S.CalendarContent>
-      <DayPicker
+      <S.StyledDayPicker
         mode="single"
         selected={selected}
         onSelect={setSelected}

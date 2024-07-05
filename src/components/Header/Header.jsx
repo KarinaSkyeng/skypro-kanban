@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { routes } from "../../router/routes.js";
 import { useUserContext } from "../../context/useUserContext.js";
 
-export const Header = ({addCard, isDarkTheme, setIsDarkTheme}) => {
+export const Header = ({isDarkTheme, setIsDarkTheme}) => {
   const [isOpen, setIsOpen] = useState(false);
   const { user } = useUserContext();
 
@@ -32,9 +32,11 @@ export const Header = ({addCard, isDarkTheme, setIsDarkTheme}) => {
             </a>
           </S.HeaderLogo >
           <S.HeaderNav>
-            <S.HeaderBtnNew onClick={addCard}>
+            <Link to={routes.add}>
+            <S.HeaderBtnNew>
               Создать новую задачу
             </S.HeaderBtnNew>
+            </Link>
             <S.HeaderUser onClick= {toggleOpenUser}>
               {user.name} </S.HeaderUser>
             {isOpen &&  

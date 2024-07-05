@@ -7,7 +7,7 @@ import { useUserContext } from "../../context/useUserContext";
 
 export const LoginPage = () => {
     const navigate = useNavigate();
-    const { setUser } = useUserContext();
+    const { login } = useUserContext();
     const [formData, setFormData] = useState({
         login: "",
         password: "",
@@ -34,7 +34,7 @@ export const LoginPage = () => {
 
         try {
             const res = await signIn(formData);
-            setUser(res.user);
+            login(res.user);
             localStorage.setItem('user', JSON.stringify(res));
             navigate(routes.main);
         } catch (error) {

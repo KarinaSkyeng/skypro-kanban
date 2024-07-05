@@ -1,16 +1,16 @@
 import { useUserContext } from '../../context/useUserContext.js';
 import * as S from './exitPage.styled.js';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export function PopUser() {
-    const { setUser } = useUserContext();
-    const navigate = useNavigate();
+    const { logout } = useUserContext();
+    //const navigate = useNavigate();
 
-    function logout() {
-        localStorage.removeItem("user");
-        setUser(null);
-        navigate("/login");
-    }
+    //function logout() {
+        //localStorage.removeItem("user");
+        //setUser(null);
+       // navigate("/login");
+    //}
 
     return (
         <S.PopExit id="popExit">

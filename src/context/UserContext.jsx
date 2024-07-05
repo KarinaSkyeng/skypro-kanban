@@ -1,18 +1,11 @@
-import { createContext, useState, useEffect } from 'react';
+import { createContext, useEffect } from 'react';
+import { useUser } from '../hooks/useUser';
 
 export const UserContext = createContext(null);
 
-const getUserFromLocalStorage = () => {
-  try {
-    const user = JSON.parse(localStorage.getItem('user'));
-    return user && user.token ? user : null; // Проверка на наличие токена
-  } catch (_) {
-    return null;
-  }
-};
-
 export const UserProvider = ({ children }) => {
-  const [user, setUser] = useState(getUserFromLocalStorage());
+  //const [user, setUser] = useState(getUserFromLocalStorage());
+const {user, login, logout} = useUser();
 
   useEffect(() => {
     if (user) {
@@ -23,7 +16,7 @@ export const UserProvider = ({ children }) => {
   }, [user]);
 
   return (
-    <UserContext.Provider value={{ user, setUser }}>
+    <UserContext.Provider value={{ user, login, logout }}>
       {children}
     </UserContext.Provider>
   );

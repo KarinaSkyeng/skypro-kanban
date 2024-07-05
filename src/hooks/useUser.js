@@ -1,8 +1,17 @@
 
 import { useState } from "react";
 
+const getUserFromLocalStorage = () => {
+    try {
+      const user = JSON.parse(localStorage.getItem('user'));
+      return user && user.token ? user : null; // Проверка на наличие токена
+    } catch (_) {
+      return null;
+    }
+  };
+
 export const useUser = () => {
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState(getUserFromLocalStorage());
 
     const login = (userData) => {
         // Логика входа пользователя
@@ -17,3 +26,5 @@ export const useUser = () => {
 
     return { user, login, logout, setUser };
 };
+
+
