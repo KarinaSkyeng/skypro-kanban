@@ -10,6 +10,10 @@ export const PopNewCard = styled.div`
   top: 0;
   left: 0;
   z-index: 6;
+
+  @media screen and (max-width: 660px) {
+    top: 70px;
+  }
 `;
 
 export const PopNewCardContainer = styled.div`
@@ -22,6 +26,16 @@ export const PopNewCardContainer = styled.div`
   align-items: center;
   justify-content: center;
   background: rgba(0, 0, 0, 0.4);
+
+  @media screen and (max-width: 660px) {
+    padding: 0;
+    justify-content: flex-start;
+  }
+
+  @media screen and (max-width: 495px) {
+    padding: 0;
+    justify-content: flex-start;
+  }
 `;
 
 export const PopNewCardBlock = styled.div`
@@ -34,6 +48,14 @@ export const PopNewCardBlock = styled.div`
   border-radius: 10px;
   border: 0.7px solid #D4DBE5;
   position: relative;
+
+  @media screen and (max-width: 660px) {
+    border-radius: 0;
+  }
+
+  @media screen and (max-width: 495px) {
+    padding: 20px 16px 32px;
+  }
 `;
 
 export const PopNewCardContent = styled.div`
@@ -42,7 +64,7 @@ export const PopNewCardContent = styled.div`
 `;
 
 export const PopNewCardTitle = styled.h3`
-  color: #000;
+  color: ${({theme})=> theme.text};
   font-size: 20px;
   font-weight: 600;
   line-height: 24px;
@@ -57,7 +79,7 @@ export const PopNewCardClose = styled.a`
   cursor: pointer;
   
   &:hover {
-  color: #000000;
+  color: ${({theme})=> theme.text};
 }
 `;
 
@@ -65,6 +87,10 @@ export const PopNewCardWrap = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+
+  @media screen and (max-width: 660px) {
+    display: block;
+  }
 `;
 
 export const PopNewCardForm = styled.form`
@@ -72,6 +98,12 @@ export const PopNewCardForm = styled.form`
   width: 100%;
   display: block;
   margin-bottom: 20px;
+
+  @media screen and (max-width: 495px) {
+    max-width: 100%;
+    width: 100%;
+    display: block;
+  }
 `;
 
 export const FormNewBlock = styled.div`
@@ -90,6 +122,7 @@ export const FormNewInput = styled.input`
     font-size: 14px;
     line-height: 1;
     letter-spacing: -0.14px;
+    color: ${({theme})=> theme.text};
 
     &::-moz-placeholder {
         font-weight: 400;
@@ -113,6 +146,8 @@ export const FormNewArea = styled.textarea`
      margin-top: 14px;
      height: 200px;
      width: 100%;
+
+     width: 100%;
     outline: none;
     padding: 14px;
     background: transparent;
@@ -121,6 +156,8 @@ export const FormNewArea = styled.textarea`
     font-size: 14px;
     line-height: 1;
     letter-spacing: -0.14px;
+
+    color: ${({theme})=> theme.text};
 
     &::-moz-placeholder {
         font-weight: 400;
@@ -141,11 +178,19 @@ export const FormNewArea = styled.textarea`
 
 export const PopNewCardCategories = styled.div`
  margin-bottom: 20px; 
+
+ p {
+    margin-bottom: 14px;
+    color: ${({theme})=> theme.text};
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+  }
 `;
 
-export const CategoriesPSubttl = styled.p`
+export const CategoriesPSubttl = styled.label`
     margin-bottom: 14px;
-    color: #000;
+    color: ${({theme})=> theme.text};
   font-size: 14px;
   font-weight: 600;
   line-height: 1;
@@ -178,18 +223,48 @@ export const CategoriesTheme = styled.div`
 `;
 
 export const Orange = styled.p`
+    display: inline-block;
+    padding: 8px 20px 8px 20px;
+    border-radius: 24px;
+    cursor: pointer;
+    margin-right: 7px;
+    opacity: 40%;
     background-color: ${({ theme }) => theme.colors.orangeBg};
     color: ${({ theme }) => theme.colors.orangeText};
+    
+    &:hover {
+        opacity: 100%;
+  }
 `;
 
 export const Green = styled.p`
+    display: inline-block;
+    padding: 8px 20px 8px 20px;
+    border-radius: 24px;
+    cursor: pointer;
+    margin-right: 7px;
+    opacity: 40%;
      background-color: ${({ theme }) => theme.colors.greenBg};
      color: ${({ theme }) => theme.colors.greenText};
+
+     &:hover {
+        opacity: 100%;
+  }
 `;
 
 export const Purple = styled.p`
+     display: inline-block;
+     padding: 8px 20px 8px 20px;
+     border-radius: 24px;
+     cursor: pointer;
+     margin-right: 7px;
+     opacity: 50%;
      background-color: ${({ theme }) => theme.colors.purpleBg};
      color: ${({ theme }) => theme.colors.purpleText};
+
+     &:hover {
+        opacity: 100%;
+  }
 `;
 
 export const FormNewCreate = styled.button`

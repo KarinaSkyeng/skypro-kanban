@@ -13,7 +13,9 @@ export const signIn = async({login, password}) => {
         throw new Error("Неверный логин или пароль")
     }
     if (!response.ok) //{Если не ок, то ошибка}
-    { throw new Error ("Не удалось загрузить данные, попробуйте позже")}
+    { 
+      throw new Error ("Не удалось загрузить данные, попробуйте позже")
+    }
     return response.json() 
 }
 

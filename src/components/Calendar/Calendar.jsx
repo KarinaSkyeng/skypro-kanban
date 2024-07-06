@@ -3,27 +3,33 @@ import * as S from "./calendar.styled.js";
 import "react-day-picker/dist/style.css";
 import ru from "date-fns/locale/ru";
 import { format } from "date-fns";
+import { useState } from "react";
 
 
 export default function Calendar({ selected, setSelected }) {
+
+  const [date, setDate] = useState(new Date)
+  const currentDate = date.toLocaleDateString("ru-US")
+
   let footer = <S.CalendarContentP>Пожалуйста, введите дату</S.CalendarContentP>;
-  if (selected) {
-    footer = (
+  if (setDate) {
+    {/*footer = (
       <S.CalendarContentP>
         Вы выбрали {format(selected, "PP", { locale: ru })}.
-      </S.CalendarContentP>
-    );
+      </S.CalendarContentP>*/}
+      footer = <p>Срок исполнения:{""} {currentDate}.</p>;
+    
   }
 
   return (
-    <S.CalendarContent>
+    <S.Calendar>
       <S.StyledDayPicker
         mode="single"
-        selected={selected}
-        onSelect={setSelected}
+        selected={date}
+        onSelect={setDate}
         footer={footer}
         locale={ru}
       />
-    </S.CalendarContent>
+    </S.Calendar>
   );
 }

@@ -1,8 +1,62 @@
 import { Subttl } from "../../glogalStyle.styled.js";
 import Calendar from "../Calendar/Calendar";
 import * as S from "./popNewCard.styled.js";
+import { routes } from "../../router/routes.js";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { UserContext } from "../../context/UserContext";
+import { TasksContext } from '../../context/TasksContext';
+import { addTask } from '../../api/tasks';
 
 export const PopNewCard = () => {
+
+  const {user} = useContext(UserContext)
+  const { setTasks } = useContext(TasksContext)
+  const navigate = useNavigate()
+  const [error, setError] = useState('')
+
+  const [date] = useState(new Date)
+
+  const [inputValue, setInputValue] = useState({
+    title: '',
+    topic: '',
+    status: '',
+    description:'',
+  });
+
+  const OnAddNewCard = () => {
+    setError('')
+    const title = !inputValue.title ? 'Новая задача' : inputValue.title
+    const topic = !inputValue.topic ? 'Research' : inputValue.topic
+    const status = !inputValue.status ? 'Без статуса' : inputValue.status
+    const newCard = {
+      description: inputValue.description,
+      title,
+      topic,
+      status,
+      date,
+    }
+
+    if (!inputValue.description) {
+      return setError('Заполните описание')
+    }
+    addTask({
+      task:newCard,
+      token: user.token
+    }).then((responce)=>{
+      console.log(responce)
+      setTasks(responce.tasks)
+      navigate()
+    }).catch((err)=>{
+      setError(err.message)
+    })
+  }
+
+  const onChangeInput = (e) => {
+    const {value, name} = e.target
+    setInputValue({...inputValue, [name]: value})
+  }
+
   return (
     <S.PopNewCard>
       <S.PopNewCardContainer>
@@ -10,7 +64,7 @@ export const PopNewCard = () => {
           <S.PopNewCardContent>
             <S.PopNewCardTitle>Создание задачи</S.PopNewCardTitle>
             <S.PopNewCardClose href="#">
-              &#10006;
+            <Link to={routes.main}>&#10006;</Link>
             </S.PopNewCardClose>
             <S.PopNewCardWrap>
               <S.PopNewCardForm
@@ -34,9 +88,11 @@ export const PopNewCard = () => {
                     Описание задачи
                   </Subttl>
                   <S.FormNewArea
-                    name="text"
+                    onChange={onChangeInput}
+                    name="description"                    
                     id="textArea"
                     placeholder="Введите описание задачи..."
+                    defaultValue={""}
                   ></S.FormNewArea>
                 </S.FormNewBlock>
               </S.PopNewCardForm>
@@ -131,18 +187,31 @@ export const PopNewCard = () => {
             <S.PopNewCardCategories>
               <S.CategoriesPSubttl>Категория</S.CategoriesPSubttl>
               <S.CategoriesThemes>
-                <S.CategoriesTheme>
-                  <S.Orange>Web Design</S.Orange>
+                <S.CategoriesTheme 
+                    name="topic"
+                    value="Web Design"
+                    onChange={onChangeInput}>
+                  <S.Orange
+                  >Web Design</S.Orange>
                 </S.CategoriesTheme>
-                <S.CategoriesTheme>
-                  <S.Green>Research</S.Green>
+                <S.CategoriesTheme 
+                    name="topic"
+                    value="Research"
+                    onChange={onChangeInput}>
+                  <S.Green
+                  >Research</S.Green>
                 </S.CategoriesTheme>
-                <S.CategoriesTheme>
+                <S.CategoriesTheme
+                  name="topic"
+                  value="Copywriting"
+                  onChange={onChangeInput}
+                >
                   <S.Purple>Copywriting</S.Purple>
                 </S.CategoriesTheme>
               </S.CategoriesThemes>
             </S.PopNewCardCategories>
-            <S.FormNewCreate>
+            {error && error}
+            <S.FormNewCreate onClick={OnAddNewCard}>
               Создать задачу
             </S.FormNewCreate>
           </S.PopNewCardContent>

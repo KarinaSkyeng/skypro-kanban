@@ -1,9 +1,19 @@
 import { DayPicker } from "react-day-picker";
 import styled from "styled-components";
 
-export const CalendarContent  = styled.div`
+export const Calendar = styled.div`
 margin-bottom: 12px;
 margin-left: 30px;
+`;
+
+export const CalendarTtl = styled.p`
+  // margin-bottom: 14px;
+  padding: 0 7px;
+
+  color: ${({theme})=> theme.text};
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
 `;
 
 export const StyledDayPicker = styled(DayPicker)`
