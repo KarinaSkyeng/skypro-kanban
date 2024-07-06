@@ -6,19 +6,17 @@ import { format } from "date-fns";
 import { useState } from "react";
 
 
-export default function Calendar({ selected, setSelected }) {
+export default function Calendar() {
 
   const [date, setDate] = useState(new Date)
-  const currentDate = date.toLocaleDateString("ru-US")
-
+  
   let footer = <S.CalendarContentP>Пожалуйста, введите дату</S.CalendarContentP>;
   if (setDate) {
-    {/*footer = (
+    footer = (
       <S.CalendarContentP>
-        Вы выбрали {format(selected, "PP", { locale: ru })}.
-      </S.CalendarContentP>*/}
-      footer = <p>Срок исполнения:{""} {currentDate}.</p>;
-    
+        Вы выбрали {format(date, "PP", { locale: ru })}.
+      </S.CalendarContentP> 
+    );   
   }
 
   return (
