@@ -4,9 +4,9 @@ import * as S from "./column.styled";
 export const Column = ({ title, cards}) => {
   return (
     <S.MainColumn>
-      <div className="column__title">
+      <S.ColumnTitle>
         <p>{title}</p>
-        <div className="cards">
+        <S.Cards>
           {cards.map((card, index) => {
             return (
               <Card 
@@ -18,8 +18,8 @@ export const Column = ({ title, cards}) => {
                 />
             )
           })}                               
-        </div>
-      </div>      
+        </S.Cards>
+      </S.ColumnTitle>      
     </S.MainColumn>
   );
 };

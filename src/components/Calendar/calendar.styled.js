@@ -8,11 +8,62 @@ margin-left: 30px;
 
 export const StyledDayPicker = styled(DayPicker)`
 
---rdp-cell-size: 40px;
+width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  // margin-top: 14px;
+  margin: 0 0px;
+  // padding: 0 10px;
+
+  background-color: #ffffff;
+  color: #94A6BE;
+
+  .rdp {
+    margin: 0em;
+  }
+
+  .rdp-caption_label {
+
+    color: #94A6BE;
+    font-size: 14px;
+    line-height: 25px;
+    font-weight: 600;
+  }
+  .rdp-cell{
+    width: 22px;
+    height: 22px;
+    margin: 2px;
+    border-radius: 30%;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    color: #94A6BE;
+    font-size: 12px;
+    line-height: 1;
+    letter-spacing: -0.2px;
+    cursor: pointer;
+
+  }
+  .rdp-button_reset.rdp-button.rdp-day {
+    width: 22px;
+    height: 22px;
+    font-size: 12px;
+  }
+  p {
+    margin-top: 14px;
+    width: 100%;
+    height: 22px;
+    font-size: 10px;
+  }
 `
 
 export const CalendarContentP  = styled.p`
 margin-left: 20px;
+
+span {
+  color: #000000;
+}
 `;
 
 export const CalendarDaysNames  = styled.div`
