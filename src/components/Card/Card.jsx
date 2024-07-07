@@ -11,7 +11,7 @@ export const Card = ({title, topic, date, color, _id}) => {
         <S.Card>
           <S.CardGroup>
             <S.CardTheme $color={topic}>
-              <p>{topic}</p>
+              {topic}
             </S.CardTheme>
             <Link to={`/card/${_id}`}>
               <S.CardBtn>

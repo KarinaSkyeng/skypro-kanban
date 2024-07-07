@@ -108,11 +108,11 @@ body {
 ._gray {
   background: #94A6BE;
   color: #FFFFFF;
-}*/
+}
 
 ._active-category {
   opacity: 1 !important;
-}
+}*/
 
 .pop-wrap {
   position: relative;
@@ -403,7 +403,7 @@ body {
   font-size: 14px;
   font-weight: 600;
   line-height: 1;
-}*/
+}
 
 .calendar {
   width: 182px;
@@ -516,7 +516,7 @@ body {
   font-weight: 700;
 }
 
-/*.categories {
+.categories {
   margin-bottom: 20px;
 }
 .categories__themes {
@@ -542,10 +542,10 @@ body {
   font-weight: 600;
   line-height: 14px;
   white-space: nowrap;
-}*/
+}
 
 .pop-browse {
-  /*display: none;*/
+ display: none;
   width: 100%;
   height: 100%;
   min-width: 375px;
@@ -587,11 +587,11 @@ body {
 .pop-browse__content .theme-down {
   display: none;
   margin-bottom: 20px;
-}
+}*/
 .pop-browse__content .theme-top {
   display: block;
 }
-.pop-browse__top-block {
+/*.pop-browse__top-block {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -629,7 +629,7 @@ body {
   margin-right: 8px;
 }
 
-.form-browse__block {
+.orm-browse__block {
   display: flex;
   flex-direction: column;
 }
@@ -710,7 +710,7 @@ body {
   color: #FFFFFF;
 }
 
-._hide {
+/*._hide {
   display: none;
 }
 
@@ -718,7 +718,7 @@ body {
   display: none;
 }
 
-/*.header {
+.header {
   width: 100%;
   margin: 0 auto;
   background-color: #FFFFFF;
@@ -931,7 +931,7 @@ body {
     width: 100%;
     display: flex;
     overflow-y: auto;
-  }*/
+  }
   .cards__card {
     width: 220px;
     height: 130px;
@@ -943,7 +943,7 @@ body {
     justify-content: stretch;
     padding: 15px 13px 19px;
   }
-}
+}*/
 @media screen and (max-width: 660px) {
   .pop-new-card {
     top: 70px;
@@ -987,7 +987,7 @@ body {
     height: 42px;
     font-size: 14px;
   }
-  .pop-browse {
+  /*.pop-browse {
     top: 70px;
   }
   .pop-browse__container {
@@ -999,10 +999,10 @@ body {
   }
   .pop-browse__wrap {
     display: block;
-  }
+  }*/
 }
 @media screen and (max-width: 495px) {
-  .container {
+  /*.container {
     width: 100%;
     padding: 0 16px;
   }
@@ -1046,15 +1046,15 @@ body {
   .pop-browse__content .theme-down {
     display: block;
     margin-bottom: 20px;
-  }
+  }*/
   .pop-browse__content .theme-top {
     display: none;
-  }
-  .pop-browse__form {
-    max-width: 100%;
-  }
+  } 
   .pop-browse__calendar {
     width: 100%;
+  }
+  /*.pop-browse__form {
+   
   }
   .pop-browse__btn-browse button, .pop-browse__btn-edit button {
     width: 100%;
@@ -1071,7 +1071,7 @@ body {
   }
   .form-browse__area {
     height: 37px;
-  }
+  }*/
 }
 /*@media only screen and (max-width: 375px) {
   .pop-exit__block {

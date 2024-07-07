@@ -16,14 +16,14 @@ export const getTasks = async(token) => {
 };
 
 // Функция для добавления новой задачи
-export const addTask = async (taskData, token) => {
+export const addTask = async (task, token) => {
   const response = await fetch(apiURL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify(taskData),
+    body: JSON.stringify(task),
   });
 
   if (!response.ok) {

@@ -34,7 +34,6 @@ export const Card = styled.div`
     width: 100%;
     display: flex;
     overflow-y: auto;
-
     width: 220px;
     height: 130px;
     background-color: #FFFFFF;

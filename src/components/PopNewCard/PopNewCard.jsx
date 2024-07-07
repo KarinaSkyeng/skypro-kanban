@@ -24,33 +24,36 @@ export const PopNewCard = () => {
     description:'',
   });
 
-  const OnAddNewCard = () => {
+  const OnAddNewCard = async () => {
     setError('')
     const title = !inputValue.title ? 'Новая задача' : inputValue.title
     const topic = !inputValue.topic ? 'Research' : inputValue.topic
     const status = !inputValue.status ? 'Без статуса' : inputValue.status
-    const newCard = {
-      description: inputValue.description,
+    const newCard = {      
       title,
       topic,
       status,
-      date,
-    }
+      description: inputValue.description.trim() || '',
+      date: date.toISOString(),
+    };
 
-    if (!inputValue.description) {
+    if (!newCard.description) {
       return setError('Заполните описание')
     }
-    addTask({
-      task:newCard,
-      token: user.token
-    }).then((responce)=>{
-      console.log(responce)
-      setTasks(responce.tasks)
-      navigate()
-    }).catch((err)=>{
-      setError(err.message)
-    })
-  }
+
+    try {
+      const response = await addTask(newCard, user.token);
+      console.log(response);
+      setTasks(response.tasks);
+      navigate(routes.main);
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
+  const onCloseModal = () => {
+    navigate(routes.main); // Переход на главную страницу или другой маршрут для закрытия модального окна
+  };
 
   const onChangeInput = (e) => {
     const {value, name} = e.target
@@ -63,36 +66,32 @@ export const PopNewCard = () => {
         <S.PopNewCardBlock>
           <S.PopNewCardContent>
             <S.PopNewCardTitle>Создание задачи</S.PopNewCardTitle>
-            <S.PopNewCardClose href="#">
-            <Link to={routes.main}>&#10006;</Link>
-            </S.PopNewCardClose>
+            <Link to={routes.main}>
+            <S.PopNewCardClose onClick={onCloseModal}>&#10006;</S.PopNewCardClose>
+            </Link>
             <S.PopNewCardWrap>
               <S.PopNewCardForm
                 id="formNewCard"
-                action="#"
-              >
+                action="#">
                 <S.FormNewBlock>
-                  <Subttl>
-                    Название задачи
-                  </Subttl>
+                  <Subttl>Название задачи</Subttl>
                   <S.FormNewInput
                     type="text"
-                    name="name"
+                    name="title"
                     id="formTitle"
                     placeholder="Введите название задачи..."
                     autoFocus={true}
+                    onChange={onChangeInput}
                   />
                 </S.FormNewBlock>
                 <S.FormNewBlock>
-                  <Subttl>
-                    Описание задачи
-                  </Subttl>
+                  <Subttl>Описание задачи</Subttl>
                   <S.FormNewArea
                     onChange={onChangeInput}
                     name="description"                    
                     id="textArea"
                     placeholder="Введите описание задачи..."
-                    defaultValue={""}
+                    defaultValue=""
                   ></S.FormNewArea>
                 </S.FormNewBlock>
               </S.PopNewCardForm>
@@ -105,21 +104,18 @@ export const PopNewCard = () => {
                     name="topic"
                     value="Web Design"
                     onChange={onChangeInput}>
-                  <S.Orange
-                  >Web Design</S.Orange>
+                  <S.Orange>Web Design</S.Orange>
                 </S.CategoriesTheme>
                 <S.CategoriesTheme 
                     name="topic"
                     value="Research"
                     onChange={onChangeInput}>
-                  <S.Green
-                  >Research</S.Green>
+                  <S.Green>Research</S.Green>
                 </S.CategoriesTheme>
                 <S.CategoriesTheme
                   name="topic"
                   value="Copywriting"
-                  onChange={onChangeInput}
-                >
+                  onChange={onChangeInput}>
                   <S.Purple>Copywriting</S.Purple>
                 </S.CategoriesTheme>
               </S.CategoriesThemes>

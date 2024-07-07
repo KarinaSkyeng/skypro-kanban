@@ -123,4 +123,33 @@ export const Subttl = styled.label`
   font-size: 14px;
   font-weight: 600;
   line-height: 1;
-`
+`;
+
+export const CategoriesThemes = styled.div`
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+`;
+
+export const Orange = styled.p`
+    background-color: #FFE4C2;
+    color: #FF6D00;
+`;
+
+export const Green = styled.p`
+    background-color: #B4FDD1;
+    color: #06B16E;
+`;
+
+export const Purple = styled.p`
+    background-color: #E9D4FF;
+    color: #9A48F1;
+`;
+
+export const Gray = styled.p`
+    background: #94A6BE;
+    color: #FFFFFF;
+`;
+
+
