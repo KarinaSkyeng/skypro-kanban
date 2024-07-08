@@ -12,20 +12,21 @@ export const ColumnTitle = styled.div`
   align-items: center;
   color: rgb(148, 166, 190);
   font-family: Roboto;
-  font-size: 14px;
+  font-size: 10px;
   font-weight: 600;
-  line-height: 16px;
+  line-height: 10px;
   letter-spacing: 0%;
   text-align: left;
   text-transform: uppercase;
 
   p {
-  color: #94A6BE;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1;
-  text-transform: uppercase;
   display: flex;
+  padding-left: 6px;
+  color: #94A6BE;  
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+  text-transform: uppercase;
 }
 `;
 

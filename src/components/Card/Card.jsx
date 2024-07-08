@@ -54,7 +54,7 @@ export const Card = ({title, topic, date, color, _id}) => {
                   </clipPath>
                 </defs>
               </svg>
-              <p>{formattedDate}</p>
+              {formattedDate}
             </S.CardDate>
           </S.CardContent>
         </S.Card>

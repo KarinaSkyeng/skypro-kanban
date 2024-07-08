@@ -111,43 +111,43 @@ export const Hover03 = css`
 }
 `;
 
-export const ContainerSignin = styled.div`
+export const ContainerSignin = css`
     display: block;
     width: 100vw;
     min-height: 100vh;
     margin: 0 auto;
 `;
 
-export const Subttl = styled.label`
+export const Subttl = css`
   color: #000;
   font-size: 14px;
   font-weight: 600;
   line-height: 1;
 `;
 
-export const CategoriesThemes = styled.div`
+export const CategoriesThemes = css`
   display: flex;
   flex-wrap: nowrap;
   align-items: flex-start;
   justify-content: flex-start;
 `;
 
-export const Orange = styled.p`
+export const Orange = css`
     background-color: #FFE4C2;
     color: #FF6D00;
 `;
 
-export const Green = styled.p`
+export const Green = css`
     background-color: #B4FDD1;
     color: #06B16E;
 `;
 
-export const Purple = styled.p`
+export const Purple = css`
     background-color: #E9D4FF;
     color: #9A48F1;
 `;
 
-export const Gray = styled.p`
+export const Gray = css`
     background: #94A6BE;
     color: #FFFFFF;
 `;

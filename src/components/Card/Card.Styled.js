@@ -98,9 +98,10 @@ export const CardContent = styled.div`
 `;
  
 export const CardTitle = styled.h3`
+font-family: Roboto;
  font-size: 14px;
   font-weight: 500;
-  line-height: 18px;
+  line-height: 16px;
   color: ${({ theme }) => theme.text};
   margin-bottom: 10px;
 
@@ -111,17 +112,22 @@ export const CardDate = styled.div`
  display: flex;
   align-items: center;
   justify-content: flex-start;
+  color: #94A6BE;  
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 12px;
+  text-transform: uppercase; 
 
   svg {
   width: 13px;
+  margin-right: 6px;
 
-  p {
-  margin-left: 6px;
+  /* p {
   font-size: 10px;
   line-height: 11px;
-  color: ${({ theme }) => theme.text};
-  ${({ $color }) => themeColor($color)}
+  color: #94A6BE;
   letter-spacing: 1%;
-}
+  margin: 0;
+} */
 }
 `;
