@@ -60,18 +60,16 @@ export const CardTheme = styled.div`
   padding: 5px 14px;
   border-radius: 18px;
   color: ${({ theme }) => theme.text};
-
   ${({ $color }) => themeColor($color)}
 
-  p {
+  /* p {
   font-size: 10px;
   font-weight: 600;
   line-height: 10px;
   color: ${({ theme }) => theme.text};
   ${({ $color }) => themeColor($color)}
-}
+} */
 `;
-
 
 export const CardBtn = styled.div`
  width: 24px;
@@ -80,14 +78,13 @@ export const CardBtn = styled.div`
   align-items: center;
   justify-content: space-around;
   padding: 2px;
-
-  div {
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background-color: #94A6BE;
-}
 `;
+export const CardBtnDiv = styled(CardBtn)`
+   width: 4px;
+   height: 4px;
+   border-radius: 50%;
+   background-color: #94a6be;
+ `;
 
 export const CardContent = styled.div`
  height: 64px;
@@ -109,13 +106,21 @@ font-family: Roboto;
 `;
 
 export const CardDate = styled.div`
- display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  color: #94A6BE;  
-  font-size: 10px;
-  font-weight: 400;
-  line-height: 12px;
+   position: relative;
+   width: 59px;
+   height: 13px;
+   gap: 6px;
+   display: flex;
+   flex-direction: row;
+   justify-content: flex-start;
+   align-items: flex-end;
+   padding: 0px;
+   color: rgb(148, 166, 190);
+   font-family: Roboto;
+   font-size: 10px;
+   font-weight: 400;
+   line-height: 12px;
+   text-align: left;
   text-transform: uppercase; 
 
   svg {

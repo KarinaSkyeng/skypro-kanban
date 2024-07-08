@@ -42,12 +42,12 @@ export const Header = ({isDarkTheme, setIsDarkTheme}) => {
             {isOpen &&  
             <S.HeaderUserSet className="pop-user-set" id="user-set-target">
               {/*<a href="">x</a>*/}
-              <S.PopUserSetName>{user.name}</S.PopUserSetName>
-              <S.PopUserSetMail>{user.email}</S.PopUserSetMail>
-              <S.PopUserSetTheme>
+              <S.HeaderUserSetName>{user.name}</S.HeaderUserSetName>
+              <S.HeaderUserSetMail>{user.email}</S.HeaderUserSetMail>
+              <S.HeaderUserSetTheme>
                 Темная тема
                 <input checked={isDarkTheme === "dark"} onChange={onChangeTheme} type="checkbox" className="checkbox" name="checkbox" />
-              </S.PopUserSetTheme>
+              </S.HeaderUserSetTheme>
               <S.HeaderBtnExit>
                 <Link to={routes.exit}>Выйти</Link>
               </S.HeaderBtnExit>

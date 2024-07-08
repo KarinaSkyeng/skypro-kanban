@@ -2,8 +2,8 @@ import { DayPicker } from "react-day-picker";
 import styled from "styled-components";
 
 export const Calendar = styled.div`
-margin-bottom: 12px;
-margin-left: 30px;
+  margin-bottom: 12px;
+  margin-left: 30px;
 `;
 
 export const CalendarTtl = styled.p`
@@ -69,24 +69,24 @@ width: 100%;
 `
 
 export const CalendarContentP  = styled.p`
-margin-left: 20px;
+  margin-left: 20px;
 
-span {
-  color: #000000;
-}
+  span {
+    color: #000000;
+ }
 `;
 
 export const CalendarDaysNames  = styled.div`
-display: flex;
-flex-wrap: nowrap;
-align-items: center;
-justify-content: space-between;
-margin: 7px 0;
-padding: 0 7px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  margin: 7px 0;
+  padding: 0 7px;
 `;
 
 export const CalendarDaysName  = styled.div`
-color: #94A6BE;
+  color: #94A6BE;
   font-size: 10px;
   font-weight: 500;
   line-height: normal;
@@ -94,14 +94,14 @@ color: #94A6BE;
 `;
 
 export const СalendarСells = styled.div`
-width: 182px;
-height: 126px;
-display: flex;
-flex-wrap: wrap;
+  width: 182px;
+  height: 126px;
+  display: flex;
+  flex-wrap: wrap;
 `;
 
 export const СalendarСell = styled.div`
-width: 22px;
+  width: 22px;
   height: 22px;
   margin: 2px;
   border-radius: 50%;

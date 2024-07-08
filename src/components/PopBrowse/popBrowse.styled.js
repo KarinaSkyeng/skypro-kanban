@@ -10,6 +10,14 @@ export const PopBrowse = styled.div`
   top: 0;
   left: 0;
   z-index: 7;
+
+  &:target {
+    display: block;
+  }
+
+  @media screen and (max-width: 660px) {
+    top: 70px;
+  }
 `;
 
 export const PopBrowseContainer = styled.div`
@@ -43,24 +51,28 @@ export const PopBrowseBlock = styled.div`
   @media screen and (max-width: 660px) {
     border-radius: 0;
   }
+
+  @media screen and (max-width: 495px) {
+    padding: 20px 16px 32px;
+  }
 `;
 
 export const PopBrowseContent = styled.div`
-display: block;
-text-align: left;
-opacity: 1;
-display: block;
+    display: block;
+    text-align: left;
+    opacity: 1;
+    display: block;
 
 @media screen and (max-width: 495px) {
     display: block;
     margin-bottom: 20px;
-
+    opacity: 1;
     display: none;
   }
 `;
 
 export const PopBrowseTopBlock = styled.div`
-display: flex;
+  display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 18px;
@@ -71,7 +83,7 @@ display: flex;
 `;
 
 export const PopBrowseTtl = styled.h3`
-color: #000;
+  color: #000;
   font-size: 20px;
   font-weight: 600;
   line-height: 24px;
@@ -101,22 +113,22 @@ export const PopBrowseStatus = styled.div`
 `;
 
 export const BrowseStatusP = styled.div`
-    margin-bottom: 14px;
-    color: #000;
+  margin-bottom: 14px;
+  color: #000;
   font-size: 14px;
   font-weight: 600;
   line-height: 1;
 `;
 
 export const BrowseStatusThemes = styled.div`
-    display: flex;
+  display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: flex-start;
 `;
 
 export const BrowseStatusThemeHide = styled.div`
-     border-radius: 24px;
+  border-radius: 24px;
   border: 0.7px solid rgba(148, 166, 190, 0.4);
   color: #94A6BE;
   padding: 11px 14px 10px;
@@ -133,7 +145,7 @@ export const BrowseStatusThemeHide = styled.div`
 `;
 
 export const BrowseStatusThemeGray = styled.div`
-     border-radius: 24px;
+  border-radius: 24px;
   border: 0.7px solid rgba(148, 166, 190, 0.4);
   color: #94A6BE;
   padding: 11px 14px 10px;
@@ -151,7 +163,7 @@ export const BrowseStatusThemeGray = styled.div`
 `;
 
 export const PopBrowseWrap = styled.div`
-   display: flex;
+  display: flex;
   align-items: flex-start;
   justify-content: space-between;
 
@@ -161,7 +173,7 @@ export const PopBrowseWrap = styled.div`
 `;
 
 export const PopBrowseForm = styled.form`
-    max-width: 370px;
+  max-width: 370px;
   width: 100%;
   display: block;
   margin-bottom: 20px;
@@ -177,7 +189,7 @@ export const FormBrowseBlock = styled.div`
 `;
 
 export const FormBrowseArea = styled.textarea`
-      max-width: 370px;
+  max-width: 370px;
   width: 100%;
   outline: none;
   padding: 14px;
@@ -223,7 +235,6 @@ export const ThemeDownCategories = styled.div`
 
 export const BrowseCategoriesP = styled.p`
     margin-bottom: 14px;
-
     color: #000;
   font-size: 14px;
   font-weight: 600;
@@ -246,32 +257,34 @@ export const CategoriesTheme = styled.div`
 `;
 
 export const PopBrowseBtnBrowse = styled.div`
-    display: flex;
+  display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-between;
   margin-right: 8px;
 
   button {
-  height: 30px;
-  margin-bottom: 10px;
-  padding: 0 14px;
+    height: 30px;
+    margin-bottom: 10px;
+    padding: 0 14px;
 }
 
 @media screen and (max-width: 495px) {
-    button {
     width: 100%;
-    height: 40px;
-  }
+    button {
+        width: 100%;
+        height: 40px;
+        margin-right: 0px;
+    }
 }
 `;
 
 export const BtnGroup = styled.div`
      width: 100%;
 
-button {
-  margin-right: 8px;
-}
+    button {
+    margin-right: 8px;
+    }
 
 @media screen and (max-width: 495px) {
     width: 100%;
@@ -283,19 +296,19 @@ button {
 `;
 
 export const PopBrowseBtnEditBtnBor = styled.button`
-    display: flex;
+  display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-between;
   margin-right: 8px;
 
   button {
-  height: 30px;
-  margin-bottom: 10px;
-  padding: 0 14px;
-}
+    height: 30px;
+    margin-bottom: 10px;
+    padding: 0 14px;
+    }
 
-    border-radius: 4px;
+  border-radius: 4px;
   border: 0.7px solid var(--palette-navy-60, #565EEF);
   outline: none;
   background: transparent;
@@ -322,9 +335,9 @@ export const BtnBrowseDeleteBtnBor = styled.button`
   background: transparent;
   color: #565EEF;
 
-  a {
-  color: #565EEF;
-}
+    a {
+    color: #565EEF;
+    }
 
 ${Hover03}
 `;
@@ -392,6 +405,7 @@ border-radius: 4px;
 }
 
 ${Hover01}
+
 @media screen and (max-width: 495px) {
     width: 100%;
 

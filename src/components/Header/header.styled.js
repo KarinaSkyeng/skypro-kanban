@@ -34,6 +34,11 @@ export const HeaderBtnNew = styled.button`
   line-height: 1;
   font-weight: 500;
   margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 14px;
 
   a {
   color: #FFFFFF;
@@ -66,6 +71,10 @@ export const HeaderUser = styled.a`
   margin: -6px 0 0 5px;
   padding: 0;
 }
+  &:hover::after {
+      border-left-color: #33399b;
+      border-bottom-color: #33399b;
+  }
 
 ${Hover02}
 `;
@@ -102,7 +111,18 @@ img {
 `;
 
 export const HeaderBtnExit = styled.button`
+  width: 72px;
+  height: 30px;
+  background: transparent;
+  color: #565eef;
+  border-radius: 4px;
+  border: 1px solid #565eef;
+
 ${Hover03}
+
+&:hover a {
+    color: #ffffff;
+  }
 `;
 
 export const HeaderUserSet = styled.div`
@@ -121,8 +141,8 @@ display: block;
   z-index: 2;
 `;
 
-export const PopUserSetName = styled.p`
- color: ${({ theme }) => theme.text};
+export const HeaderUserSetName = styled.p`
+  color: ${({ theme }) => theme.text};
   font-size: 14px;
   font-weight: 500;
   line-height: 21px;
@@ -130,7 +150,7 @@ export const PopUserSetName = styled.p`
   margin-bottom: 4px;
 `;
 
-export const PopUserSetMail = styled.p`
+export const HeaderUserSetMail = styled.p`
   color: #94A6BE;
   font-size: 14px;
   line-height: 21px;
@@ -138,14 +158,14 @@ export const PopUserSetMail = styled.p`
   margin-bottom: 10px;
 `;
 
-export const PopUserSetTheme = styled.div`
+export const HeaderUserSetTheme = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 30px;
 
   p {
-  color: #000;
+  color: ${({theme})=> theme.text};
   font-size: 14px;
   line-height: 21px;
   letter-spacing: -0.14px;
@@ -162,7 +182,7 @@ input[type=checkbox] {
   cursor: pointer;
 }
 
-input[type=checkbox]::before {
+&::before {
   content: "";
   position: absolute;
   top: 1px;

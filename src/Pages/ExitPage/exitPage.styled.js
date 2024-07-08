@@ -9,6 +9,10 @@ width: 100%;
     top: 0;
     left: 0;
     z-index: 7;
+
+    &:target {
+    display: block;
+  }
   `;
 
 export const PopExitContainer  = styled.div`
@@ -27,16 +31,22 @@ export const PopExitBlock  = styled.div`
 display: block;
   margin: 0 auto;
   background-color: #FFFFFF;
-  max-width: 370px;
-  width: 100%;
+  /* max-width: 370px;
+  width: 100%; */
   padding: 50px 60px;
   border-radius: 10px;
   border: 0.7px solid #D4DBE5;
   box-shadow: 0px 4px 67px -12px rgba(0, 0, 0, 0.13);
+
+  @media only screen and (max-width: 375px) {
+    .pop-exit__block {
+      padding: 50px 20px;
+    }
+  }
 `;
 
 export const PopExitTtl  = styled.h2`
-text-align: center;
+  text-align: center;
   font-size: 20px;
   font-weight: 700;
   line-height: 30px;
@@ -49,10 +59,16 @@ width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media only screen and (max-width: 375px) {
+    .pop-exit__form-group {
+      display: block;
+    }
+  }
 `;
 
 export const PopExitYesButton = styled.button`
-width: 153px;
+  width: 153px;
   height: 30px;
   background-color: #565EEF;
   border-radius: 4px;
@@ -67,13 +83,23 @@ width: 153px;
   letter-spacing: -0.14px;
   color: #FFFFFF;
   margin-right: 10px;
+
   &:hover {
     background-color: #33399b;
+  }
+
+  @media only screen and (max-width: 375px) {
+    .pop-exit__exit-yes {
+      width: 100%;
+      height: 40px;
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
   }
 `;
 
 export const PopExitYesA  = styled.a`
-width: 100%;
+  width: 100%;
   height: 100%;
   color: #FFFFFF;
   display: flex;
@@ -82,7 +108,7 @@ width: 100%;
 `;
 
 export const PopExitNoButton = styled.button`
-width: 153px;
+  width: 153px;
   height: 30px;
   background-color: transparent;
   border-radius: 4px;
@@ -95,26 +121,35 @@ width: 153px;
   line-height: 21px;
   font-weight: 500;
   letter-spacing: -0.14px;
-  color: #FFFFFF;
+  color: #565EEF;
+
   &:hover {
     background-color: #33399b;
   color: #FFFFFF;
   }
+
+  @media only screen and (max-width: 375px) {
+    .pop-exit__exit-no {
+      width: 100%;
+      height: 40px;
+    }
+  }
 `;
 
 export const PopExitNoA  = styled.a`
-width: 100%;
-height: 100%;
-color: #565EEF;
-display: flex;
-align-items: center;
-justify-content: center;
-&:hover{
-    color: #ffffff};
+  width: 100%;
+  height: 100%;
+  color: #565EEF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  &:hover{
+      color: #ffffff};
 `;
 
 export const PopExitForm  = styled.form`
-width: 100%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;

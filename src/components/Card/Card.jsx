@@ -15,9 +15,9 @@ export const Card = ({title, topic, date, color, _id}) => {
             </S.CardTheme>
             <Link to={`/card/${_id}`}>
               <S.CardBtn>
-                <div></div>
-                <div></div>
-                <div></div>
+              <S.CardBtnDiv />
+              <S.CardBtnDiv />
+              <S.CardBtnDiv />
               </S.CardBtn>
             </Link>
           </S.CardGroup>
