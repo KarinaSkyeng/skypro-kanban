@@ -12,9 +12,9 @@ export const PopUser = ({setUser}) => {
         <S.PopExit>
 				<S.PopExitContainer>
 					<S.PopExitBlock>
-						<S.PopExitTitle>
+						{/* <S.PopExitTitle>
 							<h2>Выйти из аккаунта?</h2>
-						</S.PopExitTitle>
+						</S.PopExitTitle> */}
 						<S.PopExitForm id="formExit" action="#">
 							<S.PopExitFormGroup>
 								<S.PopExitYes onClick={handleLogout}><a>Да, выйти</a> </S.PopExitYes>
