@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react";
 import { Header } from "../../components/Header/Header.jsx";
 import { Main } from "../../components/Main/Main.jsx";
-import { PopNewCard } from "../../components/PopNewCard/PopNewCard.jsx";
 import { Wrapper, Loader } from "../../glogalStyle.styled.js";
 import { Outlet } from "react-router-dom";
 import { getTasks } from "../../api/tasks.js";
@@ -42,7 +41,7 @@ export const MainPage = ({isDarkTheme, setIsDarkTheme}) => {
           <Outlet/>
             <Header setUser={setUser} setIsDarkTheme={setIsDarkTheme} isDarkTheme={isDarkTheme} />
             {isLoading ? (<Loader>Данные загружаются...</Loader>) : error ? <p>{error}</p> : (<Main cards={cards} />) }        
-          <PopNewCard />        
+               
         </Wrapper>
     );
 }

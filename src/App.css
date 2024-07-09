@@ -629,7 +629,11 @@ body {
   margin-right: 8px;
 }
 
-.form-browse__block {
+.form-browse__block {color: #94A6BE;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  text-transform: uppercase;
   display: flex;
   flex-direction: column;
 }

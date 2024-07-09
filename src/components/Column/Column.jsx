@@ -3,14 +3,14 @@ import * as S from "./column.styled";
 
 export const Column = ({ title, cards}) => {
   return (
-    <S.MainColumn>
-      <div className="column__title">
-        <p>{title}</p>
-        <div className="cards">
-          {cards.map((card, index) => {
+    <S.Column>
+      <div>
+        <S.ColumnTitle>{title}</S.ColumnTitle>
+        <div>
+          {cards.map((card) => {
             return (
               <Card 
-                key={index} 
+                key={card._id} 
                 id={card._id}
                 title={card.title}
                 topic={card.topic} 
@@ -20,6 +20,6 @@ export const Column = ({ title, cards}) => {
           })}                               
         </div>
       </div>      
-    </S.MainColumn>
+    </S.Column>
   );
 };

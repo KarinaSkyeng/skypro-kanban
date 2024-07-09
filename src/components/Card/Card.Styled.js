@@ -115,14 +115,13 @@ export const CardDate = styled.div`
 
   svg {
   width: 13px;
+}
+`;
 
-  p {
+export const CardDateText = styled.p`
   margin-left: 6px;
   font-size: 10px;
   line-height: 11px;
-  color: ${({ theme }) => theme.text};
-  ${({ $color }) => themeColor($color)}
+  color: ${({ theme }) => theme.textSecondary};
   letter-spacing: 1%;
-}
-}
 `;
