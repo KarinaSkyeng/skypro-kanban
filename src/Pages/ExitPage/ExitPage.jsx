@@ -1,31 +1,33 @@
-import { useUserContext } from '../../context/useUserContext.js';
-import * as S from './exitPage.styled.js';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from "react-router-dom";
+import { routes } from "../../router/routes";
+import * as S from "./exitPage.styled.js";
+import { useUserContext } from "../../context/useUserContext.js";
 
-export function PopUser() {
-    const { logout } = useUserContext();
-    //const navigate = useNavigate();
+export const ExitPage = ({ setUser }) => {
+    const nav = useNavigate();
+    const { logout: contextLogout } = useUserContext();
 
-    //function logout() {
-        //localStorage.removeItem("user");
-        //setUser(null);
-       // navigate("/login");
-    //}
+    const handleLogout = () => {
+        if (setUser) {
+            setUser(false);
+            nav(routes.login);
+        } else if (contextLogout) {
+            contextLogout();
+        }
+    };
 
     return (
         <S.PopExit id="popExit">
             <S.PopExitContainer>
                 <S.PopExitBlock>
-                    <div>
-                        <S.PopExitTtl>Выйти из аккаунта?</S.PopExitTtl>
-                    </div>
+                    <S.PopExitTtl>Выйти из аккаунта?</S.PopExitTtl>
                     <S.PopExitForm id="formExit" action="#">
                         <S.PopExitFormGroup>
-                            <S.PopExitYesButton id="exitYes" onClick={logout}>
+                            <S.PopExitYesButton id="exitYes" onClick={handleLogout}>
                                 <S.PopExitYesA>Да, выйти</S.PopExitYesA>
                             </S.PopExitYesButton>
                             <S.PopExitNoButton id="exitNo">
-                                <Link to="/">Нет, остаться </Link>
+                                <Link to={routes.main}>Нет, остаться</Link>
                             </S.PopExitNoButton>
                         </S.PopExitFormGroup>
                     </S.PopExitForm>
@@ -33,4 +35,4 @@ export function PopUser() {
             </S.PopExitContainer>
         </S.PopExit>
     );
-}
+};

@@ -35,10 +35,10 @@ export const HeaderBtnNew = styled.button`
   font-weight: 500;
   margin-right: 20px;
 
-  a {
-  color: #FFFFFF;
-  text-decoration: none;
-}
+      a {
+      color: #FFFFFF;
+      text-decoration: none;
+    }
 
 ${Hover01}
 `;
@@ -111,6 +111,20 @@ export const HeaderBtnExit = styled.button`
   color: #565EEF;
   
 ${Hover03}
+
+a {
+    color: #565EEF;
+    text-decoration: none; // Убирает подчеркивание у ссылки
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  a:hover {
+    color: #ffffff;
+  }
 `;
 
 export const HeaderUserSet = styled.div`
