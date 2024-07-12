@@ -5,7 +5,7 @@ import { MainPage } from "../Pages/MainPage/MainPage.jsx";
 import { LoginPage } from "../Pages/LoginPage/LoginPage.jsx";
 import { Register } from "../Pages/Register/Register.jsx";
 import { ProtectedRoutes } from "./ProtectedRoutes.jsx";
-import { PopUser as ExitPage } from "../Pages/ExitPage/ExitPage.jsx";
+import { ExitPage } from "../Pages/ExitPage/ExitPage.jsx";
 import { CardPage } from "../Pages/CardPage/CardPage.jsx";
 import { UserProvider } from "../context/UserContext.jsx";
 import { NewCardPage } from "../Pages/AddCardPage/AddCardPage.jsx";
