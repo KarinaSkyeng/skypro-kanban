@@ -114,7 +114,7 @@ ${Hover03}
 
 a {
     color: #565EEF;
-    text-decoration: none; // Убирает подчеркивание у ссылки
+    text-decoration: none; 
     display: flex;
     align-items: center;
     justify-content: center;
