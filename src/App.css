@@ -282,7 +282,7 @@ body {
 }
 
 .pop-new-card {
-  display: none;
+  display: block;
   width: 100%;
   min-width: 375px;
   height: 100%;
@@ -629,7 +629,11 @@ body {
   margin-right: 8px;
 }
 
-.form-browse__block {
+.form-browse__block {color: #94A6BE;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  text-transform: uppercase;
   display: flex;
   flex-direction: column;
 }
@@ -809,7 +813,7 @@ body {
 .main__content {
   width: 100%;
   display: flex;
-}*/
+}
 .main__column {
   width: 20%;
   margin: 0 auto;
@@ -828,7 +832,7 @@ body {
   text-transform: uppercase;
 }
 
-/*.cards {
+.cards {
   width: 100%;
   display: block;
   position: relative;

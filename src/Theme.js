@@ -2,6 +2,7 @@
 export const light = {
     body: "#EAEEF6",
     text: "#000000",
+    textSecondary: "#94A6BE",
     cardBg: "#FFFFFF",
     headerBg: "#FFFFFF",
     logo: "images/logo.png",
@@ -12,7 +13,8 @@ export const light = {
         greenBg: "#B4FDD1",
         greenText: "#06B16E",
         purpleBg: "#E9D4FF",
-        purpleText: "#9A48F1"
+        purpleText: "#9A48F1",
+        purpleBorder: "#565EEF",
     }
 };
 
@@ -32,3 +34,4 @@ export const dark = {
         purpleText: "#E9D4FF"
     }
 };
+

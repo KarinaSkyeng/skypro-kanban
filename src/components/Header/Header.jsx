@@ -3,11 +3,14 @@ import * as S from "./header.styled.js";
 import { Container } from "../../glogalStyle.styled.js";
 import { Link } from "react-router-dom";
 import { routes } from "../../router/routes.js";
+import { useUserContext } from "../../context/useUserContext.js";
 
-export const Header = ({addCard, isDarkTheme, setIsDarkTheme}) => {
-  const [isOpen, setIsOpen] = useState(false)
+export const Header = ({isDarkTheme, setIsDarkTheme}) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const { user } = useUserContext();
+
   const toggleOpenUser = () => {
-    setIsOpen(!isOpen)
+    setIsOpen(!isOpen);
    };
 
    const onChangeTheme = () => {
@@ -29,19 +32,21 @@ export const Header = ({addCard, isDarkTheme, setIsDarkTheme}) => {
             </a>
           </S.HeaderLogo >
           <S.HeaderNav>
-            <S.HeaderBtnNew onClick={addCard}>
-              <a>Создать новую задачу</a>
+            <Link to={routes.add}>
+            <S.HeaderBtnNew>
+              Создать новую задачу
             </S.HeaderBtnNew>
+            </Link>
             <S.HeaderUser onClick= {toggleOpenUser}>
-              Ivan Ivanov</S.HeaderUser>
+              {user.name} </S.HeaderUser>
             {isOpen &&  
             <S.HeaderUserSet className="pop-user-set" id="user-set-target">
               {/*<a href="">x</a>*/}
-              <S.PopUserSetName>Ivan Ivanov</S.PopUserSetName>
-              <S.PopUserSetMail>ivan.ivanov@gmail.com</S.PopUserSetMail>
+              <S.PopUserSetName>{user.name}</S.PopUserSetName>
+              <S.PopUserSetMail>{user.email}</S.PopUserSetMail>
               <S.PopUserSetTheme>
-                <p>Темная тема</p>
-                <input checked={isDarkTheme === "dark"} onClick={onChangeTheme} type="checkbox" className="checkbox" name="checkbox" />
+                Темная тема
+                <input checked={isDarkTheme === "dark"} onChange={onChangeTheme} type="checkbox" className="checkbox" name="checkbox" />
               </S.PopUserSetTheme>
               <S.HeaderBtnExit>
                 <Link to={routes.exit}>Выйти</Link>
@@ -53,4 +58,4 @@ export const Header = ({addCard, isDarkTheme, setIsDarkTheme}) => {
       </Container>
     </S.Header>
   );
-}
+};

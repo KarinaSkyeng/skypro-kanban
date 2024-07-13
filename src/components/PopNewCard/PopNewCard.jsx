@@ -1,3 +1,5 @@
+import Calendar from "../Calendar/Calendar";
+
 export const PopNewCard = () => {
   return (
     <div className="pop-new-card" id="popNewCard">
@@ -39,7 +41,8 @@ export const PopNewCard = () => {
                   ></textarea>
                 </div>
               </form>
-              <div className="pop-new-card__calendar calendar">
+              <Calendar />
+              {/*<div className="pop-new-card__calendar calendar">
                 <p className="calendar__ttl subttl">Даты</p>
                 <div className="calendar__block">
                   <div className="calendar__nav">
@@ -123,8 +126,8 @@ export const PopNewCard = () => {
                       <span className="date-control"></span>.
                     </p>
                   </div>
-                </div>
-              </div>
+                // </div>
+              </div>*/}
             </div>
             <div className="pop-new-card__categories categories">
               <p className="categories__p subttl">Категория</p>

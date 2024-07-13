@@ -1,4 +1,4 @@
-import "./App.css";
+
 import { useState } from "react";
 import { GlobalStyle } from "./glogalStyle.styled.js";
 import { ThemeProvider } from "styled-components";

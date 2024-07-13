@@ -5,25 +5,33 @@ import { MainPage } from "../Pages/MainPage/MainPage.jsx";
 import { LoginPage } from "../Pages/LoginPage/LoginPage.jsx";
 import { Register } from "../Pages/Register/Register.jsx";
 import { ProtectedRoutes } from "./ProtectedRoutes.jsx";
-import { useState } from "react";
 import { ExitPage } from "../Pages/ExitPage/ExitPage.jsx";
 import { CardPage } from "../Pages/CardPage/CardPage.jsx";
-    
-export const AppRoutes = ({isDarkTheme, setIsDarkTheme}) => {
-    const [isAuth, setIsAuth] = useState(false)
+import { UserProvider } from "../context/UserContext.jsx";
+import { NewCardPage } from "../Pages/AddCardPage/AddCardPage.jsx";
+
+export const AppRoutes = ({ isDarkTheme, setIsDarkTheme }) => {
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route element={<ProtectedRoutes isAuth={isAuth}/>}>
-                    <Route path={routes.main} element={<MainPage isDarkTheme={isDarkTheme} setIsDarkTheme={setIsDarkTheme} />}>
-                        <Route path={routes.exit} element={<ExitPage setIsAuth={setIsAuth} />} />
-                        <Route path={routes.card} element={<CardPage />} />
+        <UserProvider>
+            <BrowserRouter>
+                <Routes>
+                    <Route element={<ProtectedRoutes />}>
+                        <Route 
+                            path={routes.main} 
+                            element={
+                                <MainPage 
+                                    isDarkTheme={isDarkTheme} 
+                                    setIsDarkTheme={setIsDarkTheme} /> } >
+                            <Route path={routes.exit} element={<ExitPage />} />
+                            <Route path={routes.card} element={<CardPage />} />
+                            <Route path={routes.add} element={<NewCardPage />} />
+                        </Route>
                     </Route>
-                </Route>
-                <Route path={routes.login} element={<LoginPage setIsAuth={setIsAuth} />} />
-                <Route path={routes.register} element={<Register/>} />
-                <Route path={routes.notFound} element={<NotFound/>} />
-            </Routes>
-        </BrowserRouter>
-    )
-}
+                    <Route path={routes.login} element={<LoginPage />} />
+                    <Route path={routes.register} element={<Register />} />
+                    <Route path={routes.notFound} element={<NotFound />} />
+                </Routes>
+            </BrowserRouter>
+        </UserProvider>
+    );
+};

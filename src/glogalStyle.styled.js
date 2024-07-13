@@ -38,8 +38,14 @@ body {
 `;
 
 export const Loader = styled.p`
-text-align: center;
-margin-top: 20px;
+  text-align: center;
+  margin-top: 20px;
+  background: url('/images/loader.gif') no-repeat center center;
+  background-size: 50px 50px; 
+  height: 100px;
+  line-height: 100px; 
+  font-size: 1.5rem; 
+  color: #333;
 `;
 
 export const Wrapper = styled.div`
@@ -55,6 +61,11 @@ max-width: 1260px;
   width: 100%;
   margin: 0 auto;
   padding: 0 30px;
+
+  @media screen and (max-width: 495px) {
+    width: 100%;
+    padding: 0 16px;
+  }
 `;
 
 export const themeColor = ($color) => css`

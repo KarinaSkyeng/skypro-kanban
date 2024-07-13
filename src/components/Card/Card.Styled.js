@@ -29,6 +29,21 @@ export const Card = styled.div`
   align-items: flex-start;
   justify-content: stretch;
   padding: 15px 13px 19px; 
+
+  @media screen and (max-width: 1200px) {
+    width: 100%;
+    display: flex;
+    overflow-y: auto;
+
+    width: 220px;
+    height: 130px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: stretch;
+    padding: 15px 13px 19px;
+  }
 `;
 
 export const CardGroup = styled.div`
@@ -100,13 +115,13 @@ export const CardDate = styled.div`
 
   svg {
   width: 13px;
+}
+`;
 
-  p {
+export const CardDateText = styled.p`
   margin-left: 6px;
   font-size: 10px;
-  line-height: 13px;
-  color: ${({ theme }) => theme.text};
-  letter-spacing: 0.2px;
-}
-}
+  line-height: 11px;
+  color: ${({ theme }) => theme.textSecondary};
+  letter-spacing: 1%;
 `;
