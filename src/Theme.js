@@ -21,6 +21,7 @@ export const light = {
 export const dark = {
     body: "#151419",
     text: "#FFFFFF",
+    textSecondary: "#B1B1B1",
     headerBg: "#20202C",
     cardBg: "#20202C",
     logo: "images/logo_dark.png",

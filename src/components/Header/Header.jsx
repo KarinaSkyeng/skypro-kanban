@@ -4,6 +4,7 @@ import { Container } from "../../glogalStyle.styled.js";
 import { Link } from "react-router-dom";
 import { routes } from "../../router/routes.js";
 import { useUserContext } from "../../context/useUserContext.js";
+import { NewCardPage } from "../../Pages/AddCardPage/AddCardPage.jsx";
 
 export const Header = ({isDarkTheme, setIsDarkTheme}) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,15 +33,15 @@ export const Header = ({isDarkTheme, setIsDarkTheme}) => {
             </a>
           </S.HeaderLogo >
           <S.HeaderNav>
-            <Link to={routes.add}>
-            <S.HeaderBtnNew>
+            <Link to={routes.addNew}>
+            <S.HeaderBtnNew href="#popNewCard" onClick={NewCardPage}>
               Создать новую задачу
             </S.HeaderBtnNew>
             </Link>
             <S.HeaderUser onClick= {toggleOpenUser}>
               {user.name} </S.HeaderUser>
             {isOpen &&  
-            <S.HeaderUserSet className="pop-user-set" id="user-set-target">
+            <S.HeaderUserSet>
               {/*<a href="">x</a>*/}
               <S.PopUserSetName>{user.name}</S.PopUserSetName>
               <S.PopUserSetMail>{user.email}</S.PopUserSetMail>

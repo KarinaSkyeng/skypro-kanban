@@ -141,6 +141,10 @@ display: block;
   padding: 34px;
   text-align: center;
   z-index: 2;
+
+  &:target {
+  display: block;
+}
 `;
 
 export const PopUserSetName = styled.p`
@@ -167,10 +171,16 @@ export const PopUserSetTheme = styled.div`
   margin-bottom: 30px;
 
   p {
-  color: #000;
+  /* color: #000;
   font-size: 14px;
   line-height: 21px;
   letter-spacing: -0.14px;
+  display: flex; */
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  color: ${({ theme }) => theme.text};
+  margin-bottom: 10px;
 }
 
 input[type=checkbox] {
