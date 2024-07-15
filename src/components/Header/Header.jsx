@@ -6,17 +6,13 @@ import { routes } from "../../router/routes.js";
 import { useUserContext } from "../../context/useUserContext.js";
 import { NewCardPage } from "../../Pages/AddCardPage/AddCardPage.jsx";
 
-export const Header = ({isDarkTheme, setIsDarkTheme}) => {
+export const Header = ({isDarkTheme, onChangeTheme}) => {
   const [isOpen, setIsOpen] = useState(false);
   const { user } = useUserContext();
 
   const toggleOpenUser = () => {
     setIsOpen(!isOpen);
-   };
-
-   const onChangeTheme = () => {
-    setIsDarkTheme(isDarkTheme === "light" ? "dark" : "light");  
-   };
+   };   
     
   return (
     <S.Header>
@@ -46,7 +42,7 @@ export const Header = ({isDarkTheme, setIsDarkTheme}) => {
               <S.PopUserSetName>{user.name}</S.PopUserSetName>
               <S.PopUserSetMail>{user.email}</S.PopUserSetMail>
               <S.PopUserSetTheme>
-                Темная тема
+              <span style={{ color: isDarkTheme === "dark" ? "#FFF" : "#000" }}>Темная тема</span>
                 <input checked={isDarkTheme === "dark"} onChange={onChangeTheme} type="checkbox" className="checkbox" name="checkbox" />
               </S.PopUserSetTheme>
               <S.HeaderBtnExit>

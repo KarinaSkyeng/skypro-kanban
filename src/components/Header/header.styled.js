@@ -170,17 +170,12 @@ export const PopUserSetTheme = styled.div`
   justify-content: space-between;
   margin-bottom: 30px;
 
-  p {
-  /* color: #000;
-  font-size: 14px;
-  line-height: 21px;
-  letter-spacing: -0.14px;
-  display: flex; */
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 18px;
-  color: ${({ theme }) => theme.text};
-  margin-bottom: 10px;
+  span {
+          color: ${({ theme }) => theme.text};
+          font-size: 14px;
+          line-height: 21px;
+          letter-spacing: -0.14px;
+          display: flex; 
 }
 
 input[type=checkbox] {

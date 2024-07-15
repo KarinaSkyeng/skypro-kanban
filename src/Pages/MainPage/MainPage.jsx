@@ -1,14 +1,14 @@
 
 import { useEffect, useState } from "react";
-import { Header } from "../../components/Header/Header.jsx";
+//import { Header } from "../../components/Header/Header.jsx";
 import { Main } from "../../components/Main/Main.jsx";
 import { Wrapper, Loader } from "../../glogalStyle.styled.js";
 import { Outlet } from "react-router-dom";
 import { getTasks } from "../../api/tasks.js";
 import { useUserContext } from "../../context/useUserContext";
 
-export const MainPage = ({isDarkTheme, setIsDarkTheme}) => {
-    const { user, setUser } = useUserContext();
+export const MainPage = () => {
+    const { user} = useUserContext();
     const [cards, setCards] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState("");    
@@ -39,9 +39,13 @@ export const MainPage = ({isDarkTheme, setIsDarkTheme}) => {
     return (
         <Wrapper>
           <Outlet/>
-            <Header setUser={setUser} setIsDarkTheme={setIsDarkTheme} isDarkTheme={isDarkTheme} />
-            {isLoading ? (<Loader>Данные загружаются...</Loader>) : error ? <p>{error}</p> : (<Main cards={cards} />) }        
-               
+            {/* <Header setUser={setUser} setIsDarkTheme={setIsDarkTheme} isDarkTheme={isDarkTheme} /> */}
+            {isLoading ? (
+              <Loader>Данные загружаются...</Loader>
+              ) : error ? 
+              <p>{error}</p> : (
+              <Main cards={cards} />
+              )}    
         </Wrapper>
     );
-}
+};
