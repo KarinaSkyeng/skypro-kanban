@@ -3,20 +3,17 @@ import Calendar from "../Calendar/Calendar";
 import * as S from "./popNewCard.styled.js";
 import { routes } from "../../router/routes.js";
 import { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
 import { addTask } from '../../api/tasks';
 import { TaskContext } from '../../context/TasksContext';
 
-export const PopNewCard = () => {
-
+export const PopNewCard = ({ onClose }) => {
   const {user} = useContext(UserContext)
   const { setTasks } = useContext(TaskContext)
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
   const [error, setError] = useState('')
-
   const [date] = useState(new Date)
-
   const [inputValue, setInputValue] = useState({
     title: '',
     topic: '',
@@ -43,17 +40,16 @@ export const PopNewCard = () => {
 
     try {
       const response = await addTask(newCard, user.token);
-      console.log(response);
-      setTasks(response.tasks);
-      navigate(routes.main);
+      setTasks((prevTasks) => [...prevTasks, response.task]); 
+      onClose();
     } catch (err) {
       setError(err.message);
     }
   };
 
-  const onCloseModal = () => {
-    navigate(routes.main); // Переход на главную страницу или другой маршрут для закрытия модального окна
-  };
+  // const onCloseModal = () => {
+  //   navigate(routes.main); // Переход на главную страницу или другой маршрут для закрытия модального окна
+  // };
 
   const onChangeInput = (e) => {
     const {value, name} = e.target
@@ -67,7 +63,7 @@ export const PopNewCard = () => {
           <S.PopNewCardContent>
             <S.PopNewCardTitle>Создание задачи</S.PopNewCardTitle>
             <Link to={routes.main}>
-            <S.PopNewCardClose onClick={onCloseModal}>&#10006;</S.PopNewCardClose>
+            <S.PopNewCardClose onClick={onClose}>&#10006;</S.PopNewCardClose>
             </Link>
             <S.PopNewCardWrap>
               <S.PopNewCardForm

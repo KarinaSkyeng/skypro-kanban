@@ -11,13 +11,13 @@ import { UserProvider } from "../context/UserContext.jsx";
 import { NewCardPage } from "../Pages/AddCardPage/AddCardPage.jsx";
 import { Header } from "../components/Header/Header.jsx";
 
-export const AppRoutes = ({ isDarkTheme, onChangeTheme }) => {
+export const AppRoutes = ({ isDarkTheme, setIsDarkTheme }) => {
     return (
         <UserProvider>
             <BrowserRouter>
                 <Header 
                     isDarkTheme={isDarkTheme} 
-                    onChangeTheme={() => onChangeTheme(onChangeTheme === "light" ? "dark" : "light")} 
+                    setIsDarkTheme={setIsDarkTheme} 
                 />
                 <Routes>
                     <Route element={<ProtectedRoutes />}>
@@ -26,7 +26,7 @@ export const AppRoutes = ({ isDarkTheme, onChangeTheme }) => {
                             element={
                                 <MainPage 
                                     isDarkTheme={isDarkTheme} 
-                                    onChangeTheme={onChangeTheme} /> } >
+                                    setIsDarkTheme={setIsDarkTheme} /> } >
                             <Route path={routes.exit} element={<ExitPage />} />
                             <Route path={routes.card} element={<CardPage />} />
                             <Route path={routes.add} element={<NewCardPage />} />

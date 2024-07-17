@@ -3,11 +3,11 @@ import { PopNewCard } from "../../components/PopNewCard/PopNewCard";
 import { TaskProvider } from "../../context/TasksContext";
 
 export const NewCardPage = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(true);
 
   return (
     <TaskProvider>
-      <div>      
+      <div>              
         {isModalOpen && <PopNewCard onClose={() => setIsModalOpen(false)} />}
       </div>
     </TaskProvider>

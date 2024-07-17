@@ -3,8 +3,7 @@ import { useUser } from '../hooks/useUser';
 
 export const UserContext = createContext(null);
 
-export const UserProvider = ({ children }) => {
-  //const [user, setUser] = useState(getUserFromLocalStorage());
+export const UserProvider = ({ children }) => {  
 const {user, login, logout} = useUser();
 
   useEffect(() => {

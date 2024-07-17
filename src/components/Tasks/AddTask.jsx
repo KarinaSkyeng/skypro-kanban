@@ -10,7 +10,7 @@ export const AddTask = ({ onTaskAdded }) => {
     event.preventDefault();
     const newTask = {
       title,
-      date: new Date().toISOString(), // Убедитесь, что дата передается в ISO формате
+      date: new Date().toISOString(), 
     };
     await addTask(newTask, user.token);
     onTaskAdded();
