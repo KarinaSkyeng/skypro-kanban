@@ -6,9 +6,8 @@ export const signIn = async({login, password}) => {
           body: JSON.stringify ({
             login,
             password,
-          })
-        }
-    ); 
+          }),
+        }); 
     if (response.status === 400) {
         throw new Error("Неверный логин или пароль")
     }

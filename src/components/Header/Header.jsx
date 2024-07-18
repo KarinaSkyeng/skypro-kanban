@@ -36,15 +36,13 @@ export const Header = ({isDarkTheme, setIsDarkTheme}) => {
               <img src="images/logo_dark.png" alt="logo" />
             </a>
           </S.HeaderLogo >
-          <S.HeaderNav>
-            <Link to={routes.add}>
-            <S.HeaderBtnNew>
-              Создать новую задачу
-            </S.HeaderBtnNew>
-            </Link>
-            <S.HeaderUser onClick= {toggleOpenUser}>
+          <S.HeaderNav>            
+            <S.HeaderBtnNew><Link to={routes.add}>
+              Создать новую задачу</Link>
+            </S.HeaderBtnNew>            
+            <S.HeaderUser onClick={toggleOpenUser}>
               {user.name} </S.HeaderUser>
-            {isOpen &&  
+            {isOpen ?  
             <S.HeaderUserSet>
               {/*<a href="">x</a>*/}
               <S.PopUserSetName>{user.name}</S.PopUserSetName>
@@ -56,7 +54,7 @@ export const Header = ({isDarkTheme, setIsDarkTheme}) => {
               <S.HeaderBtnExit>
                 <Link to={routes.exit}>Выйти</Link>
               </S.HeaderBtnExit>
-            </S.HeaderUserSet>
+            </S.HeaderUserSet> : null
             }
           </S.HeaderNav>
         </S.HeaderBlock>
