@@ -4,10 +4,13 @@ import { Container } from "../../glogalStyle.styled.js";
 import { Link } from "react-router-dom";
 import { routes } from "../../router/routes.js";
 import { useUserContext } from "../../context/useUserContext.js";
+// import { PopBrowse } from "../../components/PopBrowse/PopBrowse.jsx";
+
 
 export const Header = ({isDarkTheme, setIsDarkTheme}) => {
   const [isOpen, setIsOpen] = useState(false);
   const { user } = useUserContext();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
    // Добавляем проверку на наличие user
    if (!user) {
@@ -21,6 +24,14 @@ export const Header = ({isDarkTheme, setIsDarkTheme}) => {
    const onChangeTheme = () => {
     setIsDarkTheme(isDarkTheme === "light" ? "dark" : "light");  
    };
+
+   const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  // const closeModal = () => {
+  //   setIsModalOpen(false);
+  // };
     
   return (
     <S.Header>
@@ -37,9 +48,10 @@ export const Header = ({isDarkTheme, setIsDarkTheme}) => {
             </a>
           </S.HeaderLogo >
           <S.HeaderNav>            
-            <S.HeaderBtnNew><Link to={routes.add}>
-              Создать новую задачу</Link>
-            </S.HeaderBtnNew>            
+            <S.HeaderBtnNew onClick={openModal} value={isModalOpen}>
+              Создать новую задачу
+            </S.HeaderBtnNew> 
+            {/* <PopBrowse />            */}
             <S.HeaderUser onClick={toggleOpenUser}>
               {user.name} </S.HeaderUser>
             {isOpen ?  

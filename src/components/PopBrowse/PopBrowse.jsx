@@ -1,11 +1,14 @@
-import { Link, useParams } from "react-router-dom";
-import Calendar from "../../components/Calendar/Calendar";
-import { routes } from "../../router/routes";
+import { Link, useParams, useState } from "react-router-dom";
+import Calendar from "../../components/Calendar/Calendar.jsx";
+import { routes } from "../../router/routes.js";
 import * as S from "./popBrowse.styled";
 import { Subttl, Orange } from "../../glogalStyle.styled";
-
-
+    
 export const PopBrowse = () => {
+	const [isModalOpen, setIsModalOpen] = useState(false);
+	const closeModal = () => {
+		setIsModalOpen(false);
+};
 	const { id } = useParams();
     return (
         <S.PopBrowse>
@@ -66,7 +69,7 @@ export const PopBrowse = () => {
 									<S.PopBrowseBtnEditBtnBor><a href="#">Отменить</a></S.PopBrowseBtnEditBtnBor>
 									<S.BtnBrowseDeleteBtnBor><a href="#">Удалить задачу</a></S.BtnBrowseDeleteBtnBor>
 								</S.BtnGroup>
-								<S.BtnBrowseCloseBtnBg><Link to={routes.main}>Закрыть</Link></S.BtnBrowseCloseBtnBg>
+								<S.BtnBrowseCloseBtnBg onClick={closeModal} value={isModalOpen}>Закрыть</S.BtnBrowseCloseBtnBg>
 							</S.PopBrowseBntEditHide>													
 						</S.PopBrowseContent>
 					</S.PopBrowseBlock>

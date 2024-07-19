@@ -9,16 +9,13 @@ import { ExitPage } from "../Pages/ExitPage/ExitPage.jsx";
 import { CardPage } from "../Pages/CardPage/CardPage.jsx";
 import { UserProvider } from "../context/UserContext.jsx";
 import { NewCardPage } from "../Pages/AddCardPage/AddCardPage.jsx";
-import { Header } from "../components/Header/Header.jsx";
+//import { PopBrowse } from "../../components/PopBrowse/PopBrowse.jsx";
+
 
 export const AppRoutes = ({ isDarkTheme, setIsDarkTheme }) => {
     return (
         <UserProvider>
-            <BrowserRouter>
-                <Header 
-                    isDarkTheme={isDarkTheme} 
-                    setIsDarkTheme={setIsDarkTheme} 
-                />
+            <BrowserRouter>               
                 <Routes>
                     <Route element={<ProtectedRoutes />}>
                         <Route 
