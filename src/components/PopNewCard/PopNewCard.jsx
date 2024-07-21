@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
 import { addTask } from '../../api/tasks';
 import { TaskContext } from '../../context/TasksContext';
-
+ 
 export const PopNewCard = ({ onClose }) => {
   const {user} = useContext(UserContext)
   const { setTasks } = useContext(TaskContext)
