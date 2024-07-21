@@ -1,10 +1,15 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useUserContext } from '../../context/useUserContext';
-import { addTask } from '../../api/tasks';
+import { TaskContext } from '../../context/TasksContext';
+import { addTask as apiAddTask } from '../../api/tasks';
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
 
 export const AddTask = ({ onTaskAdded }) => {
   const [title, setTitle] = useState('');
+  const [date, setDate] = useState(new Date());
   const { user } = useUserContext();
+  const { addTask } = useContext(TaskContext);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -12,8 +17,16 @@ export const AddTask = ({ onTaskAdded }) => {
       title,
       date: new Date().toISOString(), 
     };
-    await addTask(newTask, user.token);
-    onTaskAdded();
+
+    console.log("Отправляемые данные:", newTask);
+
+    try {
+      const response = await apiAddTask(newTask, user.token);
+      addTask(response.task); // Добавление задачи в контекст
+      onTaskAdded();
+    } catch (error) {
+      console.error("Ошибка при добавлении задачи:", error);
+    }
   };
 
   return (
@@ -23,6 +36,10 @@ export const AddTask = ({ onTaskAdded }) => {
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         placeholder="Введите название задачи"
+      />
+       <Calendar
+        onChange={setDate}
+        value={date}
       />
       <button type="submit">Добавить задачу</button>
     </form>

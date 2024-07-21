@@ -12,16 +12,16 @@ function App() {
   const currentTheme = isDarkTheme === "dark" ? dark : light;
 
   return (
-    <ThemeProvider theme={currentTheme}>
-  <UserProvider>
-        <TaskProvider>
+    <TaskProvider>
+      <UserProvider>
+        <ThemeProvider theme={currentTheme}>        
           <GlobalStyle />
             <BrowserRouter>
               <AppRoutes isDarkTheme={isDarkTheme} setIsDarkTheme={setIsDarkTheme} />
-            </BrowserRouter>          
-        </TaskProvider>
+            </BrowserRouter>
+        </ThemeProvider>
       </UserProvider>
-    </ThemeProvider>
+    </TaskProvider>
   );
 }
 
