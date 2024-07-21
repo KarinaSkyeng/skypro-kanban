@@ -7,5 +7,5 @@ export const routes = {
     exit: "/exit",
     card: "/card/:id",
     add: "/add",
-    addNew: "/tasks",
+    //addNew: "/tasks",
 }

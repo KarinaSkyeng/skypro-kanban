@@ -13,9 +13,7 @@ import { NewCardPage } from "../Pages/AddCardPage/AddCardPage.jsx";
 
 
 export const AppRoutes = ({ isDarkTheme, setIsDarkTheme }) => {
-    return (
-        // <UserProvider>
-            //<BrowserRouter>               
+    return (              
                 <Routes>
                     <Route element={<ProtectedRoutes />}>
                         <Route 
@@ -27,14 +25,12 @@ export const AppRoutes = ({ isDarkTheme, setIsDarkTheme }) => {
                                 /> } >
                             <Route path={routes.exit} element={<ExitPage />} />
                             <Route path={routes.card} element={<CardPage />} />
-                            <Route path={routes.addNew} element={<NewCardPage />} />
+                            <Route path={routes.add} element={<NewCardPage />} />
                         </Route>
                     </Route>
                     <Route path={routes.login} element={<LoginPage />} />
                     <Route path={routes.register} element={<Register />} />
                     <Route path={routes.notFound} element={<NotFound />} />
                 </Routes>
-            //</BrowserRouter>
-        // </UserProvider>
     );
 };

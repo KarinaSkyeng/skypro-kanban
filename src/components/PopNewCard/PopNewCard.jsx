@@ -3,15 +3,16 @@ import Calendar from "../Calendar/Calendar";
 import * as S from "./popNewCard.styled.js";
 import { routes } from "../../router/routes.js";
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
 import { addTask } from '../../api/tasks';
 import { TaskContext } from '../../context/TasksContext';
- 
+import { useNavigate } from "react-router-dom"; 
+
 export const PopNewCard = ({ onClose }) => {
   const {user} = useContext(UserContext)
   const { setTasks } = useContext(TaskContext)
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
   const [error, setError] = useState('')
   const [date] = useState(new Date)
   const [inputValue, setInputValue] = useState({
@@ -47,9 +48,9 @@ export const PopNewCard = ({ onClose }) => {
     }
   };
 
-  // const onCloseModal = () => {
-  //   navigate(routes.main); // Переход на главную страницу или другой маршрут для закрытия модального окна
-  // };
+  const onCloseModal = () => {
+    navigate(routes.main); // Переход на главную страницу или другой маршрут для закрытия модального окна
+  };
 
   const onChangeInput = (e) => {
     const {value, name} = e.target
@@ -62,14 +63,12 @@ export const PopNewCard = ({ onClose }) => {
         <S.PopNewCardBlock>
           <S.PopNewCardContent>
             <S.PopNewCardTitle>Создание задачи</S.PopNewCardTitle>
-            <Link to={routes.main}>
-            <S.PopNewCardClose onClick={onClose}>&#10006;</S.PopNewCardClose>
-            </Link>
-            <S.PopNewCardWrap>
-              <S.PopNewCardForm
+             <S.PopNewCardClose onClick={onCloseModal}>&#10006;</S.PopNewCardClose>
+              <S.PopNewCardWrap>
+               <S.PopNewCardForm
                 id="formNewCard"
                 action="#">
-                <S.FormNewBlock>
+                 <S.FormNewBlock> 
                   <Subttl>Название задачи</Subttl>
                   <S.FormNewInput
                     type="text"

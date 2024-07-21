@@ -118,7 +118,7 @@ export const ContainerSignin = styled.div`
     margin: 0 auto;
 `;
 
-export const Subttl = css`
+export const Subttl = styled.h3`
   color: #000;
   font-size: 14px;
   font-weight: 600;
