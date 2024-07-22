@@ -77,6 +77,7 @@ export const PopNewCard = ({ onClose }) => {
                     placeholder="Введите название задачи..."
                     autoFocus={true}
                     onChange={onChangeInput}
+                    value={inputValue.title}
                   />
                 </S.FormNewBlock>
                 <S.FormNewBlock>
@@ -95,24 +96,32 @@ export const PopNewCard = ({ onClose }) => {
             <S.PopNewCardCategories>
               <S.CategoriesPSubttl>Категория</S.CategoriesPSubttl>
               <S.CategoriesThemes>
-                <S.CategoriesTheme 
-                    name="topic"
-                    value="Web Design"
-                    onChange={onChangeInput}>
-                  <S.Orange>Web Design</S.Orange>
-                </S.CategoriesTheme>
-                <S.CategoriesTheme 
-                    name="topic"
-                    value="Research"
-                    onChange={onChangeInput}>
-                  <S.Green>Research</S.Green>
-                </S.CategoriesTheme>
-                <S.CategoriesTheme
-                  name="topic"
-                  value="Copywriting"
-                  onChange={onChangeInput}>
-                  <S.Purple>Copywriting</S.Purple>
-                </S.CategoriesTheme>
+              <S.InputRadio
+                      type="radio"
+                      id="radio1"
+                      name="topic"
+                      value="Web Design"
+                      onChange={onChangeInput}
+                    />
+                    <S.RadioToolbarLabel1 htmlFor="radio1">Web Design</S.RadioToolbarLabel1>
+
+                    <S.InputRadio
+                      type="radio"
+                      id="radio2"
+                      name="topic"
+                      value="Research"
+                      onChange={onChangeInput}
+                    />
+                    <S.RadioToolbarLabel2 htmlFor="radio2">Research</S.RadioToolbarLabel2>
+
+                    <S.InputRadio
+                      type="radio"
+                      id="radio3"
+                      name="topic"
+                      value="Copywriting"
+                      onChange={onChangeInput}
+                    />
+                    <S.RadioToolbarLabel3 htmlFor="radio3">Copywriting</S.RadioToolbarLabel3>
               </S.CategoriesThemes>
             </S.PopNewCardCategories>
             {error && error}

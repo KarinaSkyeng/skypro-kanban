@@ -132,22 +132,3 @@ export const CategoriesThemes = css`
   justify-content: flex-start;
 `;
 
-export const Orange = css`
-    background-color: #FFE4C2;
-    color: #FF6D00;
-`;
-
-export const Green = css`
-    background-color: #B4FDD1;
-    color: #06B16E;
-`;
-
-export const Purple = css`
-    background-color: #E9D4FF;
-    color: #9A48F1;
-`;
-
-export const Gray = css`
-    background: #94A6BE;
-    color: #FFFFFF;
-`;

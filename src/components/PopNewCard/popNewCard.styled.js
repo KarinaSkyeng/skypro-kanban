@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { themeColor, Hover01 } from "../../glogalStyle.styled"
+import { Hover01 } from "../../glogalStyle.styled"
 
 export const PopNewCard = styled.div`
   width: 100%;
@@ -203,67 +203,56 @@ export const CategoriesThemes = styled.div`
   justify-content: flex-start;
 `;
 
-export const CategoriesTheme = styled.div`
-  //display: inline-block;
-  width: auto;
-  height: 30px;
-  padding: 8px, 20px, 8px, 20px;
+export const InputRadio = styled.input`
+  display: none;
+
+  &:checked + label {
+    opacity: 100%;
+  }
+`
+
+export const RadioToolbarLabel1 = styled.label`
+  display: inline-block;
+  padding: 8px 20px 8px 20px;
   border-radius: 24px;
+  color: #ff6d00;
+  background: #ffe4c2;
+  cursor: pointer;
   margin-right: 7px;
-  opacity: 0.4;
-  opacity: 1 !important;
-  ${({ category }) => themeColor(category)}
+  opacity: 40%;
 
-  p {
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 14px;
-  white-space: nowrap;
-}
-`;
+  &:hover {
+    opacity: 100%;
+  }
+`
 
-export const Orange = styled.p`
-    display: inline-block;
-    padding: 8px 20px 8px 20px;
-    border-radius: 24px;
-    cursor: pointer;
-    margin-right: 7px;
-    opacity: 40%;
-    background-color: ${({ theme }) => theme.colors.orangeBg};
-    color: ${({ theme }) => theme.colors.orangeText};
-    
-    &:hover {
-        opacity: 100%;
+export const RadioToolbarLabel2 = styled.label`
+  display: inline-block;
+  padding: 8px 20px 8px 20px;
+  border-radius: 24px;
+  color: #06b16e;
+  background: #b4fdd1;
+  cursor: pointer;
+  margin-right: 7px;
+  opacity: 40%;
+
+  &:hover {
+    opacity: 100%;
   }
 `;
 
-export const Green = styled.p`
-    display: inline-block;
-    padding: 8px 20px 8px 20px;
-    border-radius: 24px;
-    cursor: pointer;
-    margin-right: 7px;
-    opacity: 40%;
-     background-color: ${({ theme }) => theme.colors.greenBg};
-     color: ${({ theme }) => theme.colors.greenText};
+export const RadioToolbarLabel3 = styled.label`
+  display: inline-block;
+  padding: 8px 20px 8px 20px;
+  border-radius: 24px;
+  color: #9a48f1;
+  background: #E9D4FF;
+  cursor: pointer;
+  margin-right: 7px;
+  opacity: 50%;
 
-     &:hover {
-        opacity: 100%;
-  }
-`;
-
-export const Purple = styled.p`
-     display: inline-block;
-     padding: 8px 20px 8px 20px;
-     border-radius: 24px;
-     cursor: pointer;
-     margin-right: 7px;
-     opacity: 50%;
-     background-color: ${({ theme }) => theme.colors.purpleBg};
-     color: ${({ theme }) => theme.colors.purpleText};
-
-     &:hover {
-        opacity: 100%;
+  &:hover {
+    opacity: 100%;
   }
 `;
 
@@ -281,7 +270,7 @@ export const FormNewCreate = styled.button`
     float: right;
 
     ${Hover01}
-`
+`;
 
 
 
