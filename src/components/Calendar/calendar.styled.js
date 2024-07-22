@@ -8,7 +8,7 @@ margin-left: 30px;
 
 export const StyledDayPicker = styled(DayPicker)`
 
---rdp-cell-size: 40px;
+--rdp-cell-size: 30px;
 `
 
 export const CalendarContentP  = styled.p`
