@@ -3,7 +3,6 @@ import Calendar from "../Calendar/Calendar";
 import * as S from "./popNewCard.styled.js";
 import { routes } from "../../router/routes.js";
 import { useContext, useState } from "react";
-//import { Link } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
 import { addTask } from '../../api/tasks';
 import { TaskContext } from '../../context/TasksContext';
