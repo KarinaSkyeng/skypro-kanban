@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState, useContext} from "react";
 
 export const TaskContext = createContext(null);
 
@@ -21,8 +21,10 @@ export const TaskProvider = ({ children }) => {
     }
 
       return (
-        <TaskContext.Provider value={{ tasks, addTask }}>
+        <TaskContext.Provider value={{ tasks, setTasks, addTask }}>
           {children}
         </TaskContext.Provider>
       );
 };
+
+export const useTask = () => useContext(TaskContext);

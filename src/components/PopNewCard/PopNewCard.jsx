@@ -4,22 +4,23 @@ import * as S from "./popNewCard.styled.js";
 import { routes } from "../../router/routes.js";
 import { useContext, useState } from "react";
 import { UserContext } from "../../context/UserContext";
-import { addTask } from '../../api/tasks';
-import { TaskContext } from '../../context/TasksContext';
+import { addTask as apiAddTask } from '../../api/tasks';
+import { useTask } from '../../context/TasksContext';
 import { useNavigate } from "react-router-dom"; 
 
-export const PopNewCard = ({ onClose }) => {
+export const PopNewCard = () => {
   const {user} = useContext(UserContext)
-  const { setTasks } = useContext(TaskContext)
+  const { addTask } = useTask();
   const navigate = useNavigate()
   const [error, setError] = useState('')
   const [date, setDate] = useState(new Date())
   const [inputValue, setInputValue] = useState({
     title: '',
-    topic: 'Research',
-    status: 'Без статуса',
+    topic: '',
+    status: '',
     description:'',
   });
+  const [isModalOpen, setIsModalOpen] = useState(true);
 
   const OnAddNewCard = async () => {
     setError('')
@@ -39,17 +40,18 @@ export const PopNewCard = ({ onClose }) => {
     }
 
     try {
-      const response = await addTask(newCard, user.token);
-      setTasks((prevTasks) => [...prevTasks, response.task]); 
-      onClose();
+      const response = await apiAddTask(newCard, user.token);
+      addTask(response.task);
+      setIsModalOpen(false); // Закрываем модальное окно
+      navigate(routes.main);
     } catch (err) {
       setError(err.message);
     }
   };
 
-  const onCloseModal = () => {
-    navigate(routes.main); 
-  };
+  // const onCloseModal = () => {
+  //   navigate(routes.main); 
+  // };
 
   const onChangeInput = (e) => {
     const {value, name} = e.target
@@ -57,12 +59,13 @@ export const PopNewCard = ({ onClose }) => {
   }
 
   return (
+    isModalOpen && (
     <S.PopNewCard>
       <S.PopNewCardContainer>
         <S.PopNewCardBlock>
           <S.PopNewCardContent>
             <S.PopNewCardTitle>Создание задачи</S.PopNewCardTitle>
-             <S.PopNewCardClose onClick={onCloseModal}>&#10006;</S.PopNewCardClose>
+             <S.PopNewCardClose onClick={() => setIsModalOpen(false)}>&#10006;</S.PopNewCardClose>
               <S.PopNewCardWrap>
                <S.PopNewCardForm
                 id="formNewCard"
@@ -131,5 +134,6 @@ export const PopNewCard = ({ onClose }) => {
         </S.PopNewCardBlock>
       </S.PopNewCardContainer>
     </S.PopNewCard>
-  );
-}
+    )
+  );  
+};

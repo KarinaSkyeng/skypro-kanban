@@ -28,10 +28,6 @@ export const Header = ({isDarkTheme, setIsDarkTheme}) => {
    const openModal = () => {
     setIsModalOpen(true);
   };
-
-  // const closeModal = () => {
-  //   setIsModalOpen(false);
-  // };
     
   return (
     <S.Header>
