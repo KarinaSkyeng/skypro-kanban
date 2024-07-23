@@ -19,24 +19,31 @@ export const signIn = async({login, password}) => {
 export const signUp = async ({ login, name, password }) => {
     const response = await fetch("https://wedev-api.sky.pro/api/user", 
         {
-          method: "POST",
-          body: JSON.stringify({
-            login,
-            name,
-            password,
+          method: "POST",    
+          body: JSON.stringify({ 
+            login, 
+            name, 
+            password 
           }),
-        });
+  });
 
-        if (response.status === 401) {
-            throw new Error("Нет авторизации");
-          }
-          if (response.status === 400) {
-            throw new Error("Пользователь с таким логином уже существует");
-          }
-            if (response.status === 500) {
-              throw new Error("Сервер сломался");
-            }else {
-            const data = await response.json();
-            return data;
-          }
-        }
+  if (response.status === 401) {
+    throw new Error("Нет авторизации");
+  }
+
+  if (response.status === 400) {
+    throw new Error("Пользователь с таким логином уже существует");
+  }
+
+  if (response.status === 500) {
+    throw new Error("Сервер сломался");
+  }
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    console.error("Ошибка при регистрации:", errorText);
+    throw new Error("Не удалось зарегистрироваться, попробуйте позже");
+  }
+
+  return response.json();
+};

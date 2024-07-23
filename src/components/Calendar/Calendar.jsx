@@ -5,7 +5,7 @@ import ru from "date-fns/locale/ru";
 import { useState } from "react";
 
 
-export default function Calendar() {
+export const Calendar = () => {
   const [selected, setSelected] = useState(new Date)
   const currentDate= selected.toLocaleDateString("ru-US")
   let footer = <S.CalendarContentP>Выберите срок исполнения</S.CalendarContentP>;

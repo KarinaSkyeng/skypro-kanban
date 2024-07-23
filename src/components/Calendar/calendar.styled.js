@@ -31,7 +31,10 @@ export const StyledDayPicker = styled(DayPicker)`
   .rdp {
     margin: 0em;
   }
+.rdp-table {
+  width: 168px;
 
+}
   .rdp-caption_label {
 
     color: #94A6BE;
@@ -39,30 +42,32 @@ export const StyledDayPicker = styled(DayPicker)`
     line-height: 25px;
     font-weight: 600;
   }
+  .rdp-head_cell {
+    font-size: 10px;
+  }
   .rdp-cell{
     width: 22px;
     height: 22px;
-    margin: 2px;
+    margin: 4px;
     border-radius: 30%;
     flex-wrap: nowrap;
     align-items: center;
     justify-content: center;
     color: #94A6BE;
-    font-size: 12px;
+    font-size: 10px;
     line-height: 1;
     letter-spacing: -0.2px;
     cursor: pointer;
-
   }
   .rdp-button_reset.rdp-button.rdp-day {
-    width: 22px;
-    height: 22px;
-    font-size: 12px;
+    width: 16px;
+    height: 16px;
+    font-size: 10px;   
   }
-  /* .rdp-nav {
-    Width: 10px;
+  .rdp-nav_icon {
+    Width: 14px;
     Height: 6px;
-  } */
+  }
   p {
     margin-top: 14px;
     width: 100%;

@@ -94,8 +94,8 @@ export const PopNewCardWrap = styled.div`
 `;
 
 export const PopNewCardForm = styled.form`
-  max-width: 370px;
-  width: 100%;
+  width: 370px;
+  //width: 100%;
   display: block;
   margin-bottom: 20px;
 
@@ -113,7 +113,7 @@ export const FormNewBlock = styled.div`
 
 export const FormNewInput = styled.input`
     margin: 20px 0;
-    width: 100%;
+    width: 370px;
     outline: none;
     padding: 14px;
     background: transparent;
@@ -142,12 +142,12 @@ export const FormNewInput = styled.input`
 `;
 
 export const FormNewArea = styled.textarea`
-     max-width: 370px;
+     width: 370px;
      margin-top: 14px;
      height: 200px;
-     width: 100%;
+     //width: 100%;
 
-     width: 100%;
+     //width: 100%;
     outline: none;
     padding: 14px;
     background: transparent;

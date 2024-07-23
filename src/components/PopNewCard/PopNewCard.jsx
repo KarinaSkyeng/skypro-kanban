@@ -1,5 +1,5 @@
 import { Subttl } from "../../glogalStyle.styled.js";
-import Calendar from "../Calendar/Calendar";
+import { Calendar } from "../Calendar/Calendar";
 import * as S from "./popNewCard.styled.js";
 import { routes } from "../../router/routes.js";
 import { useContext, useState } from "react";
@@ -13,19 +13,19 @@ export const PopNewCard = ({ onClose }) => {
   const { setTasks } = useContext(TaskContext)
   const navigate = useNavigate()
   const [error, setError] = useState('')
-  const [date] = useState(new Date)
+  const [date, setDate] = useState(new Date())
   const [inputValue, setInputValue] = useState({
     title: '',
-    topic: '',
-    status: '',
+    topic: 'Research',
+    status: 'Без статуса',
     description:'',
   });
 
   const OnAddNewCard = async () => {
     setError('')
-    const title = !inputValue.title ? 'Новая задача' : inputValue.title
-    const topic = !inputValue.topic ? 'Research' : inputValue.topic
-    const status = !inputValue.status ? 'Без статуса' : inputValue.status
+    const title = !inputValue.title.trim() ? 'Новая задача' : inputValue.title
+    const topic = !inputValue.topic.trim() ? 'Research' : inputValue.topic
+    const status = !inputValue.status.trim() ? 'Без статуса' : inputValue.status
     const newCard = {      
       title,
       topic,
@@ -48,7 +48,7 @@ export const PopNewCard = ({ onClose }) => {
   };
 
   const onCloseModal = () => {
-    navigate(routes.main); // Переход на главную страницу или другой маршрут для закрытия модального окна
+    navigate(routes.main); 
   };
 
   const onChangeInput = (e) => {
@@ -86,11 +86,11 @@ export const PopNewCard = ({ onClose }) => {
                     name="description"                    
                     id="textArea"
                     placeholder="Введите описание задачи..."
-                    defaultValue=""
+                    value={inputValue.description}
                   ></S.FormNewArea>
                 </S.FormNewBlock>
               </S.PopNewCardForm>
-              <Calendar />              
+              <Calendar onChange={setDate} value={date} />              
             </S.PopNewCardWrap>
             <S.PopNewCardCategories>
               <S.CategoriesPSubttl>Категория</S.CategoriesPSubttl>

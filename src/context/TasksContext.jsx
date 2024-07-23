@@ -18,7 +18,7 @@ export const TaskProvider = ({ children }) => {
 
       const addTask = (newTask) => {
         setTasks((prevTasks) => [...prevTasks, newTask]);
-    };
+    }
 
       return (
         <TaskContext.Provider value={{ tasks, addTask }}>
