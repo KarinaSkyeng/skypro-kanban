@@ -4,13 +4,13 @@ import * as S from "./popNewCard.styled.js";
 import { routes } from "../../router/routes.js";
 import { useContext, useState } from "react";
 import { UserContext } from "../../context/UserContext";
-import { addTask as apiAddTask } from '../../api/tasks';
-import { useTask } from '../../context/TasksContext';
+import { TaskContext } from '../../context/TasksContext';
+import { addTask as addTaskApi } from '../../api/tasks';
 import { useNavigate } from "react-router-dom"; 
 
-export const PopNewCard = () => {
+export const PopNewCard = ({ onClose }) => {
   const {user} = useContext(UserContext)
-  const { addTask } = useTask();
+  const { addTask } = useContext(TaskContext);
   const navigate = useNavigate()
   const [error, setError] = useState('')
   const [date, setDate] = useState(new Date())
@@ -20,8 +20,7 @@ export const PopNewCard = () => {
     status: '',
     description:'',
   });
-  const [isModalOpen, setIsModalOpen] = useState(true);
-
+  
   const OnAddNewCard = async () => {
     setError('')
     const title = !inputValue.title.trim() ? 'Новая задача' : inputValue.title
@@ -40,32 +39,30 @@ export const PopNewCard = () => {
     }
 
     try {
-      const response = await apiAddTask(newCard, user.token);
-      addTask(response.task);
-      setIsModalOpen(false); // Закрываем модальное окно
+      const response = await addTaskApi(newCard, user.token);
+      addTask(response.task);  
       navigate(routes.main);
     } catch (err) {
       setError(err.message);
     }
   };
 
-  // const onCloseModal = () => {
-  //   navigate(routes.main); 
-  // };
+  const onCloseModal = () => {
+    onClose(); // Закрытие модального окна при вызове
+  };
 
   const onChangeInput = (e) => {
     const {value, name} = e.target
     setInputValue({...inputValue, [name]: value})
   }
 
-  return (
-    isModalOpen && (
+  return (    
     <S.PopNewCard>
       <S.PopNewCardContainer>
         <S.PopNewCardBlock>
           <S.PopNewCardContent>
             <S.PopNewCardTitle>Создание задачи</S.PopNewCardTitle>
-             <S.PopNewCardClose onClick={() => setIsModalOpen(false)}>&#10006;</S.PopNewCardClose>
+             <S.PopNewCardClose onClick={onCloseModal}>&#10006;</S.PopNewCardClose>
               <S.PopNewCardWrap>
                <S.PopNewCardForm
                 id="formNewCard"
@@ -89,8 +86,8 @@ export const PopNewCard = () => {
                     name="description"                    
                     id="textArea"
                     placeholder="Введите описание задачи..."
-                    value={inputValue.description}
-                  ></S.FormNewArea>
+                    value={inputValue.description}>                      
+                    </S.FormNewArea>
                 </S.FormNewBlock>
               </S.PopNewCardForm>
               <Calendar onChange={setDate} value={date} />              
@@ -104,6 +101,7 @@ export const PopNewCard = () => {
                       name="topic"
                       value="Web Design"
                       onChange={onChangeInput}
+                      checked={inputValue.topic === 'Web Design'}
                     />
                     <S.RadioToolbarLabel1 htmlFor="radio1">Web Design</S.RadioToolbarLabel1>
 
@@ -113,6 +111,7 @@ export const PopNewCard = () => {
                       name="topic"
                       value="Research"
                       onChange={onChangeInput}
+                      checked={inputValue.topic === 'Research'}
                     />
                     <S.RadioToolbarLabel2 htmlFor="radio2">Research</S.RadioToolbarLabel2>
 
@@ -122,6 +121,7 @@ export const PopNewCard = () => {
                       name="topic"
                       value="Copywriting"
                       onChange={onChangeInput}
+                      checked={inputValue.topic === 'Copywriting'}
                     />
                     <S.RadioToolbarLabel3 htmlFor="radio3">Copywriting</S.RadioToolbarLabel3>
               </S.CategoriesThemes>
@@ -134,6 +134,5 @@ export const PopNewCard = () => {
         </S.PopNewCardBlock>
       </S.PopNewCardContainer>
     </S.PopNewCard>
-    )
-  );  
-};
+    );    
+}
