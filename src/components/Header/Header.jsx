@@ -4,8 +4,6 @@ import { Container } from "../../glogalStyle.styled.js";
 import { Link } from "react-router-dom";
 import { routes } from "../../router/routes.js";
 import { useUserContext } from "../../context/useUserContext.js";
-// import { PopBrowse } from "../../components/PopBrowse/PopBrowse.jsx";
-
 
 export const Header = ({isDarkTheme, setIsDarkTheme}) => {
   const [isOpen, setIsOpen] = useState(false);
