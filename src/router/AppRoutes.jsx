@@ -7,10 +7,7 @@ import { Register } from "../Pages/Register/Register.jsx";
 import { ProtectedRoutes } from "./ProtectedRoutes.jsx";
 import { ExitPage } from "../Pages/ExitPage/ExitPage.jsx";
 import { CardPage } from "../Pages/CardPage/CardPage.jsx";
-//import { UserProvider } from "../context/UserContext.jsx";
 import { NewCardPage } from "../Pages/AddCardPage/AddCardPage.jsx";
-//import { PopBrowse } from "../../components/PopBrowse/PopBrowse.jsx";
-
 
 export const AppRoutes = ({ isDarkTheme, setIsDarkTheme }) => {
     return (              
