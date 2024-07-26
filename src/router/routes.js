@@ -6,6 +6,5 @@ export const routes = {
     notFound: "*",
     exit: "/exit",
     card: "/card/:id",
-    add: "/add",
-    //addNew: "/tasks",
+    add: "/add",   
 }

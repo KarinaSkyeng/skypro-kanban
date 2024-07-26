@@ -64,6 +64,9 @@ export const StyledDayPicker = styled(DayPicker)`
     height: 16px;
     font-size: 10px;   
   }
+  .rdp-day_selected {
+    background-color: #94A6BE;
+  }
   .rdp-nav_icon {
     Width: 14px;
     Height: 6px;

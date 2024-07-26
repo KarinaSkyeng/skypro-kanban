@@ -40,7 +40,7 @@ export const PopNewCard = ({ onClose }) => {
 
     try {
       const response = await addTaskApi(newCard, user.token);
-      addTask(response.task);  
+      addTask(response.tasks);  
       navigate(routes.main);
     } catch (err) {
       setError(err.message);
