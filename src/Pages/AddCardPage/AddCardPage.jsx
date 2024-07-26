@@ -1,12 +1,22 @@
-import { useState } from "react";
-import { PopNewCard } from "../../components/PopNewCard/PopNewCard";
+import { useNavigate, useLocation } from 'react-router-dom';
+import { PopNewCard } from '../../components/PopNewCard/PopNewCard';
+import { routes } from '../../router/routes';
 
 export const NewCardPage = () => {
-  const [isModalOpen, setIsModalOpen] = useState(true);
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  return (    
-      <div>              
-        {isModalOpen && <PopNewCard onClose={() => setIsModalOpen(false)} />}
-      </div>   
+  // Функция для закрытия модального окна
+  const closeModal = () => {
+    navigate(routes.main);
+  };
+
+  // Проверка на наличие параметра в URL для отображения модального окна
+  const isModalOpen = location.pathname === routes.add;
+
+  return (
+    <div>
+      {isModalOpen && <PopNewCard onClose={closeModal} />}
+    </div>
   );
 };
