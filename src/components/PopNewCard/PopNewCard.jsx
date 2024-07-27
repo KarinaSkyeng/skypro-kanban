@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 export const PopNewCard = ({ onClose }) => {
   const {user} = useContext(UserContext)
-  const { addTask } = useContext(TaskContext);
+  const { setTasks } = useContext(TaskContext);
   const navigate = useNavigate()
   const [error, setError] = useState('')
   const [date, setDate] = useState(new Date())
@@ -40,7 +40,7 @@ export const PopNewCard = ({ onClose }) => {
 
     try {
       const response = await addTaskApi(newCard, user.token);
-      addTask(response.tasks);  
+      setTasks(response.tasks);  
       navigate(routes.main);
     } catch (err) {
       setError(err.message);

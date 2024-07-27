@@ -1,16 +1,17 @@
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Header } from "../../components/Header/Header.jsx";
 import { Main } from "../../components/Main/Main.jsx";
 import { Wrapper, Loader } from "../../glogalStyle.styled.js";
 import { Outlet } from "react-router-dom";
 import { getTasks } from "../../api/tasks.js";
 import { useUserContext } from "../../context/useUserContext";
+import { TaskContext } from "../../context/TasksContext.jsx";
 
 
 export const MainPage = ({ setUser, isDarkTheme, setIsDarkTheme }) => {
     const { user} = useUserContext();
-    const [cards, setCards] = useState([]);
+    const { tasks, setTasks } = useContext(TaskContext);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState("");
        
@@ -27,7 +28,7 @@ export const MainPage = ({ setUser, isDarkTheme, setIsDarkTheme }) => {
         setIsLoading(true);
         getTasks(user.token)
         .then((res) => {
-          setCards(res.tasks)         
+          setTasks(res.tasks)         
         })
         .catch((error) => {
           console.log("Error loading tasks:", error.message);
@@ -36,7 +37,7 @@ export const MainPage = ({ setUser, isDarkTheme, setIsDarkTheme }) => {
         .finally(() => {
           setIsLoading(false);
         });        
-      },[user]);
+      },[user, setTasks]);
 
       
    
@@ -51,7 +52,7 @@ export const MainPage = ({ setUser, isDarkTheme, setIsDarkTheme }) => {
               <Loader>Данные загружаются...</Loader>
               ) : error ? 
               <p>{error}</p> : (
-              <Main cards={cards} />
+              <Main cards={tasks} />
               )}    
         </Wrapper>
     );

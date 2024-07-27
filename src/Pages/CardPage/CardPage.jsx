@@ -3,10 +3,12 @@ import * as S from "./cardPage.styled.js"
 import { Link, useParams } from 'react-router-dom';
 import { useState } from "react";
 
-export function CardPage({theme}) {
+export function CardPage({ theme }) {
    const params = useParams();
    const [selected, setSelected] = useState(null);
-   console.log(params.id)
+
+   console.log(params.id);
+
     return (
         <S.PopBrowse>
         <S.PopBrowseContainer>
@@ -32,10 +34,8 @@ export function CardPage({theme}) {
                                 <S.LabelSubttl htmlFor="textArea01">Описание задачи</S.LabelSubttl>
                                 <S.FormBrowseArea name="text" id="textArea01"  readOnly placeholder="Введите описание задачи..."></S.FormBrowseArea>
                             </S.FormBrowseBlock>
-                        </S.PopBrowseForm>
-                       
+                        </S.PopBrowseForm>                       
                             <Calendar selected={selected} setSelected={setSelected}/>
-                               
                     </S.PopBrowseWrap>
                     <S.CategoriesThemeDown>
                         <S.CategoriesP>Категория</S.CategoriesP>
@@ -57,13 +57,12 @@ export function CardPage({theme}) {
                             <S.BtnEdit id="btnDelete"><S.BtnBorA>Удалить задачу</S.BtnBorA></S.BtnEdit>
                         </div>
                         <S.BtnBrowseClose><S.BtnBgA>Закрыть</S.BtnBgA></S.BtnBrowseClose>
-                    </S.PopBrowseBtnEdit>
-                                            
+                    </S.PopBrowseBtnEdit>                                            
                 </S.PopBrowseContent>
             </S.PopBrowseBlock>
         </S.PopBrowseContainer>
     </S.PopBrowse>
-    )
+    );
   }
   
   
