@@ -2,8 +2,9 @@ import { DayPicker } from "react-day-picker";
 import styled from "styled-components";
 
 export const CalendarContent  = styled.div`
-margin-bottom: 12px;
-margin-left: 30px;
+  width: 182px;
+  margin-bottom: 12px;
+  margin-left: 20px;
 `;
 
 export const CalendarTtl = styled.p`
@@ -60,8 +61,8 @@ export const StyledDayPicker = styled(DayPicker)`
     cursor: pointer;
   }
   .rdp-button_reset.rdp-button.rdp-day {
-    width: 16px;
-    height: 16px;
+    width: 22px;
+    height: 22px;
     font-size: 10px;   
   }
   .rdp-day_selected {

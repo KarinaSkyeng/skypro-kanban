@@ -31,7 +31,7 @@ export const PopNewCard = ({ onClose }) => {
       topic,
       status,
       description: inputValue.description.trim() || '',
-      date: date.toISOString(),
+      date: date.toISOString()
     };
 
     if (!newCard.description) {
@@ -90,7 +90,7 @@ export const PopNewCard = ({ onClose }) => {
                     </S.FormNewArea>
                 </S.FormNewBlock>
               </S.PopNewCardForm>
-              <Calendar onChange={setDate} value={date} />              
+              <Calendar onChange={setDate} selected={date} />              
             </S.PopNewCardWrap>
             <S.PopNewCardCategories>
               <S.CategoriesPSubttl>Категория</S.CategoriesPSubttl>
