@@ -8,6 +8,12 @@ import { useUserContext } from "../../context/useUserContext.js";
 export const Header = ({isDarkTheme, setIsDarkTheme}) => {
   const [isOpen, setIsOpen] = useState(false);
   const { user } = useUserContext();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+   // Добавляем проверку на наличие user
+   if (!user) {
+    return null;
+  }
 
   const toggleOpenUser = () => {
     setIsOpen(!isOpen);
@@ -16,31 +22,35 @@ export const Header = ({isDarkTheme, setIsDarkTheme}) => {
    const onChangeTheme = () => {
     setIsDarkTheme(isDarkTheme === "light" ? "dark" : "light");  
    };
+
+   const openModal = () => {
+    setIsModalOpen(true);
+  };
     
   return (
     <S.Header>
       <Container>
         <S.HeaderBlock>
-          <S.HeaderLogo className="_show _light">
+          <S.HeaderLogo>
             <a href="" target="_self">
               <img src="images/logo.png" alt="logo" />
             </a>
           </S.HeaderLogo >
-          <S.HeaderLogo  className="_dark">
+          <S.HeaderLogo>
             <a href="" target="_self">
               <img src="images/logo_dark.png" alt="logo" />
             </a>
           </S.HeaderLogo >
-          <S.HeaderNav>
-            <Link to={routes.add}>
-            <S.HeaderBtnNew>
+          <S.HeaderNav>            
+            <S.HeaderBtnNew onClick={openModal} value={isModalOpen}><Link to={routes.add}>
               Создать новую задачу
-            </S.HeaderBtnNew>
             </Link>
-            <S.HeaderUser onClick= {toggleOpenUser}>
+            </S.HeaderBtnNew> 
+            {/* <PopBrowse />            */}
+            <S.HeaderUser onClick={toggleOpenUser}>
               {user.name} </S.HeaderUser>
-            {isOpen &&  
-            <S.HeaderUserSet className="pop-user-set" id="user-set-target">
+            {isOpen ?  
+            <S.HeaderUserSet>
               {/*<a href="">x</a>*/}
               <S.PopUserSetName>{user.name}</S.PopUserSetName>
               <S.PopUserSetMail>{user.email}</S.PopUserSetMail>
@@ -51,7 +61,7 @@ export const Header = ({isDarkTheme, setIsDarkTheme}) => {
               <S.HeaderBtnExit>
                 <Link to={routes.exit}>Выйти</Link>
               </S.HeaderBtnExit>
-            </S.HeaderUserSet>
+            </S.HeaderUserSet> : null
             }
           </S.HeaderNav>
         </S.HeaderBlock>

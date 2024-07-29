@@ -114,7 +114,7 @@ ${Hover03}
 
 a {
     color: #565EEF;
-    text-decoration: none; // Убирает подчеркивание у ссылки
+    text-decoration: none; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -141,6 +141,10 @@ display: block;
   padding: 34px;
   text-align: center;
   z-index: 2;
+
+  &:target {
+  display: block;
+}
 `;
 
 export const PopUserSetName = styled.p`
@@ -166,11 +170,12 @@ export const PopUserSetTheme = styled.div`
   justify-content: space-between;
   margin-bottom: 30px;
 
-  p {
-  color: #000;
-  font-size: 14px;
-  line-height: 21px;
-  letter-spacing: -0.14px;
+  span {
+          color: ${({ theme }) => theme.text};
+          font-size: 14px;
+          line-height: 21px;
+          letter-spacing: -0.14px;
+          display: flex; 
 }
 
 input[type=checkbox] {

@@ -20,7 +20,7 @@ export const addTask = async (taskData, token) => {
   const response = await fetch(apiURL, {
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
+      //"Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify(taskData),

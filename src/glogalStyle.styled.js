@@ -118,3 +118,17 @@ export const ContainerSignin = styled.div`
     margin: 0 auto;
 `;
 
+export const Subttl = styled.h3`
+  color: #000;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+`;
+
+export const CategoriesThemes = css`
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+`;
+
