@@ -1,79 +1,143 @@
-import { Link, useParams, useState } from "react-router-dom";
+import { useParams, useState, useContext } from "react-router-dom";
+import { useNavigate } from "react-router-dom"; // Добавляем импорт useNavigate
 import Calendar from "../../components/Calendar/Calendar.jsx";
 import { routes } from "../../router/routes.js";
 import * as S from "./popBrowse.styled";
-import { Subttl, Orange } from "../../glogalStyle.styled";
-    
+import { Subttl, Orange, themeColor } from "../../glogalStyle.styled";
+import { editTask, deleteTask } from "../../api/tasks.js";
+import { UserContext } from "../../context/UserContext"; // Assuming you have a UserContext
+import { TaskContext } from "../../context/TaskContext"; // Assuming you have a TaskContext
+
 export const PopBrowse = () => {
-	const [isModalOpen, setIsModalOpen] = useState(false);
-	const closeModal = () => {
-		setIsModalOpen(false);
+  const { cardId } = useParams();
+  const [isEdited, setIsEdited] = useState(false);
+  const { user } = useContext(UserContext);
+  const { tasks, setTasks } = useContext(TaskContext); // Используем tasks и setTasks из TaskContext
+  const navigate = useNavigate();
+
+  const openedCard = tasks.find((task) => task._id === cardId);
+  const [selectedDate, setSelectedDate] = useState(openedCard?.date);
+
+  const [editCard, setEditCard] = useState({
+    title: openedCard?.title,
+    description: openedCard?.description,
+    topic: openedCard?.topic,
+    status: openedCard?.status,
+    date: openedCard?.date,
+  });
+
+  const deleteCard = () => {
+    deleteTask({ token: user.token, id: cardId })
+      .then((newTasks) => {
+        setTasks(newTasks.tasks);
+        navigate(routes.main);
+      })
+      .catch((error) => {
+        console.error(error);
+        alert(error);
+      });
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    const taskData = { ...editCard, date: selectedDate };
+    editTask({ token: user.token, id: cardId, taskData })
+      .then((newTasks) => {
+        setTasks(newTasks.tasks);
+        navigate(routes.main);
+      })
+      .catch((error) => {
+        console.error(error);
+        alert(error);
+      });
+  };
+
+  const onChangeInput = (e) => {
+    const { name, value } = e.target;
+    setEditCard((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  if (!openedCard) {
+    navigate(routes.main);
+    return null;
+  }
+
+  return (
+    <S.PopBrowse>
+      <S.PopBrowseContainer>
+        <S.PopBrowseBlock>
+          <S.PopBrowseContent>
+            <S.PopBrowseTopBlock>
+              <S.PopBrowseTtl>Название задачи: {openedCard.title}</S.PopBrowseTtl>
+              <S.BrowseCategoriesTheme>
+                <Orange $themeColor={themeColor[openedCard.topic]}></Orange>
+              </S.BrowseCategoriesTheme>
+            </S.PopBrowseTopBlock>
+            <S.PopBrowseStatus>
+              <S.BrowseStatusP>Статус</S.BrowseStatusP>
+              {!isEdited && <S.StatusThemeLabel_1>{editCard.status}</S.StatusThemeLabel_1>}
+              {isEdited && (
+                <S.BrowseStatusThemes>
+                  {["Без статуса", "Нужно сделать", "В работе", "Тестирование", "Готово"].map((status, index) => (
+                    <div key={index}>
+                      <S.OpenedCardTheme
+                        type="radio"
+                        checked={editCard.status === status}
+                        id={`radio${index}`}
+                        name="status"
+                        value={status}
+                        onChange={onChangeInput}
+                      />
+                      <S.StatusThemeLabel htmlFor={`radio${index}`}>{status}</S.StatusThemeLabel>
+                    </div>
+                  ))}
+                </S.BrowseStatusThemes>
+              )}
+            </S.PopBrowseStatus>
+            <S.PopBrowseWrap>
+              <S.PopBrowseForm id="formBrowseCard" onSubmit={handleFormSubmit}>
+                <S.FormBrowseBlock>
+                  <Subttl>Описание задачи</Subttl>
+                  <S.FormBrowseArea
+                    onChange={onChangeInput}
+                    name="description"
+                    readOnly={!isEdited}
+                    placeholder="Введите описание задачи..."
+                    value={editCard.description || ""}
+                    disabled={!isEdited}
+                  />
+                </S.FormBrowseBlock>
+              </S.PopBrowseForm>
+              <Calendar selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
+            </S.PopBrowseWrap>
+            {!isEdited ? (
+              <S.PopBrowseBtnBrowse>
+                <S.ButtonGroup>
+                  <S.ButtonChangeDelete onClick={() => setIsEdited(true)}>Редактировать задачу</S.ButtonChangeDelete>
+                  <S.ButtonChangeDelete onClick={deleteCard}>Удалить задачу</S.ButtonChangeDelete>
+                </S.ButtonGroup>
+                <S.LinkClose to={routes.main}>
+                  <S.ButtonClose>Закрыть</S.ButtonClose>
+                </S.LinkClose>
+              </S.PopBrowseBtnBrowse>
+            ) : (
+              <S.PopBrowseBtnBrowse>
+                <S.ButtonGroup>
+                  <S.ButtonChangeDelete type="submit">Сохранить</S.ButtonChangeDelete>
+                  <S.LinkClose to={routes.main}>
+                    <S.ButtonClose>Закрыть</S.ButtonClose>
+                  </S.LinkClose>
+                  <S.ButtonChangeDelete onClick={() => setIsEdited(false)}>Отменить</S.ButtonChangeDelete>
+                  <S.ButtonChangeDelete onClick={deleteCard}>Удалить задачу</S.ButtonChangeDelete>
+                </S.ButtonGroup>
+              </S.PopBrowseBtnBrowse>
+            )}
+          </S.PopBrowseContent>
+        </S.PopBrowseBlock>
+      </S.PopBrowseContainer>
+    </S.PopBrowse>
+  );
 };
-	const { id } = useParams();
-    return (
-        <S.PopBrowse>
-				<S.PopBrowseContainer>
-					<S.PopBrowseBlock>
-						<S.PopBrowseContent>
-							<S.PopBrowseTopBlock>
-								<S.PopBrowseTtl>Название задачи {id}</S.PopBrowseTtl>
-								<S.BrowseCategoriesTheme>
-									<Orange>Web Design</Orange>
-								</S.BrowseCategoriesTheme>
-							</S.PopBrowseTopBlock>
-							<S.PopBrowseStatus>
-								<S.BrowseStatusP>Статус</S.BrowseStatusP>
-								<S.BrowseStatusThemes>
-									<S.BrowseStatusThemeHide>
-										<p>Без статуса</p>
-									</S.BrowseStatusThemeHide>
-									<S.BrowseStatusThemeGray>
-										<p className="_gray">Нужно сделать</p>
-									</S.BrowseStatusThemeGray>
-									<S.BrowseStatusThemeHide>
-										<p>В работе</p>
-									</S.BrowseStatusThemeHide>
-									<S.BrowseStatusThemeHide>
-										<p>Тестирование</p>
-									</S.BrowseStatusThemeHide>
-									<S.BrowseStatusThemeHide>
-										<p>Готово</p>
-									</S.BrowseStatusThemeHide>
-								</S.BrowseStatusThemes>
-							</S.PopBrowseStatus>
-							<S.PopBrowseWrap>
-								<S.PopBrowseForm id="formBrowseCard" action="#">									
-									<S.FormBrowseBlock>
-										<Subttl>Описание задачи</Subttl>
-										<S.FormBrowseArea name="text" id="textArea01"  readOnly placeholder="Введите описание задачи..."></S.FormBrowseArea>
-									</S.FormBrowseBlock>
-								</S.PopBrowseForm>
-								<Calendar />
-							</S.PopBrowseWrap>
-							<S.ThemeDownCategories>
-								<S.BrowseCategoriesP>Категория</S.BrowseCategoriesP>
-								<S.CategoriesTheme>
-									<Orange>Web Design</Orange>
-								</S.CategoriesTheme>
-							</S.ThemeDownCategories>
-							<S.PopBrowseBtnBrowse>
-								<S.BtnGroup>
-									<S.PopBrowseBtnEditBtnBor><a href="#">Редактировать задачу</a></S.PopBrowseBtnEditBtnBor>
-									<S.BtnBrowseDeleteBtnBor><a href="#">Удалить задачу</a></S.BtnBrowseDeleteBtnBor>
-								</S.BtnGroup>
-								<S.BtnBrowseCloseBtnBg><Link to={routes.main}>Закрыть</Link></S.BtnBrowseCloseBtnBg>
-							</S.PopBrowseBtnBrowse>
-							<S.PopBrowseBntEditHide>
-								<S.BtnGroup>
-									<S.BtnEditEditBtnBg><a href="#">Сохранить</a></S.BtnEditEditBtnBg>
-									<S.PopBrowseBtnEditBtnBor><a href="#">Отменить</a></S.PopBrowseBtnEditBtnBor>
-									<S.BtnBrowseDeleteBtnBor><a href="#">Удалить задачу</a></S.BtnBrowseDeleteBtnBor>
-								</S.BtnGroup>
-								<S.BtnBrowseCloseBtnBg onClick={closeModal} value={isModalOpen}>Закрыть</S.BtnBrowseCloseBtnBg>
-							</S.PopBrowseBntEditHide>													
-						</S.PopBrowseContent>
-					</S.PopBrowseBlock>
-				</S.PopBrowseContainer>
-			</S.PopBrowse>
-    );
-}

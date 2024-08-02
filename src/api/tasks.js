@@ -31,3 +31,40 @@ export const addTask = async (taskData, token) => {
   }
   return response.json();
 };
+
+// Редактировать задачу
+export async function editTask({ token, id, taskData }) {
+  const response = await fetch(`${apiURL}/${id}`, {
+    method: "PUT",  
+    headers: {
+          Authorization: `Bearer ${token}`,
+      },      
+      body: JSON.stringify(taskData)
+  });
+
+  if (!response.ok) {
+    throw new Error("Не удалось отредактировать задачу");
+  }
+
+  return response.json();
+}
+
+// Удалить задачу
+export async function deleteTask({ id, token, taskData }) {
+  const response = await fetch(`${apiURL}/${id}`, {
+    method: "DELETE",  
+    headers: {
+          Authorization: `Bearer ${token}`,
+      },
+      
+      body: JSON.stringify({
+          taskData,
+      })
+  });
+
+  if (!response.ok) {
+    throw new Error("Не удалось удалить задачу");
+  }
+
+  return response.json();
+}

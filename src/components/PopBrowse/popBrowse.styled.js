@@ -61,13 +61,10 @@ export const PopBrowseContent = styled.div`
     display: block;
     text-align: left;
     opacity: 1;
-    display: block;
+    margin-bottom: 20px;
 
 @media screen and (max-width: 495px) {
-    display: block;
-    margin-bottom: 20px;
-    opacity: 1;
-    display: none;
+     display: none;
   }
 `;
 
@@ -83,15 +80,15 @@ export const PopBrowseTopBlock = styled.div`
 `;
 
 export const PopBrowseTtl = styled.h3`
-  color: #000;
+  color: ${({theme})=> theme.text};
   font-size: 20px;
   font-weight: 600;
   line-height: 24px;
 `;
 
 export const BrowseCategoriesTheme = styled.div`
-    display: inline-block;
-  width: auto;
+  display: inline-block;
+  width: 115px;
   height: 30px;
   padding: 8px 20px;
   border-radius: 24px;
@@ -114,10 +111,10 @@ export const PopBrowseStatus = styled.div`
 
 export const BrowseStatusP = styled.div`
   margin-bottom: 14px;
-  color: #000;
+  color: ${({theme})=> theme.text};
   font-size: 14px;
-  font-weight: 600;
-  line-height: 1;
+  font-weight: 600px;
+  line-height: 16px;
 `;
 
 export const BrowseStatusThemes = styled.div`
@@ -127,40 +124,75 @@ export const BrowseStatusThemes = styled.div`
   justify-content: flex-start;
 `;
 
-export const BrowseStatusThemeHide = styled.div`
+export const StatusThemeLabel_1 = styled.p`
+  display: inline-block;
+  height: 30px;
+  padding: 5px 14px 5px 14px;
   border-radius: 24px;
-  border: 0.7px solid rgba(148, 166, 190, 0.4);
-  color: #94A6BE;
-  padding: 11px 14px 10px;
-  margin-right: 7px;
-  margin-bottom: 7px;
+  margin-right: 2px;
+  color: ${({theme})=> theme.textTheme};
+  background-color: "#94A6BE";
+`;
 
-  display: none; //_hide
-
-  p {
-  font-size: 14px;
-  line-height: 1;
-  letter-spacing: -0.14px;
+export const OpenedCardTheme = styled.input`
+  display: none;
+&:checked + label {
+  opacity: 100%;
 }
 `;
 
-export const BrowseStatusThemeGray = styled.div`
+export const StatusThemeLabel = styled.label`
+  display: inline-block;
+  height: 30px;
+  padding: 5px 14px 5px 14px;
+  border: solid 1px ${({theme})=> theme.text};
   border-radius: 24px;
-  border: 0.7px solid rgba(148, 166, 190, 0.4);
-  color: #94A6BE;
-  padding: 11px 14px 10px;
-  margin-right: 7px;
-  margin-bottom: 7px;
-
-  background: #94A6BE;
-  color: #FFFFFF;
-
-  p {
-  font-size: 14px;
-  line-height: 1;
-  letter-spacing: -0.14px;
-}
+  cursor: pointer;
+  margin-right: 2px;
+  opacity: 40%;
+  &:hover {
+    opacity: 100%;
+    border: solid 1px ${({theme})=> theme.primary};
+    color: ${({theme})=> theme.body};
+    background-color: "#94A6BE";
+  }
+  white-space: nowrap;
 `;
+
+// export const BrowseStatusThemeHide = styled.div`
+//   border-radius: 24px;
+//   border: 0.7px solid rgba(148, 166, 190, 0.4);
+//   color: #94A6BE;
+//   padding: 11px 14px 10px;
+//   margin-right: 7px;
+//   margin-bottom: 7px;
+
+//   display: none; //_hide
+
+//   p {
+//   font-size: 14px;
+//   line-height: 1;
+//   letter-spacing: -0.14px;
+// }
+// `;
+
+// export const BrowseStatusThemeGray = styled.div`
+//   border-radius: 24px;
+//   border: 0.7px solid rgba(148, 166, 190, 0.4);
+//   color: #94A6BE;
+//   padding: 11px 14px 10px;
+//   margin-right: 7px;
+//   margin-bottom: 7px;
+
+//   background: #94A6BE;
+//   color: #FFFFFF;
+
+//   p {
+//   font-size: 14px;
+//   line-height: 1;
+//   letter-spacing: -0.14px;
+// }
+// `;
 
 export const PopBrowseWrap = styled.div`
   display: flex;
@@ -201,6 +233,8 @@ export const FormBrowseArea = styled.textarea`
   letter-spacing: -0.14px;
   margin-top: 14px;
   height: 200px;
+  color: ${({theme})=> theme.text};
+  background-color: ${({theme})=> theme.body};
 
   &::-moz-placeholder {
   font-weight: 400;
@@ -223,38 +257,38 @@ export const FormBrowseArea = styled.textarea`
 }
 `;
 
-export const ThemeDownCategories = styled.div`
-    display: none;
-    margin-bottom: 20px;
+// export const ThemeDownCategories = styled.div`
+//     display: none;
+//     margin-bottom: 20px;
 
-@media screen and (max-width: 495px) {
-    display: block;
-    margin-bottom: 20px;
-}
-`;
+// @media screen and (max-width: 495px) {
+//     display: block;
+//     margin-bottom: 20px;
+// }
+// `;
 
-export const BrowseCategoriesP = styled.p`
-    margin-bottom: 14px;
-    color: #000;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1;
-`;
+// export const BrowseCategoriesP = styled.p`
+//     margin-bottom: 14px;
+//     color: #000;
+//   font-size: 14px;
+//   font-weight: 600;
+//   line-height: 1;
+// `;
 
-export const CategoriesTheme = styled.div`
-    display: inline-block;
-  width: auto;
-  height: 30px;
-  padding: 8px 20px;
-  border-radius: 24px;
-  margin-right: 7px;
-  opacity: 0.4;
+// export const CategoriesTheme = styled.div`
+//     display: inline-block;
+//   width: auto;
+//   height: 30px;
+//   padding: 8px 20px;
+//   border-radius: 24px;
+//   margin-right: 7px;
+//   opacity: 0.4;
 
-  background-color: #FFE4C2;
-  color: #FF6D00;
+//   background-color: #FFE4C2;
+//   color: #FF6D00;
 
-  opacity: 1 !important;
-`;
+//   opacity: 1 !important;
+// `;
 
 export const PopBrowseBtnBrowse = styled.div`
   display: flex;
@@ -267,6 +301,7 @@ export const PopBrowseBtnBrowse = styled.div`
     height: 30px;
     margin-bottom: 10px;
     padding: 0 14px;
+    margin-right: 8px;
 }
 
 @media screen and (max-width: 495px) {
@@ -279,7 +314,7 @@ export const PopBrowseBtnBrowse = styled.div`
 }
 `;
 
-export const BtnGroup = styled.div`
+export const ButtonGroup = styled.div`
      width: 100%;
 
     button {
@@ -295,19 +330,7 @@ export const BtnGroup = styled.div`
 }
 `;
 
-export const PopBrowseBtnEditBtnBor = styled.button`
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: space-between;
-  margin-right: 8px;
-
-  button {
-    height: 30px;
-    margin-bottom: 10px;
-    padding: 0 14px;
-    }
-
+export const ButtonChangeDelete = styled.button`
   border-radius: 4px;
   border: 0.7px solid var(--palette-navy-60, #565EEF);
   outline: none;
@@ -342,7 +365,7 @@ export const BtnBrowseDeleteBtnBor = styled.button`
 ${Hover03}
 `;
 
-export const BtnBrowseCloseBtnBg = styled.button`
+export const ButtonClose = styled.button`
     border-radius: 4px;
   background: #565EEF;
   border: none;
