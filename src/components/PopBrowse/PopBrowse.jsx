@@ -1,12 +1,12 @@
-import { useParams, useState, useContext } from "react-router-dom";
-import { useNavigate } from "react-router-dom"; // Добавляем импорт useNavigate
-import Calendar from "../../components/Calendar/Calendar.jsx";
+import { useParams, useNavigate } from "react-router-dom";
+import { useState, useContext } from "react"; // Добавляем импорт useNavigate
+import { Calendar } from "../../components/Calendar/Calendar.jsx";
 import { routes } from "../../router/routes.js";
 import * as S from "./popBrowse.styled";
-import { Subttl, Orange, themeColor } from "../../glogalStyle.styled";
+import { Subttl, themeColor } from "../../glogalStyle.styled";
 import { editTask, deleteTask } from "../../api/tasks.js";
-import { UserContext } from "../../context/UserContext"; // Assuming you have a UserContext
-import { TaskContext } from "../../context/TaskContext"; // Assuming you have a TaskContext
+import { UserContext } from "../../context/UserContext";
+import { TaskContext } from "../../context/TasksContext";
 
 export const PopBrowse = () => {
   const { cardId } = useParams();
