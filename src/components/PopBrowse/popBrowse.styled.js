@@ -105,6 +105,16 @@ export const BrowseOrange = styled.p`
     color: #FF6D00;
 `;
 
+export const PopBrowseColor = styled.div`
+  display: inline-block;
+  padding: 8px 20px 8px 20px;
+  width: 115px;
+  height: 30px;
+  border-radius: 24px;
+  background-color: "#94a6be";
+  margin-right: 7px;
+`;
+
 export const PopBrowseStatus = styled.div`
     margin-bottom: 11px;
 `;

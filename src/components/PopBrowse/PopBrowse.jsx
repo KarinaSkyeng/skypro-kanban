@@ -73,7 +73,7 @@ export const PopBrowse = () => {
             <S.PopBrowseTopBlock>
               <S.PopBrowseTtl>Название задачи: {openedCard.title}</S.PopBrowseTtl>
               <S.BrowseCategoriesTheme>
-                <Orange $themeColor={themeColor[openedCard.topic]}></Orange>
+                <S.PopBrowseColor $themeColor={themeColor[openedCard.topic]}></S.PopBrowseColor>
               </S.BrowseCategoriesTheme>
             </S.PopBrowseTopBlock>
             <S.PopBrowseStatus>
