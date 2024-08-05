@@ -45,8 +45,7 @@ export const Header = ({isDarkTheme, setIsDarkTheme}) => {
             <S.HeaderBtnNew onClick={openModal} value={isModalOpen}><Link to={routes.add}>
               Создать новую задачу
             </Link>
-            </S.HeaderBtnNew> 
-            {/* <PopBrowse />            */}
+            </S.HeaderBtnNew>           
             <S.HeaderUser onClick={toggleOpenUser}>
               {user.name} </S.HeaderUser>
             {isOpen ?  

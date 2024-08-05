@@ -24,7 +24,7 @@ export const AppRoutes = ({ isDarkTheme, setIsDarkTheme }) => {
                             <Route path={routes.exit} element={<ExitPage />} />
                             <Route path={routes.card} element={<CardPage />} />
                             <Route path={routes.add} element={<NewCardPage />} />
-                            <Route path="/card/:cardId" element={<PopBrowse />} />
+                            <Route path={routes.card + '/:cardId'} element={<PopBrowse />} />
                         </Route>
                     </Route>
                     <Route path={routes.login} element={<LoginPage />} />
