@@ -9,12 +9,12 @@ import { UserContext } from "../../context/UserContext";
 import { TaskContext } from "../../context/TasksContext";
 
 export const PopBrowse = () => {
-  const { cardId } = useParams();
+  const { id } = useParams();
   const { user } = useContext(UserContext);
   const { tasks, setTasks } = useContext(TaskContext);
   const navigate = useNavigate();
 
-  const openedCard = tasks.find((task) => task._id === cardId);
+  const openedCard = tasks.find((task) => task.id === id);
   const [isEdited, setIsEdited] = useState(false);
   const [error, setError] = useState("");
 
@@ -48,7 +48,7 @@ export const PopBrowse = () => {
   const handleDeleteCard = async (e) => {
     e.preventDefault();
     try {
-      const res = await deleteTask(user.token, cardId);
+      const res = await deleteTask(user.token, id);
       setTasks(res.tasks);
       navigate(routes.main);
     } catch (error) {
@@ -61,7 +61,7 @@ export const PopBrowse = () => {
     e.preventDefault();
     const taskData = { ...editCard, date: editCard.date.toISOString() };
     try {
-      const res = await editTask({ token: user.token, id: cardId, taskData });
+      const res = await editTask({ token: user.token, id, taskData });
       setTasks(res.tasks);
       navigate(routes.main);
     } catch (error) {
