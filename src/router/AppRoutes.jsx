@@ -8,6 +8,7 @@ import { ProtectedRoutes } from "./ProtectedRoutes.jsx";
 import { ExitPage } from "../Pages/ExitPage/ExitPage.jsx";
 import { CardPage } from "../Pages/CardPage/CardPage.jsx";
 import { NewCardPage } from "../Pages/AddCardPage/AddCardPage.jsx";
+import { PopBrowse } from '../components/PopBrowse/PopBrowse';
 
 export const AppRoutes = ({ isDarkTheme, setIsDarkTheme }) => {
     return (              
@@ -23,6 +24,7 @@ export const AppRoutes = ({ isDarkTheme, setIsDarkTheme }) => {
                             <Route path={routes.exit} element={<ExitPage />} />
                             <Route path={routes.card} element={<CardPage />} />
                             <Route path={routes.add} element={<NewCardPage />} />
+                            <Route path={routes.card + '/:cardId'} element={<PopBrowse />} />
                         </Route>
                     </Route>
                     <Route path={routes.login} element={<LoginPage />} />

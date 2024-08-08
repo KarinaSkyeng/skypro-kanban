@@ -35,6 +35,11 @@ body {
   font-family: "Roboto", Arial, Helvetica, sans-serif;
   color: #000000;
 }
+
+body {
+    background-color: ${({ theme }) => theme.body};
+    color: ${({ theme }) => theme.text};
+  }
 `;
 
 export const Loader = styled.p`
@@ -86,6 +91,8 @@ export const themeColor = ($color) => css`
     color: ${({ theme }) => theme.colors.grayText};
 `}
 `;
+
+
 
 export const Hover01 = css`
   &:hover {

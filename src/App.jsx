@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BrowserRouter } from "react-router-dom";
 import { GlobalStyle } from "./glogalStyle.styled.js";
 import { ThemeProvider } from "styled-components";
@@ -8,7 +8,12 @@ import { UserProvider } from "./context/UserContext";
 import { TaskProvider } from "./context/TasksContext";
 
 function App() {
-  const [isDarkTheme, setIsDarkTheme] = useState("light");
+  const [isDarkTheme, setIsDarkTheme] = useState(localStorage.getItem('theme') || 'light');
+
+  useEffect(() => {
+    localStorage.setItem('theme', isDarkTheme);
+  }, [isDarkTheme]);
+
   const currentTheme = isDarkTheme === "dark" ? dark : light;
 
   return (

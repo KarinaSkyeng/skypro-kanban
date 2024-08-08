@@ -20,5 +20,5 @@ export const TaskProvider = ({ children }) => {
         <TaskContext.Provider value={{ tasks, setTasks }}>
           {children}
         </TaskContext.Provider>
-      );
+      ); 
 };

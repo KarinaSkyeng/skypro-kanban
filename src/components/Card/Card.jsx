@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import * as S from "./Card.Styled.js";
 import { format, isValid } from "date-fns";
 
-export const Card = ({title, topic, date, color, _id}) => {
+export const Card = ({title, topic, date, color, id}) => {
    const dateObj = new Date(date);
    const formattedDate = isValid(dateObj) ? format(dateObj, 'dd.MM.yy') : 'Invalid date';
   
@@ -13,7 +13,7 @@ export const Card = ({title, topic, date, color, _id}) => {
             <S.CardTheme $color={topic}>
               <p>{topic}</p>
             </S.CardTheme>
-            <Link to={`/card/${_id}`}>
+            <Link to={`/card/${id}`}>
               <S.CardBtn>
                 <div></div>
                 <div></div>
@@ -22,9 +22,9 @@ export const Card = ({title, topic, date, color, _id}) => {
             </Link>
           </S.CardGroup>
           <S.CardContent>
-            <a href="" target="_blank">
+          <Link to={`/card/${id}`}>
               <S.CardTitle $color={color}>{title}</S.CardTitle>
-            </a>
+            </Link>
             <S.CardDate>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
