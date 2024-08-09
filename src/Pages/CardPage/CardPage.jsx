@@ -1,13 +1,23 @@
 import { Calendar } from "../../components/Calendar/Calendar";
 import * as S from "./cardPage.styled.js"
 import { Link, useParams } from 'react-router-dom';
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
+import { TaskContext } from "../../context/TasksContext.jsx";
 
 export function CardPage({ theme }) {
+    const {tasks} = useContext(TaskContext);
    const params = useParams();
    const [selected, setSelected] = useState(null);
+   const [card, setCard] = useState(null);
 
-   console.log(params.id);
+   useEffect(() => {
+    const foundTask = tasks.find(task => task._id === params.id);
+    setCard(foundTask);
+   }, [params.id, tasks]);
+
+   if (!card) {
+    return <div>Задача не найдена</div>
+   } 
 
     return (
         <S.PopBrowse>
@@ -15,16 +25,16 @@ export function CardPage({ theme }) {
             <S.PopBrowseBlock>
                 <S.PopBrowseContent>
                     <S.PopBrowseTopBlock>
-                        <S.PopBrowseTtl>Название задачи</S.PopBrowseTtl>
+                        <S.PopBrowseTtl>{card.name || 'Название задачи'}</S.PopBrowseTtl>
                         <S.CategoriesTheme $themeColor={theme}>
-                            <S.ThemesP>Web Design</S.ThemesP>
+                            <S.ThemesP>{card.category || 'Категория задачи'}</S.ThemesP>
                         </S.CategoriesTheme>
                     </S.PopBrowseTopBlock>
-                    <div>
+                     <div>
                         <S.StatusSubttl>Статус</S.StatusSubttl>
                         <S.StatusThemes>
                             <S.StatusTheme>
-                                <S.StatusThemeP>Без статуса</S.StatusThemeP>
+                                <S.StatusThemeP>{card.status || 'Без статуса'}</S.StatusThemeP>
                             </S.StatusTheme> 
                         </S.StatusThemes>
                     </div>
@@ -32,7 +42,13 @@ export function CardPage({ theme }) {
                         <S.PopBrowseForm id="formBrowseCard" action="#">									
                             <S.FormBrowseBlock>
                                 <S.LabelSubttl htmlFor="textArea01">Описание задачи</S.LabelSubttl>
-                                <S.FormBrowseArea name="text" id="textArea01"  readOnly placeholder="Введите описание задачи..."></S.FormBrowseArea>
+                                <S.FormBrowseArea 
+                                name="text" 
+                                id="textArea01"  
+                                readOnly 
+                                placeholder="Введите описание задачи..."
+                                value={card.description || ''}
+                                ></S.FormBrowseArea>
                             </S.FormBrowseBlock>
                         </S.PopBrowseForm>                       
                             <Calendar selected={selected} setSelected={setSelected}/>
@@ -40,15 +56,15 @@ export function CardPage({ theme }) {
                     <S.CategoriesThemeDown>
                         <S.CategoriesP>Категория</S.CategoriesP>
                         <S.CategoriesTheme>
-                            <S.ThemesP>Web Design</S.ThemesP>
+                            <S.ThemesP>{card.category || 'Категория задачи'}</S.ThemesP>
                         </S.CategoriesTheme>
                     </S.CategoriesThemeDown>
                     <S.PopBrowseBtnBrowse>
                         <div>
-                        <S.BtnBrowse><S.BtnBorA>Редактировать задачу</S.BtnBorA></S.BtnBrowse>
-                            <S.BtnBrowse><S.BtnBorA>Удалить задачу</S.BtnBorA></S.BtnBrowse>
+                        <S.BtnBrowse as="button"><S.BtnBorA as="span">Редактировать задачу</S.BtnBorA></S.BtnBrowse>
+                            <S.BtnBrowse as="button"><S.BtnBorA as="span">Удалить задачу</S.BtnBorA></S.BtnBrowse>
                         </div>
-                        <Link to="/"><S.BtnBrowseClose><S.BtnBgA>Закрыть</S.BtnBgA></S.BtnBrowseClose></Link>
+                        <Link to="/"><S.BtnBrowseClose as="button"><S.BtnBgA as="span">Закрыть</S.BtnBgA></S.BtnBrowseClose></Link>
                     </S.PopBrowseBtnBrowse>
                     <S.PopBrowseBtnEdit>
                         <div>
