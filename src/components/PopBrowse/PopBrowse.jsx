@@ -9,12 +9,12 @@ import { UserContext } from "../../context/UserContext";
 import { TaskContext } from "../../context/TasksContext";
 
 export const PopBrowse = () => {
-  const { id } = useParams();
+  const { cardId } = useParams();
   const { user } = useContext(UserContext);
   const { tasks, setTasks } = useContext(TaskContext);
   const navigate = useNavigate();
 
-  const openedCard = tasks.find((task) => task.id === id);
+  const openedCard = tasks.find((task) => task.id === cardId);
   const [isEdited, setIsEdited] = useState(false);
   const [error, setError] = useState("");
 
@@ -27,6 +27,7 @@ export const PopBrowse = () => {
   });
 
   useEffect(() => {
+    console.log(openedCard)
     if (openedCard) {
       setEditCard({
         title: openedCard.title,
@@ -38,7 +39,7 @@ export const PopBrowse = () => {
     } else {
       navigate(routes.main);
     }
-  }, [openedCard, navigate]);
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -48,7 +49,7 @@ export const PopBrowse = () => {
   const handleDeleteCard = async (e) => {
     e.preventDefault();
     try {
-      const res = await deleteTask(user.token, id);
+      const res = await deleteTask(user.token, cardId);
       setTasks(res.tasks);
       navigate(routes.main);
     } catch (error) {
@@ -57,11 +58,12 @@ export const PopBrowse = () => {
     }
   };
 
+  console.log(111)
   const handleEditTask = async (e) => {
     e.preventDefault();
     const taskData = { ...editCard, date: editCard.date.toISOString() };
     try {
-      const res = await editTask({ token: user.token, id, taskData });
+      const res = await editTask({ token: user.token, cardId, taskData });
       setTasks(res.tasks);
       navigate(routes.main);
     } catch (error) {
