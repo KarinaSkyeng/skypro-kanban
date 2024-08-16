@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { themeColor } from "../../glogalStyle.styled";
+import { themeColor, Hover01, Hover03 } from "../../glogalStyle.styled";
 
 export const PopBrowse = styled.div`
     width: 100%;
@@ -45,6 +45,18 @@ export const PopBrowse = styled.div`
     opacity: 1;
   `;
 
+export const PopBrowseColor = styled.div`
+display: inline-block;
+padding: 8px 20px 8px 20px;
+width: 115px;
+height: 30px;
+border-radius: 24px;
+background-color: "#94a6be";
+margin-right: 7px;
+color: ${({ theme }) => theme.text};
+${({ topic }) => themeColor(topic)}
+`;
+
   export const PopBrowseContentThemeDown = styled.div`
     display: none;
     margin-bottom: 20px;
@@ -81,13 +93,13 @@ export const PopBrowse = styled.div`
     margin-bottom: 20px;
   `;
 
- export const PopBrowseBtnBrowse = styled.div`
- display: flex;
- flex-wrap: wrap;
- align-items: flex-start;
- justify-content: space-between;
- margin-right: 8px;
- `;
+//  export const PopBrowseBtnBrowse = styled.div`
+//  display: flex;
+//  flex-wrap: wrap;
+//  align-items: flex-start;
+//  justify-content: space-between;
+//  margin-right: 8px;
+//  `;
  
  export const PopBrowseBtnEdit = styled.div`
     display: flex;
@@ -114,20 +126,20 @@ export const PopBrowse = styled.div`
   }
 `;
 
-export const BtnBrowseClose = styled.button`
-height: 30px;
-margin-bottom: 10px;
-padding: 0 14px;
-margin-right: 8px;
-border-radius: 4px;
-background: #565EEF;
-border: none;
-outline: none;
-color: #FFFFFF;
-&:hover {
-    background-color: #33399b;
-  }
-`;
+// export const BtnBrowseClose = styled.button`
+// height: 30px;
+// margin-bottom: 10px;
+// padding: 0 14px;
+// margin-right: 8px;
+// border-radius: 4px;
+// background: #565EEF;
+// border: none;
+// outline: none;
+// color: #FFFFFF;
+// &:hover {
+//     background-color: #33399b;
+//   }
+// `;
 
 export const BtnEdit = styled.button`
 height: 30px;
@@ -159,6 +171,13 @@ color: #FFFFFF;
     background-color: #33399b;
   }
 `;
+
+export const OpenedCardTheme = styled.input`
+  display: none;
+&:checked + label {
+  opacity: 100%;
+}
+`;
   
 export const BtnBorA = styled.a`
 :hover{
@@ -169,39 +188,113 @@ export const BtnBgA = styled.a`
 color: #FFFFFF};
 `;
 
-export const StatusSubttl = styled.p`
-color: #000;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1;
-  margin-bottom: 14px;
-`;
-
-export const StatusThemes = styled.div`
-display: flex;
+export const PopBrowseBtnBrowse = styled.div`
+  display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: space-between;
+  margin-right: 8px;
+
+  button {
+    height: 30px;
+    margin-bottom: 10px;
+    padding: 0 14px;
+    margin-right: 8px;
+}
+
+@media screen and (max-width: 495px) {
+    width: 100%;
+    button {
+        width: 100%;
+        height: 40px;
+        margin-right: 0px;
+    }
+}
 `;
 
-export const StatusTheme = styled.div`
-border-radius: 24px;
-  border: 0.7px solid rgba(148, 166, 190, 0.4);
-  color: #94A6BE;
-  padding: 11px 14px 10px;
-  margin-right: 7px;
-  margin-bottom: 7px;
-  background: #94A6BE;
-  color: #FFFFFF;
+export const ButtonGroup = styled.div`
+     width: 100%;
+
+    button {
+    margin-right: 8px;
+    }
+
+@media screen and (max-width: 495px) {
+    width: 100%;
+
+    button {
+    margin-right: 0px;
+  }
+}
 `;
 
-export const StatusThemeP = styled.p`
-font-size: 14px;
-  line-height: 1;
-  letter-spacing: -0.14px;
-  background: #94A6BE;
-  color: #FFFFFF;
+export const ButtonChangeDelete = styled.button`
+  border-radius: 4px;
+  border: 0.7px solid var(--palette-navy-60, #565EEF);
+  outline: none;
+  background: transparent;
+  color: #565EEF;
+
+  a {
+  color: #565EEF;
+}
+
+  ${Hover03}
+
+  @media screen and (max-width: 495px) {   
+    button {
+    width: 100%;
+    height: 40px;
+    }
+}
 `;
+
+export const ButtonClose = styled.button`
+    border-radius: 4px;
+  background: #565EEF;
+  border: none;
+  outline: none;
+  color: #FFFFFF;
+
+  a {
+  color: #FFFFFF;
+}
+
+${Hover01}
+`;
+// export const StatusSubttl = styled.p`
+// color: #000;
+//   font-size: 14px;
+//   font-weight: 600;
+//   line-height: 1;
+//   margin-bottom: 14px;
+// `;
+
+// export const StatusThemes = styled.div`
+// display: flex;
+//   flex-wrap: wrap;
+//   align-items: flex-start;
+//   justify-content: flex-start;
+// `;
+
+// export const StatusTheme = styled.div`
+// border-radius: 24px;
+//   border: 0.7px solid rgba(148, 166, 190, 0.4);
+//   color: #94A6BE;
+//   padding: 11px 14px 10px;
+//   margin-right: 7px;
+//   margin-bottom: 7px;
+//   background: #94A6BE;
+//   color: #FFFFFF;
+// `;
+
+// export const StatusThemeP = styled.p`
+// font-size: 14px;
+//   line-height: 1;
+//   letter-spacing: -0.14px;
+//   background: #94A6BE;
+//   color: #FFFFFF;
+// `;
 
 export const FormBrowseBlock = styled.div`
 display: flex;
@@ -282,7 +375,7 @@ width: 18px;
   cursor: pointer;
   display: flex;
   align-items: center;
-  justify-content: center
+  justify-content: center;
   `;
 
   export const CategoriesThemeDown = styled.div`
@@ -299,11 +392,11 @@ color: #000;
   margin-bottom: 14px;
 `;
 
-export const ThemesP = styled.p`
+export const CategoriesThemesP = styled.p`
 font-size: 14px;
   font-weight: 600;
   line-height: 14px;
-  white-space: nowrap
+  white-space: nowrap;
 `;
 
 export const CategoriesTheme = styled.div`
@@ -316,7 +409,54 @@ export const CategoriesTheme = styled.div`
   opacity: 0.4;
   background-color: ${({ $themeColor }) => themeColor($themeColor)};
 
-  ${ThemesP} {
+  ${CategoriesThemesP} {
     color: ${({ $themeColor }) => themeColor($themeColor)};
   }
+`;
+
+export const PopBrowseStatus = styled.div`
+    margin-bottom: 11px;
+`;
+
+export const BrowseStatusP = styled.div`
+  margin-bottom: 14px;
+  color: ${({theme})=> theme.text};
+  font-size: 14px;
+  font-weight: 600px;
+  line-height: 16px;
+`;
+
+export const BrowseStatusThemes = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+`;
+
+export const StatusThemeLabel_1 = styled.p`
+  display: inline-block;
+  height: 30px;
+  padding: 5px 14px 5px 14px;
+  border-radius: 24px;
+  margin-right: 2px;
+  color: ${({theme})=> theme.textTheme};
+  background-color: "#94A6BE";
+`;
+
+export const StatusThemeLabel = styled.label`
+  display: inline-block;
+  height: 30px;
+  padding: 5px 14px 5px 14px;
+  border: solid 1px ${({theme})=> theme.text};
+  border-radius: 24px;
+  cursor: pointer;
+  margin-right: 2px;
+  opacity: 40%;
+  &:hover {
+    opacity: 100%;
+    border: solid 1px ${({theme})=> theme.primary};
+    color: ${({theme})=> theme.body};
+    background-color: "#94A6BE";
+  }
+  white-space: nowrap;
 `;

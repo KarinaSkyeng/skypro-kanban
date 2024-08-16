@@ -11,6 +11,7 @@ import { NewCardPage } from "../Pages/AddCardPage/AddCardPage.jsx";
 import { PopBrowse } from '../components/PopBrowse/PopBrowse';
 
 export const AppRoutes = ({ isDarkTheme, setIsDarkTheme }) => {
+   
     return (              
                 <Routes>
                     <Route element={<ProtectedRoutes />}>
