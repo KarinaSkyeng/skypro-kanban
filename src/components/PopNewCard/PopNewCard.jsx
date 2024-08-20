@@ -68,7 +68,7 @@ export const PopNewCard = ({ onClose }) => {
                 id="formNewCard"
                 action="#">
                  <S.FormNewBlock> 
-                  <Subttl>Название задачи</Subttl>
+                  <S.Subttl>Название задачи</S.Subttl>
                   <S.FormNewInput
                     type="text"
                     name="title"
@@ -80,7 +80,7 @@ export const PopNewCard = ({ onClose }) => {
                   />
                 </S.FormNewBlock>
                 <S.FormNewBlock>
-                  <Subttl>Описание задачи</Subttl>
+                  <S.Subttl>Описание задачи</S.Subttl>
                   <S.FormNewArea
                     onChange={onChangeInput}
                     name="description"                    

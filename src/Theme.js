@@ -32,7 +32,8 @@ export const dark = {
         greenBg: "#06B16E",
         greenText: "#B4FDD1",
         purpleBg: "#9A48F1",
-        purpleText: "#E9D4FF"
+        purpleText: "#E9D4FF",
+        purpleBorder: "#FFFFFF"
     }
 };
 
