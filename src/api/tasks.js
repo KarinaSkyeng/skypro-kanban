@@ -1,6 +1,5 @@
 
 const apiURL = "https://wedev-api.sky.pro/api/kanban"
-const apiUrlOfOneTask = "https://wedev-api.sky.pro/api/kanban/";
 
 export const getTasks = async(token) => {
     const response = await fetch(apiURL,
@@ -34,7 +33,7 @@ export const addTask = async (taskData, token) => {
 
 // получение задачи по id
 export const getCardById = async (token, id) => {
-  const response = await fetch(`${apiUrlOfOneTask}/${id}`, {
+  const response = await fetch(`${apiURL}/${id}`, {
     method: "GET",
     headers: {
       Authorization: `Bearer ${token}`,
@@ -48,7 +47,7 @@ export const getCardById = async (token, id) => {
 
 // Редактировать задачу
 export async function editTask(token, id, { editTaskData }) {
-  const response = await fetch(`${apiUrlOfOneTask}/${id}`, {
+  const response = await fetch(`${apiURL}/${id}`, {
     method: "PUT",  
     headers: {
           Authorization: `Bearer ${token}`,
@@ -65,7 +64,7 @@ export async function editTask(token, id, { editTaskData }) {
 
 // Удалить задачу
 export async function deleteTask(id, token) {
-  const response = await fetch(`${apiUrlOfOneTask}/${id}`, {
+  const response = await fetch(`${apiURL}/${id}`, {
     method: "DELETE",  
     headers: {
           Authorization: `Bearer ${token}`,

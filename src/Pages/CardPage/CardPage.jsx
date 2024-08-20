@@ -3,12 +3,12 @@ import * as S from "./cardPage.styled.js";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { routes } from "../../router/routes.js";
 import { useState, useContext, useEffect } from "react";
-import { TaskContext } from "../../context/TasksContext.jsx";
 import { editTask, deleteTask } from "../../api/tasks.js";
 import { UserContext } from "../../context/UserContext";
+import { useTaskContext } from "../../context/useTaskContext.jsx";
 
 export function CardPage() {
-  const { tasks } = useContext(TaskContext);
+  const { tasks, setTasks } = useTaskContext();
   const params = useParams();
   const [selected, setSelected] = useState(null);
   const { user } = useContext(UserContext);
@@ -24,9 +24,14 @@ export function CardPage() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setCard((prev) => ({ ...prev, [name]: value }));
+  
+    // Если изменяется дата, преобразуйте её в объект Date
+    if (name === 'date') {
+      setCard((prev) => ({ ...prev, [name]: new Date(value) }));
+    } else {
+      setCard((prev) => ({ ...prev, [name]: value }));
+    }
   };
-
   const handleDeleteCard = async (e) => {
     e.preventDefault();
     try {
@@ -41,9 +46,18 @@ export function CardPage() {
 
   const handleEditTask = async (e) => {
     e.preventDefault();
-    const taskData = { ...card, date: card.date.toISOString() };
+
+    const taskDate = typeof card.date === 'string' ? new Date(card.date) : card.date;
+    
+    if (!(taskDate instanceof Date) || isNaN(taskDate.getTime())) {
+      setError('Некорректная дата');
+      return;
+    }
+
+    const taskData = { ...card, date: taskDate.toISOString() };
+
     try {
-      const res = await editTask({ token: user.token, cardId: card._id, taskData });
+      const res = await editTask(user.token, card._id, { editTaskData: taskData });
       setTasks(res.tasks);
       navigate(routes.main);
     } catch (error) {
@@ -55,7 +69,6 @@ export function CardPage() {
   const handleToggleEdit = () => {
     setIsEdited(!isEdited);
   };
-console.log("Proverka", card)
 
   if (!card) {
     return <div>Задача не найдена</div>;

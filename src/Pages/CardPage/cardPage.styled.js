@@ -41,10 +41,7 @@ export const PopBrowse = styled.div`
     text-align: left;
   `;
 
-  export const PopBrowseContentCategoriesTheme = styled.div`
-    opacity: 1;
-  `;
-
+  
 export const PopBrowseColor = styled.div`
 display: inline-block;
 padding: 8px 20px 8px 20px;
@@ -56,17 +53,8 @@ margin-right: 7px;
 color: ${({ theme }) => theme.text};
 ${({ topic }) => themeColor(topic)}
 `;
-
-  export const PopBrowseContentThemeDown = styled.div`
-    display: none;
-    margin-bottom: 20px;
-  `;
-
-  export const PopBrowseContentThemeTop = styled.div`
-    display: block;
-  `;
-
-  export const PopBrowseTopBlock = styled.div`
+ 
+export const PopBrowseTopBlock = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -92,14 +80,6 @@ ${({ topic }) => themeColor(topic)}
     display: block;
     margin-bottom: 20px;
   `;
-
-//  export const PopBrowseBtnBrowse = styled.div`
-//  display: flex;
-//  flex-wrap: wrap;
-//  align-items: flex-start;
-//  justify-content: space-between;
-//  margin-right: 8px;
-//  `;
  
  export const PopBrowseBtnEdit = styled.div`
     display: flex;
@@ -126,68 +106,44 @@ ${({ topic }) => themeColor(topic)}
   }
 `;
 
-// export const BtnBrowseClose = styled.button`
-// height: 30px;
-// margin-bottom: 10px;
-// padding: 0 14px;
-// margin-right: 8px;
-// border-radius: 4px;
-// background: #565EEF;
-// border: none;
-// outline: none;
-// color: #FFFFFF;
-// &:hover {
-//     background-color: #33399b;
-//   }
-// `;
-
 export const BtnEdit = styled.button`
-height: 30px;
-margin-bottom: 10px;
-padding: 0 14px;
-margin-right: 8px;
-border-radius: 4px;
-border: 0.7px solid var(--palette-navy-60, #565EEF);
-outline: none;
-background: transparent;
-color: #565EEF;
-&:hover {
-    background-color: #33399b;
-    color: #FFFFFF;
-  }
+    height: 30px;
+    margin-bottom: 10px;
+    padding: 0 14px;
+    margin-right: 8px;
+    border-radius: 4px;
+    border: 0.7px solid var(--palette-navy-60, #565EEF);
+    outline: none;
+    background: transparent;
+    color: #565EEF;
+    &:hover {
+        background-color: #33399b;
+        color: #FFFFFF;
+      }
 `;
 
 export const BtnEditSave = styled.button`
-height: 30px;
-margin-bottom: 10px;
-padding: 0 14px;
-margin-right: 8px;
-border-radius: 4px;
-background: #565EEF;
-border: none;
-outline: none;
-color: #FFFFFF;
-&:hover {
-    background-color: #33399b;
-  }
+    height: 30px;
+    margin-bottom: 10px;
+    padding: 0 14px;
+    margin-right: 8px;
+    border-radius: 4px;
+    background: #565EEF;
+    border: none;
+    outline: none;
+    color: #FFFFFF;
+    &:hover {
+        background-color: #33399b;
+      }
 `;
 
 export const OpenedCardTheme = styled.input`
-  display: none;
-&:checked + label {
-  opacity: 100%;
-}
+      display: none;
+    &:checked + label {
+      opacity: 100%;
+    }
 `;
   
-export const BtnBorA = styled.a`
-:hover{
-color: #565EEF};
-`;
-export const BtnBgA = styled.a`
-:hover{
-color: #FFFFFF};
-`;
-
 export const PopBrowseBtnBrowse = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -262,39 +218,6 @@ export const ButtonClose = styled.button`
 
 ${Hover01}
 `;
-// export const StatusSubttl = styled.p`
-// color: #000;
-//   font-size: 14px;
-//   font-weight: 600;
-//   line-height: 1;
-//   margin-bottom: 14px;
-// `;
-
-// export const StatusThemes = styled.div`
-// display: flex;
-//   flex-wrap: wrap;
-//   align-items: flex-start;
-//   justify-content: flex-start;
-// `;
-
-// export const StatusTheme = styled.div`
-// border-radius: 24px;
-//   border: 0.7px solid rgba(148, 166, 190, 0.4);
-//   color: #94A6BE;
-//   padding: 11px 14px 10px;
-//   margin-right: 7px;
-//   margin-bottom: 7px;
-//   background: #94A6BE;
-//   color: #FFFFFF;
-// `;
-
-// export const StatusThemeP = styled.p`
-// font-size: 14px;
-//   line-height: 1;
-//   letter-spacing: -0.14px;
-//   background: #94A6BE;
-//   color: #FFFFFF;
-// `;
 
 export const FormBrowseBlock = styled.div`
 display: flex;
@@ -319,68 +242,6 @@ height: 200px;
 export const LabelSubttl = styled.label`
 display: flex;
   flex-direction: column;
-`;
-
-export const PopNewCardCalendar = styled.div`
-width: 100%;
-width: 182px;
-margin-bottom: 20px;
-`;
-
-export const CalendarTtlSubttl = styled.p`
-margin-bottom: 14px;
-  padding: 0 7px;
-  display: flex;
-  flex-direction: column;
-`;
-
-export const CalendarBlock = styled.div`
-display: block;
-`;
-
-export const CalendarNav = styled.div`
-display: block;
-`;
-
-export const CalendarMomth = styled.div`
-color: #94A6BE;
-  font-size: 14px;
-  line-height: 25px;
-  font-weight: 600;
-`;
-
-export const CalendarPeriod = styled.div`
-padding: 0 7px;
-`;
-
-export const CalendarP = styled.p`
-color: #94A6BE;
-  font-size: 10px;
-  line-height: 1;
-`;
-
-export const CalendarPSpan = styled.span`
-color: #000000;
-`;
-
-export const NavActions = styled.div`
-display: flex;
-  align-items: center;
-  justify-content: space-between;
-`;
-
-export const NavAction = styled.div`
-width: 18px;
-  height: 25px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  `;
-
-  export const CategoriesThemeDown = styled.div`
-  display: none;
-  margin-bottom: 20px;
 `;
 
 export const CategoriesP = styled.p`
