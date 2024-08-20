@@ -7,6 +7,7 @@ export const light = {
     headerBg: "#FFFFFF",
     logo: "images/logo.png",
     popupBg: "#FFFFFF",
+    calendarBg: "#FFFFFF",
     colors: {
         orangeBg: "#FFE4C2",
         orangeText: "#FF6D00",
@@ -15,13 +16,14 @@ export const light = {
         purpleBg: "#E9D4FF",
         purpleText: "#9A48F1",
         purpleBorder: "#565EEF",
+        calendarBg: "#20202C",
     }
 };
 
 export const dark = {
     body: "#151419",
     text: "#FFFFFF",
-    textSecondary: "#B1B1B1",
+    textSecondary: "#94A6BE",
     headerBg: "#20202C",
     cardBg: "#20202C",
     logo: "images/logo_dark.png",

@@ -24,7 +24,7 @@ export const StyledDayPicker = styled(DayPicker)`
   margin: 0 0px;
   padding: 0 10px;
 
-  background-color: #ffffff;
+  background-color: ${({ theme }) => theme.calendarBg}; ;
   color: #94A6BE;
 
   .rdp {

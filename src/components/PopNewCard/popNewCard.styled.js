@@ -46,7 +46,7 @@ export const PopNewCardBlock = styled.div`
   width: 100%;
   padding: 40px 30px 48px;
   border-radius: 10px;
-  border: 0.7px solid ${({ theme }) => theme.colors.purpleBorder};
+  border: 0.7px solid #4E5566;
   position: relative;
 
   @media screen and (max-width: 660px) {
@@ -206,6 +206,7 @@ export const CategoriesThemes = styled.div`
   flex-wrap: nowrap;
   align-items: flex-start;
   justify-content: flex-start;
+  margin-top: 14px;
 `;
 
 export const InputRadio = styled.input`
@@ -270,7 +271,7 @@ export const RadioToolbarLabel3 = styled.label`
 export const FormNewCreate = styled.button`
   width: 132px;
   height: 30px;
-  background-color: ${({ theme }) => theme.colors.purpleBorder};
+  background-color:#565EEF;
   border-radius: 4px;
   border: 0;
   outline: none;
