@@ -32,18 +32,20 @@ export function CardPage() {
       setCard((prev) => ({ ...prev, [name]: value }));
     }
   };
+
   const handleDeleteCard = async (e) => {
     e.preventDefault();
     try {
-      const res = await deleteTask(user.token, card._id);
-      setTasks(res.tasks);
+      await deleteTask(card._id, user.token); // Поменяли порядок аргументов
+      // Удаляем задачу вручную из стейта задач
+      setTasks(prevTasks => prevTasks.filter(task => task._id !== card._id));
       navigate(routes.main);
     } catch (error) {
       console.error(error);
       setError(error.message);
     }
   };
-
+  
   const handleEditTask = async (e) => {
     e.preventDefault();
 
