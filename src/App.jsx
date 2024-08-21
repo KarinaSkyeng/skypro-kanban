@@ -8,7 +8,7 @@ import { UserProvider } from "./context/UserContext";
 import { TaskProvider } from "./context/TasksContext";
 
 function App() {
-  const [isDarkTheme, setIsDarkTheme] = useState(localStorage.getItem('theme') || 'light');
+  const [isDarkTheme, setIsDarkTheme] = useState(() => localStorage.getItem('theme') || 'light');
 
   useEffect(() => {
     localStorage.setItem('theme', isDarkTheme);

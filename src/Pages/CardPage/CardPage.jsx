@@ -25,8 +25,10 @@ export function CardPage() {
   const handleChange = (e) => {
     const { name, value } = e.target;
   
-    // Если изменяется дата, преобразуйте её в объект Date
-    if (name === 'date') {
+    // Обрабатываем статус задачи
+    if (name === "status") {
+      setCard((prev) => ({ ...prev, status: value }));
+    } else if (name === "date") {
       setCard((prev) => ({ ...prev, [name]: new Date(value) }));
     } else {
       setCard((prev) => ({ ...prev, [name]: value }));
@@ -45,7 +47,7 @@ export function CardPage() {
       setError(error.message);
     }
   };
-  
+
   const handleEditTask = async (e) => {
     e.preventDefault();
 
@@ -119,14 +121,14 @@ export function CardPage() {
                         value={status}
                         onChange={handleChange}
                       />
-                      <S.StatusThemeLabel htmlFor={`radio${index}`}>
+                      <S.StatusThemeLabel htmlFor={`radio${index}`} isSelected={card.status === status} >
                         {status}
                       </S.StatusThemeLabel>
                     </div>
                   ))}
                 </S.BrowseStatusThemes>
               ) : (
-                <S.StatusThemeLabel_1></S.StatusThemeLabel_1>
+                <S.StatusThemeLabel_1>{card.status || "Без статуса"}</S.StatusThemeLabel_1>
               )}
             </S.PopBrowseStatus>
             <S.PopBrowseWrap>

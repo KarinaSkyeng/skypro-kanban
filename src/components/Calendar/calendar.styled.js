@@ -24,7 +24,7 @@ export const StyledDayPicker = styled(DayPicker)`
   margin: 0 0px;
   padding: 0 10px;
 
-  background-color: ${({ theme }) => theme.calendarBg}; ;
+  background-color: ${({ theme }) => theme.calendarBg}; 
   color: #94A6BE;
 
   .rdp {
@@ -65,6 +65,7 @@ export const StyledDayPicker = styled(DayPicker)`
   }
   .rdp-day_selected {
     background-color: #94A6BE;
+    color: #151419
   }
   .rdp-nav_icon {
     Width: 14px;

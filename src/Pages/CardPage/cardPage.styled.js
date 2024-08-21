@@ -27,12 +27,13 @@ export const PopBrowse = styled.div`
   export const PopBrowseBlock = styled.div`
     display: block;
     margin: 0 auto;
-    background-color: #FFFFFF;
+    background-color: ${({ theme }) => theme.popupBg};
+    color: ${({ theme }) => theme.text};
     max-width: 630px;
     width: 100%;
     padding: 40px 30px 38px;
     border-radius: 10px;
-    border: 0.7px solid #D4DBE5;
+    border: 0.7px ${({ theme }) => theme.categoryBorder};
     position: relative;
   `;
 
@@ -40,7 +41,6 @@ export const PopBrowse = styled.div`
     display: block;
     text-align: left;
   `;
-
   
 export const PopBrowseColor = styled.div`
 display: inline-block;
@@ -62,7 +62,7 @@ export const PopBrowseTopBlock = styled.div`
   `;
 
  export const PopBrowseTtl = styled.h3`
-    color: #000;
+    color: ${({ theme }) => theme.text};
     font-size: 20px;
     font-weight: 600;
     line-height: 24px;
@@ -81,61 +81,61 @@ export const PopBrowseTopBlock = styled.div`
     margin-bottom: 20px;
   `;
  
- export const PopBrowseBtnEdit = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: space-between;
-    margin-right: 8px;
-    display: none;
-  `;
+//  export const PopBrowseBtnEdit = styled.div`
+//     display: flex;
+//     flex-wrap: wrap;
+//     align-items: flex-start;
+//     justify-content: space-between;
+//     margin-right: 8px;
+//     display: none;
+//   `;
 
-  export const BtnBrowse = styled.button`
-  height: 30px;
-  margin-bottom: 10px;
-  padding: 0 14px;
-  margin-right: 8px;
-  border-radius: 4px;
-  border: 0.7px solid var(--palette-navy-60, #565EEF);
-  outline: none;
-  background: transparent;
-  color: #565EEF;
-  &:hover {
-    background-color: #33399b;
-    color: #FFFFFF;
-  }
-`;
+//   export const BtnBrowse = styled.button`
+//   height: 30px;
+//   margin-bottom: 10px;
+//   padding: 0 14px;
+//   margin-right: 8px;
+//   border-radius: 4px;
+//   border: 0.7px solid var(--palette-navy-60, #565EEF);
+//   outline: none;
+//   background: transparent;
+//   color: #565EEF;
+//   &:hover {
+//     background-color: #33399b;
+//     color: #FFFFFF;
+//   }
+// `;
 
-export const BtnEdit = styled.button`
-    height: 30px;
-    margin-bottom: 10px;
-    padding: 0 14px;
-    margin-right: 8px;
-    border-radius: 4px;
-    border: 0.7px solid var(--palette-navy-60, #565EEF);
-    outline: none;
-    background: transparent;
-    color: #565EEF;
-    &:hover {
-        background-color: #33399b;
-        color: #FFFFFF;
-      }
-`;
+// export const BtnEdit = styled.button`
+//     height: 30px;
+//     margin-bottom: 10px;
+//     padding: 0 14px;
+//     margin-right: 8px;
+//     border-radius: 4px;
+//     border: 0.7px solid var(--palette-navy-60, #565EEF);
+//     outline: none;
+//     background: transparent;
+//     color: #565EEF;
+//     &:hover {
+//         background-color: #33399b;
+//         color: #FFFFFF;
+//       }
+// `;
 
-export const BtnEditSave = styled.button`
-    height: 30px;
-    margin-bottom: 10px;
-    padding: 0 14px;
-    margin-right: 8px;
-    border-radius: 4px;
-    background: #565EEF;
-    border: none;
-    outline: none;
-    color: #FFFFFF;
-    &:hover {
-        background-color: #33399b;
-      }
-`;
+// export const BtnEditSave = styled.button`
+//     height: 30px;
+//     margin-bottom: 10px;
+//     padding: 0 14px;
+//     margin-right: 8px;
+//     border-radius: 4px;
+//     background: #565EEF;
+//     border: none;
+//     outline: none;
+//     color: #FFFFFF;
+//     &:hover {
+//         background-color: #33399b;
+//       }
+// `;
 
 export const OpenedCardTheme = styled.input`
       display: none;
@@ -147,7 +147,7 @@ export const OpenedCardTheme = styled.input`
 export const PopBrowseBtnBrowse = styled.div`
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   margin-right: 8px;
 
@@ -169,7 +169,9 @@ export const PopBrowseBtnBrowse = styled.div`
 `;
 
 export const ButtonGroup = styled.div`
-     width: 100%;
+    display: flex;
+    align-items: center;
+    width: 100%;
 
     button {
     margin-right: 8px;
@@ -186,13 +188,13 @@ export const ButtonGroup = styled.div`
 
 export const ButtonChangeDelete = styled.button`
   border-radius: 4px;
-  border: 0.7px solid var(--palette-navy-60, #565EEF);
+  border: 0.7px solid ${({ theme }) => theme.text};
   outline: none;
   background: transparent;
-  color: #565EEF;
+  color: ${({ theme }) => theme.text};
 
   a {
-  color: #565EEF;
+  color: ${({ theme }) => theme.text};
 }
 
   ${Hover03}
@@ -206,11 +208,13 @@ export const ButtonChangeDelete = styled.button`
 `;
 
 export const ButtonClose = styled.button`
-    border-radius: 4px;
+  margin-left: auto;
+  border-radius: 4px;
   background: #565EEF;
   border: none;
   outline: none;
   color: #FFFFFF;
+  padding: 10px 20px;
 
   a {
   color: #FFFFFF;
@@ -220,38 +224,39 @@ ${Hover01}
 `;
 
 export const FormBrowseBlock = styled.div`
-display: flex;
+  display: flex;
   flex-direction: column;
 `;
 
 export const FormBrowseArea = styled.textarea`
-max-width: 370px;
-width: 100%;
-outline: none;
-padding: 14px;
-background: #EAEEF6;
-border: 0.7px solid rgba(148, 166, 190, 0.4);
-border-radius: 8px;
-font-size: 14px;
-line-height: 1;
-letter-spacing: -0.14px;
-margin-top: 14px;
-height: 200px;
+  max-width: 370px;
+  width: 100%;
+  outline: none;
+  padding: 14px;
+  background: ${({ theme }) => theme.textAreaBg}; /* Используем цвет фона из темы */
+  color: ${({ theme }) => theme.textSecondary}; /* Используем цвет текста из темы */
+  border: 0.7px solid rgba(148, 166, 190, 0.4);
+  border-radius: 10px;
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: -0.14px;
+  margin-top: 14px;
+  height: 200px;
 `;
 
 export const LabelSubttl = styled.label`
-display: flex;
+  display: flex;
   flex-direction: column;
 `;
 
-export const CategoriesP = styled.p`
-margin-bottom: 14px;
-color: #000;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1;
-  margin-bottom: 14px;
-`;
+// export const CategoriesP = styled.p`
+//   margin-bottom: 14px;
+//   color: #000;
+//   font-size: 14px;
+//   font-weight: 600;
+//   line-height: 1;
+//   margin-bottom: 14px;
+// `;
 
 export const CategoriesThemesP = styled.p`
 font-size: 14px;
@@ -268,11 +273,8 @@ export const CategoriesTheme = styled.div`
   border-radius: 24px;
   margin-right: 7px;
   opacity: 0.4;
-  background-color: ${({ $themeColor }) => themeColor($themeColor)};
+  background-color: ${({theme})=> theme.categoriyBg};
 
-  ${CategoriesThemesP} {
-    color: ${({ $themeColor }) => themeColor($themeColor)};
-  }
 `;
 
 export const PopBrowseStatus = styled.div`
@@ -285,14 +287,26 @@ export const BrowseStatusP = styled.div`
   font-size: 14px;
   font-weight: 600px;
   line-height: 16px;
+  
 `;
 
 export const BrowseStatusThemes = styled.div`
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: flex-start;  
+  border-radius: 24px;
+  cursor: pointer;
+  margin-right: 8px;  
 `;
+
+export const BrowseStatusTheme = styled.p`
+  background-color: ${({ isSelected, theme }) =>
+    isSelected ? theme.colors.selectedCategoryBg : theme.colors.categoryBg}; // Логика для выделения
+  color: ${({ isSelected, theme }) =>
+    isSelected ? theme.colors.selectedCategoryText : theme.colors.categoryText}; // Логика для текста
+  opacity: ${({ isSelected }) => (isSelected ? '100%' : '40%')}; // Логика для opacity
+`
 
 export const StatusThemeLabel_1 = styled.p`
   display: inline-block;
@@ -308,16 +322,20 @@ export const StatusThemeLabel = styled.label`
   display: inline-block;
   height: 30px;
   padding: 5px 14px 5px 14px;
-  border: solid 1px ${({theme})=> theme.text};
+  border: solid 0.7px ${({theme}) => theme.purpleBorder};
   border-radius: 24px;
   cursor: pointer;
-  margin-right: 2px;
-  opacity: 40%;
+  margin-right: 8px;
+  background-color: ${({ isSelected, theme }) =>
+    isSelected ? theme.colors.selectedCategoryBg : theme.colors.categoryBg}; // Логика для выделения
+  color: ${({ isSelected, theme }) =>
+    isSelected ? theme.colors.selectedCategoryText : theme.colors.categoryText}; // Логика для текста
+  opacity: ${({ isSelected }) => (isSelected ? '100%' : '40%')}; // Логика для opacity
   &:hover {
     opacity: 100%;
     border: solid 1px ${({theme})=> theme.primary};
-    color: ${({theme})=> theme.body};
-    background-color: "#94A6BE";
+    color: ${({theme})=> theme.colors.hoverCategoryText};
+    background-color: ${({theme})=> theme.colors.hoverCategoryBg};
   }
   white-space: nowrap;
 `;
