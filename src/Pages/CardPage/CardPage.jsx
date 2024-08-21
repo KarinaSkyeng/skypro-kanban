@@ -153,14 +153,14 @@ export function CardPage() {
               <S.ButtonGroup>
                 {isEdited ? (
                   <>
-                    <S.ButtonChangeDelete type="submit" onClick={handleEditTask}>Сохранить</S.ButtonChangeDelete>
-                    <S.ButtonChangeDelete onClick={handleToggleEdit}>Отменить</S.ButtonChangeDelete>
-                    <S.ButtonChangeDelete onClick={handleDeleteCard}>Удалить задачу</S.ButtonChangeDelete>
+                    <S.ButtonChangeDelete isEditing={true} type="submit" onClick={handleEditTask}>Сохранить</S.ButtonChangeDelete>
+                    <S.ButtonChangeDelete isEditing={false} onClick={handleToggleEdit}>Отменить</S.ButtonChangeDelete>
+                    <S.ButtonChangeDelete isEditing={false} onClick={handleDeleteCard}>Удалить задачу</S.ButtonChangeDelete>
                   </>
                 ) : (
                   <>
-                    <S.ButtonChangeDelete onClick={handleToggleEdit}>Редактировать задачу</S.ButtonChangeDelete>
-                    <S.ButtonChangeDelete onClick={handleDeleteCard}>Удалить задачу</S.ButtonChangeDelete>
+                    <S.ButtonChangeDelete isEditing={false} onClick={handleToggleEdit}>Редактировать задачу</S.ButtonChangeDelete>
+                    <S.ButtonChangeDelete isEditing={false} onClick={handleDeleteCard}>Удалить задачу</S.ButtonChangeDelete>
                   </>
                 )}
               </S.ButtonGroup>

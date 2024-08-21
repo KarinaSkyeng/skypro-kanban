@@ -4,6 +4,7 @@ import * as S from "./loginPage.styled.js";
 import { useState } from "react";
 import { signIn } from "../../api/user.js";
 import { useUserContext } from "../../context/useUserContext";
+import { useTheme } from "styled-components";
 
 export const LoginPage = () => {
     const navigate = useNavigate();
@@ -13,6 +14,7 @@ export const LoginPage = () => {
         password: "",
     });
     const [error, setError] = useState(null);
+    const theme = useTheme();
 
     const handleLogin = async (e) => {
         e.preventDefault();

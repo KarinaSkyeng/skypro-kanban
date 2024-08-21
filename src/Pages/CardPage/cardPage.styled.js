@@ -190,10 +190,13 @@ export const ButtonGroup = styled.div`
 
 export const ButtonChangeDelete = styled.button`
   border-radius: 4px;
-  border: 0.7px solid ${({ theme }) => theme.text};
+  border: ${({ isEditing, theme }) => 
+    isEditing ? 'none' : `0.7px solid ${theme.text}`};
   outline: none;
-  background: transparent;
-  color: ${({ theme }) => theme.text};
+  background: ${({ isEditing, theme }) => 
+    isEditing ? '#565EEF' : 'transparent'};
+  color: ${({ isEditing, theme }) => 
+    isEditing ? '#FFFFFF' : theme.text};
 
   a {
   color: ${({ theme }) => theme.text};

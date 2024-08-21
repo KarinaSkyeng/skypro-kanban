@@ -43,7 +43,7 @@ export const dark = {
         greenBg: "#06B16E",
         greenText: "#B4FDD1",
         purpleBg: "#9A48F1",
-        purpleText: "#E9D4FF",
+        purpleText: "#FFFFFF",
         purpleBorder: "#FFFFFF",
         categoryBg: "#20202C",
         categoryText: "#94A6BE",
