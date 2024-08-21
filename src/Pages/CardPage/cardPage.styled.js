@@ -150,6 +150,8 @@ export const PopBrowseBtnBrowse = styled.div`
   align-items: center;
   justify-content: space-between;
   margin-right: 8px;
+  position: relative;
+  z-index: 10; 
 
   button {
     height: 30px;
@@ -249,14 +251,6 @@ export const LabelSubttl = styled.label`
   flex-direction: column;
 `;
 
-// export const CategoriesP = styled.p`
-//   margin-bottom: 14px;
-//   color: #000;
-//   font-size: 14px;
-//   font-weight: 600;
-//   line-height: 1;
-//   margin-bottom: 14px;
-// `;
 
 export const CategoriesThemesP = styled.p`
 font-size: 14px;

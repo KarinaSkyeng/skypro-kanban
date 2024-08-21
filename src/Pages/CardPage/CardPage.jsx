@@ -155,6 +155,7 @@ export function CardPage() {
                   <>
                     <S.ButtonChangeDelete type="submit" onClick={handleEditTask}>Сохранить</S.ButtonChangeDelete>
                     <S.ButtonChangeDelete onClick={handleToggleEdit}>Отменить</S.ButtonChangeDelete>
+                    <S.ButtonChangeDelete onClick={handleDeleteCard}>Удалить задачу</S.ButtonChangeDelete>
                   </>
                 ) : (
                   <>
