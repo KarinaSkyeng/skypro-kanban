@@ -80,62 +80,6 @@ export const PopBrowseTopBlock = styled.div`
     display: block;
     margin-bottom: 20px;
   `;
- 
-//  export const PopBrowseBtnEdit = styled.div`
-//     display: flex;
-//     flex-wrap: wrap;
-//     align-items: flex-start;
-//     justify-content: space-between;
-//     margin-right: 8px;
-//     display: none;
-//   `;
-
-//   export const BtnBrowse = styled.button`
-//   height: 30px;
-//   margin-bottom: 10px;
-//   padding: 0 14px;
-//   margin-right: 8px;
-//   border-radius: 4px;
-//   border: 0.7px solid var(--palette-navy-60, #565EEF);
-//   outline: none;
-//   background: transparent;
-//   color: #565EEF;
-//   &:hover {
-//     background-color: #33399b;
-//     color: #FFFFFF;
-//   }
-// `;
-
-// export const BtnEdit = styled.button`
-//     height: 30px;
-//     margin-bottom: 10px;
-//     padding: 0 14px;
-//     margin-right: 8px;
-//     border-radius: 4px;
-//     border: 0.7px solid var(--palette-navy-60, #565EEF);
-//     outline: none;
-//     background: transparent;
-//     color: #565EEF;
-//     &:hover {
-//         background-color: #33399b;
-//         color: #FFFFFF;
-//       }
-// `;
-
-// export const BtnEditSave = styled.button`
-//     height: 30px;
-//     margin-bottom: 10px;
-//     padding: 0 14px;
-//     margin-right: 8px;
-//     border-radius: 4px;
-//     background: #565EEF;
-//     border: none;
-//     outline: none;
-//     color: #FFFFFF;
-//     &:hover {
-//         background-color: #33399b;
-//       }
-// `;
 
 export const OpenedCardTheme = styled.input`
       display: none;
@@ -238,8 +182,8 @@ export const FormBrowseArea = styled.textarea`
   width: 100%;
   outline: none;
   padding: 14px;
-  background: ${({ theme }) => theme.textAreaBg}; /* Используем цвет фона из темы */
-  color: ${({ theme }) => theme.textSecondary}; /* Используем цвет текста из темы */
+  background: ${({ theme }) => theme.textAreaBg}; 
+  color: ${({ theme }) => theme.textSecondary}; 
   border: 0.7px solid rgba(148, 166, 190, 0.4);
   border-radius: 10px;
   font-size: 14px;

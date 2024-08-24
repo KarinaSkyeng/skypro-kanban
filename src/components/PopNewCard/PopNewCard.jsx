@@ -11,9 +11,9 @@ import { useNavigate } from "react-router-dom";
 export const PopNewCard = ({ onClose }) => {
   const {user} = useContext(UserContext)
   const { setTasks } = useContext(TaskContext);
-  const navigate = useNavigate()
-  const [error, setError] = useState('')
-  const [date, setDate] = useState(new Date())
+  const navigate = useNavigate();
+  const [error, setError] = useState('');
+  const [date, setDate] = useState(null);
   const [inputValue, setInputValue] = useState({
     title: '',
     topic: '',
@@ -31,7 +31,7 @@ export const PopNewCard = ({ onClose }) => {
       topic,
       status,
       description: inputValue.description.trim() || '',
-      date: date.toISOString()
+      date: date ? date.toISOString() : null,
     };
 
     if (!newCard.description) {
@@ -48,13 +48,13 @@ export const PopNewCard = ({ onClose }) => {
   };
 
   const onCloseModal = () => {
-    onClose(); // Закрытие модального окна при вызове
+    onClose(); 
   };
 
   const onChangeInput = (e) => {
     const {value, name} = e.target
-    setInputValue({...inputValue, [name]: value})
-  }
+    setInputValue({...inputValue, [name]: value});
+  };
 
   return (    
     <S.PopNewCard>
