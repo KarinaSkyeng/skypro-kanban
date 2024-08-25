@@ -8,15 +8,15 @@ export const Calendar = ({ onChange, selected }) => {
   let footer;
   
   if (!selected) {
-    footer = <S.CalendarContentP>Выберите срок исполнения</S.CalendarContentP>;
+    footer = <S.CalendarContentDiv>Выберите срок исполнения</S.CalendarContentDiv>;
   } else {
     const currentDate= selected.toLocaleDateString("ru-US")
     footer = (
-    <S.CalendarContentP>
+    <S.CalendarContentDiv>
       <S.DeadLineLable>Срок исполнения:</S.DeadLineLable>
        {""} 
       <S.DeadLineDate>{currentDate}</S.DeadLineDate>
-      </S.CalendarContentP> 
+      </S.CalendarContentDiv> 
   );    
 }
 

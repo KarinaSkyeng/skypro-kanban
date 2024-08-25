@@ -77,7 +77,7 @@ export const StyledDayPicker = styled(DayPicker)`
   }
 `
 
-export const CalendarContentP = styled.p`
+export const CalendarContentDiv = styled.div`
   margin-left: 20px;
   display: flex;
   align-items: center;
@@ -94,7 +94,7 @@ export const DeadLineLable = styled.p`
 
 export const DeadLineDate = styled.p`
   margin-left: 4px;
-  color: #000000;
+  color: ${({theme})=> theme.text};
   font-size: 10px;
   font-weight: 400;
 `

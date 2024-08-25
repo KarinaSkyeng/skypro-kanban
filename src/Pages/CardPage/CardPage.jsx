@@ -20,12 +20,14 @@ export function CardPage() {
   useEffect(() => {
     const foundTask = tasks.find((task) => task._id === params.cardId);
     setCard(foundTask);
-  }, [tasks]);
+    if (foundTask && foundTask.date) {
+      setSelected(new Date(foundTask.date)); 
+    }
+  }, [tasks, params.cardId]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
   
-    // Обрабатываем статус задачи
     if (name === "status") {
       setCard((prev) => ({ ...prev, status: value }));
     } else if (name === "date") {
@@ -35,11 +37,18 @@ export function CardPage() {
     }
   };
 
+  const handleDateChange = (date) => {
+    if (date) { // Убедитесь, что дата выбрана
+      setSelected(date); // Обновляем состояние выбранной даты
+      setCard((prev) => ({ ...prev, date: date.toISOString() })); // Обновляем состояние задачи
+    }
+  };
+
   const handleDeleteCard = async (e) => {
     e.preventDefault();
     try {
-      await deleteTask(card._id, user.token); // Поменяли порядок аргументов
-      // Удаляем задачу вручную из стейта задач
+      await deleteTask(card._id, user.token); 
+     
       setTasks(prevTasks => prevTasks.filter(task => task._id !== card._id));
       navigate(routes.main);
     } catch (error) {
@@ -121,7 +130,7 @@ export function CardPage() {
                         value={status}
                         onChange={handleChange}
                       />
-                      <S.StatusThemeLabel htmlFor={`radio${index}`} isSelected={card.status === status} >
+                      <S.StatusThemeLabel htmlFor={`radio${index}`} $isSelected={card.status === status} >
                         {status}
                       </S.StatusThemeLabel>
                     </div>
@@ -145,9 +154,9 @@ export function CardPage() {
                     placeholder="Введите описание задачи..."
                     value={card.description || ""}
                   ></S.FormBrowseArea>
-                </S.FormBrowseBlock>
+                </S.FormBrowseBlock>                
               </S.PopBrowseForm>
-              <Calendar selected={selected} setSelected={setSelected} />
+              <Calendar selected={selected} onChange={handleDateChange} />
             </S.PopBrowseWrap>
             <S.PopBrowseBtnBrowse>
               <S.ButtonGroup>

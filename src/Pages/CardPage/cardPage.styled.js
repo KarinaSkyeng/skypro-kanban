@@ -258,11 +258,9 @@ export const BrowseStatusThemes = styled.div`
 `;
 
 export const BrowseStatusTheme = styled.p`
-  background-color: ${({ isSelected, theme }) =>
-    isSelected ? theme.selectedCategoryBg : theme.colors.categoryBg}; 
-  color: ${({ isSelected, theme }) =>
-    isSelected ? theme.selectedCategoryText : theme.colors.categoryText}; 
-  opacity: ${({ isSelected }) => (isSelected ? '100%' : '40%')}; 
+  background-color: ${({ theme }) => theme.colors.categoryBg}; 
+  color: ${({ theme }) => theme.colors.categoryText}; 
+   
 `
 
 export const StatusThemeLabel_1 = styled.p`
@@ -283,11 +281,11 @@ export const StatusThemeLabel = styled.label`
   border-radius: 24px;
   cursor: pointer;
   margin-right: 8px;
-  background-color: ${({ isSelected, theme }) =>
-    isSelected ? theme.colors.selectedCategoryBg : theme.colors.categoryBg}; // Логика для выделения
-  color: ${({ isSelected, theme }) =>
-    isSelected ? theme.colors.selectedCategoryText : theme.colors.categoryText}; // Логика для текста
-  opacity: ${({ isSelected }) => (isSelected ? '100%' : '40%')}; // Логика для opacity
+  background-color: ${({ $isSelected, theme }) =>
+    $isSelected ? theme.colors.selectedCategoryBg : theme.colors.categoryBg}; 
+  color: ${({ $isSelected, theme }) =>
+    $isSelected ? theme.colors.selectedCategoryText : theme.colors.categoryText}; 
+  opacity: ${({ $isSelected }) => ($isSelected ? '100%' : '40%')}; 
   &:hover {
     opacity: 100%;
     border: solid 1px ${({theme})=> theme.primary};
