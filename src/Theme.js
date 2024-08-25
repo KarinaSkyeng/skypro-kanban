@@ -9,6 +9,7 @@ export const light = {
     popupBg: "#FFFFFF",
     calendarBg: "#FFFFFF",
     textAreaBg: "#FFFFFF",
+    buttonText: "#565EEF",
     colors: {
         orangeBg: "#FFE4C2",
         orangeText: "#FF6D00",
@@ -37,6 +38,7 @@ export const dark = {
     logo: "images/logo_dark.png",
     popupBg: "#20202C",
     textAreaBg: "#151419",
+    buttonText: "#FFFFFF",
     colors: {
         orangeBg: "#FF6D00",
         orangeText: "#FFE4C2",

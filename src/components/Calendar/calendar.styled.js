@@ -23,7 +23,6 @@ export const StyledDayPicker = styled(DayPicker)`
   margin-top: 14px;
   margin: 0 0px;
   padding: 0 10px;
-
   background-color: ${({ theme }) => theme.calendarBg}; 
   color: #94A6BE;
 
@@ -35,7 +34,6 @@ export const StyledDayPicker = styled(DayPicker)`
 
 }
   .rdp-caption_label {
-
     color: #94A6BE;
     font-size: 14px;
     line-height: 25px;
@@ -79,7 +77,22 @@ export const StyledDayPicker = styled(DayPicker)`
   }
 `
 
-export const CalendarContentP  = styled.p`
-margin-left: 20px;
+export const CalendarContentP = styled.p`
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
 `;
+
+export const DeadLineLable = styled.p`
+  color: #94A6BE;
+  font-size: 10px;
+  font-weight: 400;
+`
+
+export const DeadLineDate = styled.p`
+  margin-left: 4px;
+  color: #000000;
+  font-size: 10px;
+  font-weight: 400;
+`
 

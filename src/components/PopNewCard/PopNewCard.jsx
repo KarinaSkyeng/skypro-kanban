@@ -1,15 +1,14 @@
-import { Subttl } from "../../glogalStyle.styled.js";
 import { Calendar } from "../Calendar/Calendar";
 import * as S from "./popNewCard.styled.js";
 import { routes } from "../../router/routes.js";
-import { useContext, useState } from "react";
+import { useEffect, useContext, useState } from "react";
 import { UserContext } from "../../context/UserContext";
 import { TaskContext } from '../../context/TasksContext';
 import { addTask as addTaskApi } from '../../api/tasks';
 import { useNavigate } from "react-router-dom"; 
 
-export const PopNewCard = ({ onClose }) => {
-  const {user} = useContext(UserContext)
+export const PopNewCard = ({ onClose, taskPosition }) => {
+  const {user} = useContext(UserContext);
   const { setTasks } = useContext(TaskContext);
   const navigate = useNavigate();
   const [error, setError] = useState('');
@@ -20,6 +19,23 @@ export const PopNewCard = ({ onClose }) => {
     status: '',
     description:'',
   });
+
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, []);
+  
+  useEffect(() => {
+    // Прокрутка к модальному окну, если оно не в видимой области экрана
+    if (taskPosition) {
+      window.scrollTo({
+        top: taskPosition.top,
+        behavior: "smooth"
+      });
+    }
+  }, [taskPosition]);
   
   const OnAddNewCard = async () => {
     setError('')
@@ -57,7 +73,7 @@ export const PopNewCard = ({ onClose }) => {
   };
 
   return (    
-    <S.PopNewCard>
+    <S.PopNewCard style={{ top: taskPosition?.top, left: taskPosition?.left }}>
       <S.PopNewCardContainer>
         <S.PopNewCardBlock>
           <S.PopNewCardContent>

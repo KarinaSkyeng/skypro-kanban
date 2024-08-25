@@ -6,10 +6,14 @@ export const PopNewCard = styled.div`
   min-width: 375px;
   height: 100%;
   min-height: 100vh;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.4);
 
   @media screen and (max-width: 660px) {
     top: 70px;
@@ -95,7 +99,6 @@ export const PopNewCardWrap = styled.div`
 
 export const PopNewCardForm = styled.form`
   width: 370px;
-  //width: 100%;
   display: block;
   margin-bottom: 20px;
 
@@ -115,7 +118,7 @@ export const Subttl = styled.h4`
   font-size: 14px;
   font-weight: 600;
   line-height: 1;
-  color: ${({ theme }) => theme.text}; // Цвет заголовков в зависимости от темы
+  color: ${({ theme }) => theme.text}; 
   margin-bottom: 10px;
 `;
 
@@ -229,7 +232,7 @@ export const RadioToolbarLabel1 = styled.label`
 
   &:hover {
     opacity: 100%;
-    color: ${({ theme }) => theme.colors.orangeBg}; // Меняем текст и фон при наведении
+    color: ${({ theme }) => theme.colors.orangeBg}; 
     background: ${({ theme }) => theme.colors.orangeText};
   }
 `;
@@ -246,7 +249,7 @@ export const RadioToolbarLabel2 = styled.label`
 
   &:hover {
     opacity: 100%;
-    color: ${({ theme }) => theme.colors.greenBg}; // Меняем текст и фон при наведении
+    color: ${({ theme }) => theme.colors.greenBg}; 
     background: ${({ theme }) => theme.colors.greenText};
   }
 `;
@@ -263,7 +266,7 @@ export const RadioToolbarLabel3 = styled.label`
 
   &:hover {
     opacity: 100%;
-    color: ${({ theme }) => theme.colors.purpleBg}; // Меняем текст и фон при наведении
+    color: ${({ theme }) => theme.colors.purpleBg}; 
     background: ${({ theme }) => theme.colors.purpleText};
   }
 `;

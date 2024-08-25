@@ -1,13 +1,15 @@
   import styled from "styled-components";
   import { Hover03 } from "../../glogalStyle.styled";
 
-  export const PopExit  = styled.div`
-      background-color: ${({ theme }) => theme.popupBg};
-      color: ${({ theme }) => theme.text};
+  export const PopExit  = styled.div`      
       width: 100%;
       height: 100%;
-      min-width: 375px;
-      min-height: 100vh;
+      background-color: rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
       position: absolute;
       top: 0;
       left: 0;
@@ -15,10 +17,15 @@
     `;
 
   export const PopExitContainer  = styled.div`
+      background-color: ${({ theme }) => theme.cardBg};
+      color: ${({ theme }) => theme.text};
       width: 100%;
       height: 100%;
       min-height: 100vh;
-      padding: 0 16px;
+      padding: 50px 60px;
+      border-radius: 10px;
+      border: 0.7px solid #4E5566;
+      box-shadow: 0px 4px 67px -12px rgba(0, 0, 0, 0.13);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -46,7 +53,7 @@
     line-height: 30px;
     letter-spacing: -0.4px;
     margin-bottom: 20px;
-    color: ${({ theme }) => theme.text}; /* Используйте цвет из темы */
+    color: ${({ theme }) => theme.text}; 
    `;
 
   export const PopExitFormGroup  = styled.div`
@@ -89,13 +96,13 @@
   `;
 
   export const PopExitNoButton = styled.button`
-    background-color: ${({ theme }) => theme.colors.orangeBg};
-    color: ${({ theme }) => theme.colors.purpleText};
+    background-color: ${({ theme }) => theme.orangeBg};
+    color: ${({ theme }) => theme.buttonText};
     width: 153px;
     height: 30px;
     background-color: transparent;
     border-radius: 4px;
-    border: 0.7px solid ${({ theme }) => theme.colors.purpleBorder};
+    border: 0.7px solid ${({ theme }) => theme.buttonText};
     outline: none;
     display: flex;
     align-items: center;
@@ -110,11 +117,11 @@
     a {
     width: 100%;
     height: 100%;
-    color: ${({ theme }) => theme.colors.purpleText};
+    color: ${({ theme }) => theme.buttonText};
     display: flex;
     align-items: center;
     justify-content: center;
-    text-decoration: none; // Убирает подчеркивание у ссылки
+    text-decoration: none; 
   }
 
   a:hover {

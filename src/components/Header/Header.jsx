@@ -4,14 +4,15 @@ import { Container } from "../../glogalStyle.styled.js";
 import { Link } from "react-router-dom";
 import { routes } from "../../router/routes.js";
 import { useUserContext } from "../../context/useUserContext.js";
+import { PopNewCard } from "../PopNewCard/PopNewCard";
 
 export const Header = ({isDarkTheme, setIsDarkTheme}) => {
   const [isOpen, setIsOpen] = useState(false);
   const { user } = useUserContext();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [taskPosition, setTaskPosition] = useState(null);
 
-   // Добавляем проверку на наличие user
-   if (!user) {
+  if (!user) {
     return null;
   }
 
@@ -23,7 +24,15 @@ export const Header = ({isDarkTheme, setIsDarkTheme}) => {
     setIsDarkTheme(isDarkTheme === "light" ? "dark" : "light");  
    };
 
-   const openModal = () => {
+   const openModal = (taskId) => {
+    const taskElement = document.getElementById(taskId);
+    if (taskElement) {
+      const taskRect = taskElement.getBoundingClientRect();
+      setTaskPosition({
+        top: taskRect.top + window.scrollY, // Корректируем позицию с учётом скролла
+        left: taskRect.left
+      });
+    }
     setIsModalOpen(true);
   };
     
@@ -65,6 +74,7 @@ export const Header = ({isDarkTheme, setIsDarkTheme}) => {
           </S.HeaderNav>
         </S.HeaderBlock>
       </Container>
+      {isModalOpen && <PopNewCard onClose={() => setIsModalOpen(false)} taskPosition={taskPosition} />}
     </S.Header>
   );
 };

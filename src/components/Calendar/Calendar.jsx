@@ -11,8 +11,14 @@ export const Calendar = ({ onChange, selected }) => {
     footer = <S.CalendarContentP>Выберите срок исполнения</S.CalendarContentP>;
   } else {
     const currentDate= selected.toLocaleDateString("ru-US")
-    footer = <p>Срок исполнения:{""} {currentDate}</p>;    
-  }
+    footer = (
+    <S.CalendarContentP>
+      <S.DeadLineLable>Срок исполнения:</S.DeadLineLable>
+       {""} 
+      <S.DeadLineDate>{currentDate}</S.DeadLineDate>
+      </S.CalendarContentP> 
+  );    
+}
 
   return (
     <S.CalendarContent>
