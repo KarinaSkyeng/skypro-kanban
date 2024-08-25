@@ -43,7 +43,9 @@ export const PopBrowse = styled.div`
   `;
   
 export const PopBrowseColor = styled.div`
-display: inline-block;
+display: flex;
+justify-content: center;
+align-items: center;
 padding: 10px 14px 10px 14px;
 width: 115px;
 height: 30px;
@@ -67,6 +69,7 @@ export const PopBrowseTopBlock = styled.div`
     font-size: 20px;
     font-weight: 600;
     line-height: 24px;
+    padding: 8px 20px 8px 20px;
   `;
 
  export const PopBrowseWrap = styled.div`
@@ -198,24 +201,23 @@ export const LabelSubttl = styled.label`
   flex-direction: column;
 `;
 
-
 export const CategoriesThemesP = styled.p`
-font-size: 14px;
+  font-size: 14px;
   font-weight: 600;
   line-height: 14px;
   white-space: nowrap;
+  text-align: center; 
 `;
 
 export const CategoriesTheme = styled.div`
   display: inline-block;
   width: auto;
   height: 30px;
-  padding: 8px 20px;
+  padding: 8px 20px 8px 20px;  
   border-radius: 24px;
-  margin-right: 7px;
+  align-self: center;
   opacity: 0.4;
   background-color: ${({theme})=> theme.categoriyBg};
-
 `;
 
 export const PopBrowseStatus = styled.div`

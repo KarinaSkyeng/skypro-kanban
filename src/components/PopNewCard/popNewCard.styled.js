@@ -171,18 +171,17 @@ export const FormNewArea = styled.textarea`
     font-weight: 400;
     font-size: 14px;
     line-height: 1px;
-    color: #94a6be;
+    color: #94A6BE;
     letter-spacing: -0.14px;
 
     &::placeholder {
       font-weight: 400;
       font-size: 14px;
       line-height: 1px;
-      color: #94a6be;
+      border: 0.7px solid ${({ theme }) => theme.categoryBorder};
       letter-spacing: -0.14px;
-      background: ${({ theme }) => theme.textAreaBg}; 
-      color: ${({ theme }) => theme.textSecondary}; 
-      border: 0.7px solid rgba(148, 166, 190, 0.4);
+      background: ${({ theme }) => theme.colors.textAreaBg}; 
+      color: ${({ theme }) => theme.colors.textSecondary};
     }
   }
 `;
