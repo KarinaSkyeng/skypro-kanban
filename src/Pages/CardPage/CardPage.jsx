@@ -94,7 +94,7 @@ export function CardPage() {
                 {card.title || "Название задачи"}
               </S.PopBrowseTtl>
               <S.CategoriesTheme>
-                <S.PopBrowseColor topic={card.topic}> 
+                <S.PopBrowseColor $topic={card.topic}> 
                 <S.CategoriesThemesP>
                   {card.topic || "Категория задачи"}
                 </S.CategoriesThemesP>
@@ -153,14 +153,14 @@ export function CardPage() {
               <S.ButtonGroup>
                 {isEdited ? (
                   <>
-                    <S.ButtonChangeDelete isEditing={true} type="submit" onClick={handleEditTask}>Сохранить</S.ButtonChangeDelete>
-                    <S.ButtonChangeDelete isEditing={false} onClick={handleToggleEdit}>Отменить</S.ButtonChangeDelete>
-                    <S.ButtonChangeDelete isEditing={false} onClick={handleDeleteCard}>Удалить задачу</S.ButtonChangeDelete>
+                    <S.ButtonChangeDelete type="submit" onClick={handleEditTask}>Сохранить</S.ButtonChangeDelete>
+                    <S.ButtonChangeDelete onClick={handleToggleEdit}>Отменить</S.ButtonChangeDelete>
+                    <S.ButtonChangeDelete onClick={handleDeleteCard}>Удалить задачу</S.ButtonChangeDelete>
                   </>
                 ) : (
                   <>
-                    <S.ButtonChangeDelete isEditing={false} onClick={handleToggleEdit}>Редактировать задачу</S.ButtonChangeDelete>
-                    <S.ButtonChangeDelete isEditing={false} onClick={handleDeleteCard}>Удалить задачу</S.ButtonChangeDelete>
+                    <S.ButtonChangeDelete onClick={handleToggleEdit}>Редактировать задачу</S.ButtonChangeDelete>
+                    <S.ButtonChangeDelete onClick={handleDeleteCard}>Удалить задачу</S.ButtonChangeDelete>
                   </>
                 )}
               </S.ButtonGroup>

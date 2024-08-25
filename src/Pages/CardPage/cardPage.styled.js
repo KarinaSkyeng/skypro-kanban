@@ -22,6 +22,11 @@ export const PopBrowse = styled.div`
     align-items: center;
     justify-content: center;
     background: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    z-index: 1000; 
   `;
 
   export const PopBrowseBlock = styled.div`
@@ -54,7 +59,7 @@ border: 0.7px ${({ theme }) => theme.categoryBorder};
 background-color: "#94a6be";
 margin-right: 7px;
 color: ${({ theme }) => theme.text};
-${({ topic }) => themeColor(topic)}
+${({ $topic }) => themeColor($topic)};
 `;
  
 export const PopBrowseTopBlock = styled.div`
@@ -136,18 +141,18 @@ export const ButtonGroup = styled.div`
 `;
 
 export const ButtonChangeDelete = styled.button`
+  height: 30px;
+  margin-bottom: 10px;
+  padding: 0 14px;
+  margin-right: 8px;
   border-radius: 4px;
-  border: ${({ isEditing, theme }) => 
-    isEditing ? 'none' : `0.7px solid ${theme.buttonText}`};
+  border: 0.7px solid ${({ theme }) => theme.purpleBorder};
   outline: none;
-  background: ${({ isEditing, theme }) => 
-    isEditing ? '#565EEF' : 'transparent'};
-  color: ${({ isEditing, theme }) => 
-    isEditing ? '#FFFFFF' : theme.buttonText};
-
-  a {
+  background: transparent;
   color: ${({ theme }) => theme.buttonText};
-}
+  a {
+    color: ${({ theme }) => theme.buttonText};
+  }
 
   ${Hover03}
 
@@ -184,8 +189,9 @@ export const FormBrowseArea = styled.textarea`
   max-width: 370px;
   width: 100%;
   outline: none;
-  padding: 14px;
-  background: ${({ theme }) => theme.textAreaBg}; 
+  padding-left: 14px;
+  padding-top: 24px;
+  background: ${({ theme }) => theme.body}; 
   color: ${({ theme }) => theme.textSecondary}; 
   border: 0.7px solid ${({ theme }) => theme.categoryBorder};
   border-radius: 10px;
@@ -194,6 +200,14 @@ export const FormBrowseArea = styled.textarea`
   letter-spacing: -0.14px;
   margin-top: 14px;
   height: 200px;
+
+  &::placeholder {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1px;
+    color: #94A6BE;    
+    letter-spacing: -0.14px;
+  }
 `;
 
 export const LabelSubttl = styled.label`

@@ -122,7 +122,7 @@ export const ModalBtnEnter = styled.button`
     line-height: 21px;
     font-weight: 500;
     letter-spacing: -0.14px;
-    color: ${({ theme }) => theme.colors.purpleText};
+    color: #FFFFFF;
 
     a {
     width: 100%;

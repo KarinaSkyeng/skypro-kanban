@@ -19,23 +19,6 @@ export const PopNewCard = ({ onClose, taskPosition }) => {
     status: '',
     description:'',
   });
-
-  useEffect(() => {
-    document.body.style.overflow = 'hidden';
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
-  }, []);
-  
-  useEffect(() => {
-    // Прокрутка к модальному окну, если оно не в видимой области экрана
-    if (taskPosition) {
-      window.scrollTo({
-        top: taskPosition.top,
-        behavior: "smooth"
-      });
-    }
-  }, [taskPosition]);
   
   const OnAddNewCard = async () => {
     setError('')

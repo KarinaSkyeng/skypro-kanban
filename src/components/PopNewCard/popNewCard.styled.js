@@ -167,22 +167,12 @@ export const FormNewArea = styled.textarea`
   margin-top: 14px;
   height: 200px;
 
-  &::-moz-placeholder {
+  &::placeholder {
     font-weight: 400;
     font-size: 14px;
     line-height: 1px;
-    color: #94A6BE;
+    color: #94A6BE;    
     letter-spacing: -0.14px;
-
-    &::placeholder {
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 1px;
-      border: 0.7px solid ${({ theme }) => theme.categoryBorder};
-      letter-spacing: -0.14px;
-      background: ${({ theme }) => theme.colors.textAreaBg}; 
-      color: ${({ theme }) => theme.colors.textSecondary};
-    }
   }
 `;
 

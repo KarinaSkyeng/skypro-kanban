@@ -3,7 +3,6 @@ import { useUserContext } from '../../context/useUserContext';
 import { TaskContext } from '../../context/TasksContext';
 import { addTask as apiAddTask } from '../../api/tasks';
 import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';
 
 export const AddTask = ({ onTaskAdded }) => {
   const [title, setTitle] = useState('');
@@ -22,7 +21,7 @@ export const AddTask = ({ onTaskAdded }) => {
 
     try {
       const response = await apiAddTask(newTask, user.token);
-      addTask(response.task); // Добавление задачи в контекст
+      addTask(response.task); 
       onTaskAdded();
     } catch (error) {
       console.error("Ошибка при добавлении задачи:", error);
