@@ -81,6 +81,9 @@ export const CalendarContentP = styled.p`
   margin-left: 20px;
   display: flex;
   align-items: center;
+  color: #94A6BE;
+  font-size: 10px;
+  font-weight: 400;
 `;
 
 export const DeadLineLable = styled.p`

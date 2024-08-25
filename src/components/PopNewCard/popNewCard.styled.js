@@ -128,12 +128,12 @@ export const FormNewInput = styled.input`
     outline: none;
     padding: 14px;
     background: ${({ theme }) => theme.cardBg};
-    border: 0.7px solid rgba(148, 166, 190, 0.4);
+    border: 0.7px solid ${({ theme }) => theme.categoryBorder};
     border-radius: 8px;
     font-size: 14px;
     line-height: 1;
     letter-spacing: -0.14px;
-    color: ${({ theme }) => theme.text};
+    color: ${({ theme }) => theme.textSecondary};
 
     &::-moz-placeholder {
         font-weight: 400;
@@ -153,18 +153,19 @@ export const FormNewInput = styled.input`
 `;
 
 export const FormNewArea = styled.textarea`
-  width: 370px;
-  margin-top: 14px;
-  height: 200px;
+ max-width: 370px;
+  width: 100%;
   outline: none;
   padding: 14px;
-  background: ${({ theme }) => theme.cardBg};
-  border: 0.7px solid rgba(148, 166, 190, 0.4);
-  border-radius: 8px;
+  background: ${({ theme }) => theme.textAreaBg}; 
+  color: ${({ theme }) => theme.textSecondary}; 
+  border: 0.7px solid ${({ theme }) => theme.categoryBorder};
+  border-radius: 10px;
   font-size: 14px;
   line-height: 1;
   letter-spacing: -0.14px;
-  color: ${({ theme }) => theme.text};
+  margin-top: 14px;
+  height: 200px;
 
   &::-moz-placeholder {
     font-weight: 400;
@@ -179,7 +180,9 @@ export const FormNewArea = styled.textarea`
       line-height: 1px;
       color: #94a6be;
       letter-spacing: -0.14px;
-      color: ${({ theme }) => theme.textSecondary};
+      background: ${({ theme }) => theme.textAreaBg}; 
+      color: ${({ theme }) => theme.textSecondary}; 
+      border: 0.7px solid rgba(148, 166, 190, 0.4);
     }
   }
 `;

@@ -44,10 +44,11 @@ export const PopBrowse = styled.div`
   
 export const PopBrowseColor = styled.div`
 display: inline-block;
-padding: 8px 20px 8px 20px;
+padding: 10px 14px 10px 14px;
 width: 115px;
 height: 30px;
 border-radius: 24px;
+border: 0.7px ${({ theme }) => theme.categoryBorder};
 background-color: "#94a6be";
 margin-right: 7px;
 color: ${({ theme }) => theme.text};
@@ -90,7 +91,6 @@ export const OpenedCardTheme = styled.input`
   
 export const PopBrowseBtnBrowse = styled.div`
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   margin-right: 8px;
@@ -135,15 +135,15 @@ export const ButtonGroup = styled.div`
 export const ButtonChangeDelete = styled.button`
   border-radius: 4px;
   border: ${({ isEditing, theme }) => 
-    isEditing ? 'none' : `0.7px solid ${theme.text}`};
+    isEditing ? 'none' : `0.7px solid ${theme.buttonText}`};
   outline: none;
   background: ${({ isEditing, theme }) => 
     isEditing ? '#565EEF' : 'transparent'};
   color: ${({ isEditing, theme }) => 
-    isEditing ? '#FFFFFF' : theme.text};
+    isEditing ? '#FFFFFF' : theme.buttonText};
 
   a {
-  color: ${({ theme }) => theme.text};
+  color: ${({ theme }) => theme.buttonText};
 }
 
   ${Hover03}
@@ -184,7 +184,7 @@ export const FormBrowseArea = styled.textarea`
   padding: 14px;
   background: ${({ theme }) => theme.textAreaBg}; 
   color: ${({ theme }) => theme.textSecondary}; 
-  border: 0.7px solid rgba(148, 166, 190, 0.4);
+  border: 0.7px solid ${({ theme }) => theme.categoryBorder};
   border-radius: 10px;
   font-size: 14px;
   line-height: 1;
@@ -243,10 +243,10 @@ export const BrowseStatusThemes = styled.div`
 
 export const BrowseStatusTheme = styled.p`
   background-color: ${({ isSelected, theme }) =>
-    isSelected ? theme.colors.selectedCategoryBg : theme.colors.categoryBg}; // Логика для выделения
+    isSelected ? theme.selectedCategoryBg : theme.colors.categoryBg}; 
   color: ${({ isSelected, theme }) =>
-    isSelected ? theme.colors.selectedCategoryText : theme.colors.categoryText}; // Логика для текста
-  opacity: ${({ isSelected }) => (isSelected ? '100%' : '40%')}; // Логика для opacity
+    isSelected ? theme.selectedCategoryText : theme.colors.categoryText}; 
+  opacity: ${({ isSelected }) => (isSelected ? '100%' : '40%')}; 
 `
 
 export const StatusThemeLabel_1 = styled.p`
@@ -255,8 +255,8 @@ export const StatusThemeLabel_1 = styled.p`
   padding: 5px 14px 5px 14px;
   border-radius: 24px;
   margin-right: 2px;
-  color: ${({theme})=> theme.textTheme};
-  background-color: "#94A6BE";
+  color: ${({theme})=> theme.colors.selectedCategoryText};
+  background-color: ${({theme})=> theme.colors.selectedCategoryBg};
 `;
 
 export const StatusThemeLabel = styled.label`
@@ -280,3 +280,10 @@ export const StatusThemeLabel = styled.label`
   }
   white-space: nowrap;
 `;
+
+export const CalendarContentP = styled.p`
+   color: #94A6BE;  
+  font-size: 10px;
+  font-weight: 400;
+  margin-top: 10px; 
+`
