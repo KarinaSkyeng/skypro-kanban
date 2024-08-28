@@ -50,20 +50,32 @@ export const StyledDayPicker = styled(DayPicker)`
     flex-wrap: nowrap;
     align-items: center;
     justify-content: center;
-    color: #94A6BE;
+    /* color: #94A6BE; */
     font-size: 10px;
     line-height: 1;
     letter-spacing: -0.2px;
     cursor: pointer;
+    position: relative;
   }
   .rdp-button_reset.rdp-button.rdp-day {
     width: 22px;
     height: 22px;
     font-size: 10px;   
   }
+  .rdp-day {
+    width: 22px;
+    height: 22px;
+    font-size: 10px;
+    color: #94A6BE; /* Цвет текста по умолчанию */
+  }
   .rdp-day_selected {
-    background-color: #94A6BE;
-    color: #151419
+    background-color: #EAEEF6;
+    color: #94A6BE
+  }
+  .rdp-day_today {
+    background-color: #94A6BE; /* Цвет фона для текущей даты */
+    color: #FFFFFF; /* Цвет текста для текущей даты */
+    border-radius: 50%;
   }
   .rdp-nav_icon {
     Width: 14px;
@@ -90,12 +102,14 @@ export const DeadLineLable = styled.p`
   color: #94A6BE;
   font-size: 10px;
   font-weight: 400;
-`
+  margin-top: 10px;
+`;
 
 export const DeadLineDate = styled.p`
   margin-left: 4px;
   color: ${({theme})=> theme.text};
   font-size: 10px;
   font-weight: 400;
-`
+  margin-top: 10px;
+`;
 

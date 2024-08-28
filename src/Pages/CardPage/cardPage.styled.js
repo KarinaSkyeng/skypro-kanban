@@ -165,6 +165,7 @@ export const ButtonChangeDelete = styled.button`
 `;
 
 export const ButtonClose = styled.button`
+  height: 30px;
   margin-left: auto;
   border-radius: 4px;
   background: #565EEF;
