@@ -135,13 +135,13 @@ export const FormNewInput = styled.input`
     letter-spacing: -0.14px;
     color: ${({ theme }) => theme.textSecondary};
 
-    &::-moz-placeholder {
+    /* &::-moz-placeholder {
         font-weight: 400;
         font-size: 14px;
         line-height: 1px;
         color: #94A6BE;
         letter-spacing: -0.14px;
-}
+} */
 
     &::placeholder {
         font-weight: 400;
@@ -217,17 +217,17 @@ export const RadioToolbarLabel1 = styled.label`
   display: inline-block;
   padding: 8px 20px 8px 20px;
   border-radius: 24px;
-  color: ${({ theme }) => theme.colors.orangeText};
-  background: ${({ theme }) => theme.colors.orangeBg};
+  color: ${({ theme, checked }) => checked ? theme.colors.orangeBg : theme.colors.orangeText};
+  background: ${({ theme, checked }) => checked ? theme.colors.orangeText : theme.colors.orangeBg};
   cursor: pointer;
   margin-right: 7px;
   opacity: ${({ checked }) => (checked ? '100%' : '40%')};
   transition: background 0.3s ease, opacity 0.3s ease;
 
   &:hover {
-    opacity: 100%;
     background: ${({ theme }) => theme.colors.orangeText};
-    color: ${({ theme }) => theme.colors.orangeBg}; 
+    color: ${({ theme }) => theme.colors.orangeBg};
+    opacity: 100%;
   }
 `;
 
@@ -235,17 +235,17 @@ export const RadioToolbarLabel2 = styled.label`
   display: inline-block;
   padding: 8px 20px 8px 20px;
   border-radius: 24px;
-  color: ${({ theme }) => theme.colors.greenText};
-  background: ${({ theme }) => theme.colors.greenBg};
+  color: ${({ theme, checked }) => checked ? theme.colors.greenBg : theme.colors.greenText};
+  background: ${({ theme, checked }) => checked ? theme.colors.greenText : theme.colors.greenBg};
   cursor: pointer;
   margin-right: 7px;
   opacity: ${({ checked }) => (checked ? '100%' : '40%')};
   transition: background 0.3s ease, opacity 0.3s ease;
 
-  &:hover {
-    opacity: 100%;
+  &:hover {    
     background: ${({ theme }) => theme.colors.greenText};
-    color: ${({ theme }) => theme.colors.greenBg};     
+    color: ${({ theme }) => theme.colors.greenBg}; 
+    opacity: 100%;    
   }
 `;
 
@@ -253,17 +253,17 @@ export const RadioToolbarLabel3 = styled.label`
   display: inline-block;
   padding: 8px 20px 8px 20px;
   border-radius: 24px;
-  background: ${({ theme }) => theme.colors.purpleBg};
-  color: ${({ theme }) => theme.colors.purpleText};  
+  color: ${({ theme, checked }) => checked ? theme.colors.purpleBg : theme.colors.purpleText};
+  background: ${({ theme, checked }) => checked ? theme.colors.purpleText : theme.colors.purpleBg};
   cursor: pointer;
   margin-right: 7px;
   opacity: ${({ checked }) => (checked ? '100%' : '40%')};
   transition: background 0.3s ease, opacity 0.3s ease;
 
-  &:hover {
-    opacity: 100%;
+  &:hover {    
     background: ${({ theme }) => theme.colors.purpleText};
     color: ${({ theme }) => theme.colors.purpleBg};
+    opacity: 100%;
   }
 `;
 
