@@ -268,13 +268,14 @@ export const BrowseStatusP = styled.div`
 `;
 
 export const BrowseStatusThemes = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+  display: flex;  
   align-items: flex-start;
   justify-content: flex-start;  
   border-radius: 24px;
   cursor: pointer;
-  margin-right: 8px;  
+  margin-right: 8px; 
+  font-size: 14px;
+  font-weight: 400;
 `;
 
 export const BrowseStatusTheme = styled.p`
