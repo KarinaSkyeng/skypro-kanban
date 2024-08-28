@@ -173,6 +173,7 @@ export const FormNewArea = styled.textarea`
     line-height: 1px;
     color: #94A6BE;    
     letter-spacing: -0.14px;
+    padding-top: 10px;
   }
 `;
 
@@ -220,12 +221,13 @@ export const RadioToolbarLabel1 = styled.label`
   background: ${({ theme }) => theme.colors.orangeBg};
   cursor: pointer;
   margin-right: 7px;
-  opacity: 40%;
+  opacity: ${({ checked }) => (checked ? '100%' : '40%')};
+  transition: background 0.3s ease, opacity 0.3s ease;
 
   &:hover {
     opacity: 100%;
-    color: ${({ theme }) => theme.colors.orangeBg}; 
     background: ${({ theme }) => theme.colors.orangeText};
+    color: ${({ theme }) => theme.colors.orangeBg}; 
   }
 `;
 
@@ -237,12 +239,13 @@ export const RadioToolbarLabel2 = styled.label`
   background: ${({ theme }) => theme.colors.greenBg};
   cursor: pointer;
   margin-right: 7px;
-  opacity: 40%;
+  opacity: ${({ checked }) => (checked ? '100%' : '40%')};
+  transition: background 0.3s ease, opacity 0.3s ease;
 
   &:hover {
     opacity: 100%;
-    color: ${({ theme }) => theme.colors.greenBg}; 
     background: ${({ theme }) => theme.colors.greenText};
+    color: ${({ theme }) => theme.colors.greenBg};     
   }
 `;
 
@@ -250,16 +253,17 @@ export const RadioToolbarLabel3 = styled.label`
   display: inline-block;
   padding: 8px 20px 8px 20px;
   border-radius: 24px;
-  color: ${({ theme }) => theme.colors.purpleText};
   background: ${({ theme }) => theme.colors.purpleBg};
+  color: ${({ theme }) => theme.colors.purpleText};  
   cursor: pointer;
   margin-right: 7px;
-  opacity: 50%;
+  opacity: ${({ checked }) => (checked ? '100%' : '40%')};
+  transition: background 0.3s ease, opacity 0.3s ease;
 
   &:hover {
     opacity: 100%;
-    color: ${({ theme }) => theme.colors.purpleBg}; 
     background: ${({ theme }) => theme.colors.purpleText};
+    color: ${({ theme }) => theme.colors.purpleBg};
   }
 `;
 

@@ -103,7 +103,7 @@ export const PopNewCard = ({ onClose, taskPosition }) => {
                       onChange={onChangeInput}
                       checked={inputValue.topic === 'Web Design'}
                     />
-                    <S.RadioToolbarLabel1 htmlFor="radio1">Web Design</S.RadioToolbarLabel1>
+                    <S.RadioToolbarLabel1 htmlFor="radio1" checked={inputValue.topic === 'Web Design'}>Web Design</S.RadioToolbarLabel1>
 
                     <S.InputRadio
                       type="radio"
@@ -113,7 +113,7 @@ export const PopNewCard = ({ onClose, taskPosition }) => {
                       onChange={onChangeInput}
                       checked={inputValue.topic === 'Research'}
                     />
-                    <S.RadioToolbarLabel2 htmlFor="radio2">Research</S.RadioToolbarLabel2>
+                    <S.RadioToolbarLabel2 htmlFor="radio2" checked={inputValue.topic === 'Research'}>Research</S.RadioToolbarLabel2>
 
                     <S.InputRadio
                       type="radio"
@@ -123,7 +123,7 @@ export const PopNewCard = ({ onClose, taskPosition }) => {
                       onChange={onChangeInput}
                       checked={inputValue.topic === 'Copywriting'}
                     />
-                    <S.RadioToolbarLabel3 htmlFor="radio3">Copywriting</S.RadioToolbarLabel3>
+                    <S.RadioToolbarLabel3 htmlFor="radio3" checked={inputValue.topic === 'Copywriting'}>Copywriting</S.RadioToolbarLabel3>
               </S.CategoriesThemes>
             </S.PopNewCardCategories>
             {error && error}

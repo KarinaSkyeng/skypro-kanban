@@ -140,6 +140,25 @@ export const ButtonGroup = styled.div`
 }
 `;
 
+export const ButtonSave = styled.button`
+ height: 30px;
+ margin-bottom: 10px;
+  padding: 0 14px;
+  margin-right: 8px;
+  border-radius: 4px;
+  background: #565EEF;
+  border: none;
+  outline: none;
+  color: #FFFFFF;
+  padding: 10px 20px;
+
+  a {
+  color: #FFFFFF;
+}
+
+${Hover01}
+`;
+
 export const ButtonChangeDelete = styled.button`
   height: 30px;
   margin-bottom: 10px;
@@ -262,7 +281,7 @@ export const BrowseStatusTheme = styled.p`
   background-color: ${({ theme }) => theme.colors.categoryBg}; 
   color: ${({ theme }) => theme.colors.categoryText}; 
    
-`
+`;
 
 export const StatusThemeLabel_1 = styled.p`
   display: inline-block;
@@ -286,7 +305,7 @@ export const StatusThemeLabel = styled.label`
     $isSelected ? theme.colors.selectedCategoryBg : theme.colors.categoryBg}; 
   color: ${({ $isSelected, theme }) =>
     $isSelected ? theme.colors.selectedCategoryText : theme.colors.categoryText}; 
-  opacity: ${({ $isSelected }) => ($isSelected ? '100%' : '40%')}; 
+  opacity: ${({ $isSelected }) => ($isSelected ? '100%' : '100%')}; 
   &:hover {
     opacity: 100%;
     border: solid 1px ${({theme})=> theme.primary};
@@ -297,7 +316,7 @@ export const StatusThemeLabel = styled.label`
 `;
 
 export const CalendarContentP = styled.p`
-   color: #94A6BE;  
+  color: #94A6BE;  
   font-size: 10px;
   font-weight: 400;
   margin-top: 10px; 
