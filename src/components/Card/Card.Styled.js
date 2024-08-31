@@ -73,6 +73,26 @@ export const CardTheme = styled.div`
 }
 `;
 
+export const CategoriesTheme = styled.div`
+display: inline-block;
+  width: auto;
+  height: 30px;
+  padding: 8px 20px;
+  border-radius: 24px;
+  margin-right: 7px;
+  opacity: 0.4;
+`;
+
+export const CartegoriesThemeP = styled.p`
+p {
+font-size: 14px;
+  font-weight: 600;
+  line-height: 14px;
+  white-space: nowrap;
+  color: ${({ theme }) => theme.text};
+  ${({ $color }) => themeColor($color)}
+}
+`;
 
 export const CardBtn = styled.div`
  width: 24px;
@@ -107,6 +127,7 @@ export const CardTitle = styled.h3`
 
   ${({ $color }) => themeColor($color)}
 `;
+
 
 export const CardDate = styled.div`
  display: flex;

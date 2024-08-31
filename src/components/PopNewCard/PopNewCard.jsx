@@ -1,4 +1,3 @@
-import { Subttl } from "../../glogalStyle.styled.js";
 import { Calendar } from "../Calendar/Calendar";
 import * as S from "./popNewCard.styled.js";
 import { routes } from "../../router/routes.js";
@@ -8,12 +7,12 @@ import { TaskContext } from '../../context/TasksContext';
 import { addTask as addTaskApi } from '../../api/tasks';
 import { useNavigate } from "react-router-dom"; 
 
-export const PopNewCard = ({ onClose }) => {
-  const {user} = useContext(UserContext)
+export const PopNewCard = ({ onClose, taskPosition }) => {
+  const {user} = useContext(UserContext);
   const { setTasks } = useContext(TaskContext);
-  const navigate = useNavigate()
-  const [error, setError] = useState('')
-  const [date, setDate] = useState(new Date())
+  const navigate = useNavigate();
+  const [error, setError] = useState('');
+  const [date, setDate] = useState(null);
   const [inputValue, setInputValue] = useState({
     title: '',
     topic: '',
@@ -31,7 +30,7 @@ export const PopNewCard = ({ onClose }) => {
       topic,
       status,
       description: inputValue.description.trim() || '',
-      date: date.toISOString()
+      date: date ? date.toISOString() : null,
     };
 
     if (!newCard.description) {
@@ -40,7 +39,8 @@ export const PopNewCard = ({ onClose }) => {
 
     try {
       const response = await addTaskApi(newCard, user.token);
-      setTasks(response.tasks);  
+      setTasks(response.tasks);
+      onClose();  
       navigate(routes.main);
     } catch (err) {
       setError(err.message);
@@ -48,16 +48,16 @@ export const PopNewCard = ({ onClose }) => {
   };
 
   const onCloseModal = () => {
-    onClose(); // Закрытие модального окна при вызове
+    onClose(); 
   };
 
   const onChangeInput = (e) => {
     const {value, name} = e.target
-    setInputValue({...inputValue, [name]: value})
-  }
+    setInputValue({...inputValue, [name]: value});
+  };
 
   return (    
-    <S.PopNewCard>
+    <S.PopNewCard style={{ top: taskPosition?.top, left: taskPosition?.left }}>
       <S.PopNewCardContainer>
         <S.PopNewCardBlock>
           <S.PopNewCardContent>
@@ -68,7 +68,7 @@ export const PopNewCard = ({ onClose }) => {
                 id="formNewCard"
                 action="#">
                  <S.FormNewBlock> 
-                  <Subttl>Название задачи</Subttl>
+                  <S.Subttl>Название задачи</S.Subttl>
                   <S.FormNewInput
                     type="text"
                     name="title"
@@ -80,7 +80,7 @@ export const PopNewCard = ({ onClose }) => {
                   />
                 </S.FormNewBlock>
                 <S.FormNewBlock>
-                  <Subttl>Описание задачи</Subttl>
+                  <S.Subttl>Описание задачи</S.Subttl>
                   <S.FormNewArea
                     onChange={onChangeInput}
                     name="description"                    
@@ -103,7 +103,7 @@ export const PopNewCard = ({ onClose }) => {
                       onChange={onChangeInput}
                       checked={inputValue.topic === 'Web Design'}
                     />
-                    <S.RadioToolbarLabel1 htmlFor="radio1">Web Design</S.RadioToolbarLabel1>
+                    <S.RadioToolbarLabel1 htmlFor="radio1" checked={inputValue.topic === 'Web Design'}>Web Design</S.RadioToolbarLabel1>
 
                     <S.InputRadio
                       type="radio"
@@ -113,7 +113,7 @@ export const PopNewCard = ({ onClose }) => {
                       onChange={onChangeInput}
                       checked={inputValue.topic === 'Research'}
                     />
-                    <S.RadioToolbarLabel2 htmlFor="radio2">Research</S.RadioToolbarLabel2>
+                    <S.RadioToolbarLabel2 htmlFor="radio2" checked={inputValue.topic === 'Research'}>Research</S.RadioToolbarLabel2>
 
                     <S.InputRadio
                       type="radio"
@@ -123,7 +123,7 @@ export const PopNewCard = ({ onClose }) => {
                       onChange={onChangeInput}
                       checked={inputValue.topic === 'Copywriting'}
                     />
-                    <S.RadioToolbarLabel3 htmlFor="radio3">Copywriting</S.RadioToolbarLabel3>
+                    <S.RadioToolbarLabel3 htmlFor="radio3" checked={inputValue.topic === 'Copywriting'}>Copywriting</S.RadioToolbarLabel3>
               </S.CategoriesThemes>
             </S.PopNewCardCategories>
             {error && error}

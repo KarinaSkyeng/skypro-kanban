@@ -21,12 +21,12 @@ export const ExitPage = ({ setUser }) => {
             <S.PopExitContainer>
                 <S.PopExitBlock>
                     <S.PopExitTtl>Выйти из аккаунта?</S.PopExitTtl>
-                    <S.PopExitForm id="formExit" action="#">
+                    <S.PopExitForm action="#">
                         <S.PopExitFormGroup>
-                            <S.PopExitYesButton id="exitYes" onClick={handleLogout}>
+                            <S.PopExitYesButton onClick={handleLogout}>
                                 <S.PopExitYesA>Да, выйти</S.PopExitYesA>
                             </S.PopExitYesButton>
-                            <S.PopExitNoButton id="exitNo">
+                            <S.PopExitNoButton>
                                 <Link to={routes.main}>Нет, остаться</Link>
                             </S.PopExitNoButton>
                         </S.PopExitFormGroup>

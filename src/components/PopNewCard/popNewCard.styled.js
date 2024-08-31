@@ -1,15 +1,19 @@
 import styled from "styled-components";
-import { Hover01 } from "../../glogalStyle.styled"
+import { Hover01 } from "../../glogalStyle.styled";
 
 export const PopNewCard = styled.div`
   width: 100%;
   min-width: 375px;
   height: 100%;
   min-height: 100vh;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.4);
 
   @media screen and (max-width: 660px) {
     top: 70px;
@@ -41,12 +45,12 @@ export const PopNewCardContainer = styled.div`
 export const PopNewCardBlock = styled.div`
   display: block;
   margin: 0 auto;
-  background-color: #FFFFFF;
+  background-color: ${({ theme }) => theme.popupBg};
   max-width: 630px;
   width: 100%;
   padding: 40px 30px 48px;
   border-radius: 10px;
-  border: 0.7px solid #D4DBE5;
+  border: 0.7px solid #4E5566;
   position: relative;
 
   @media screen and (max-width: 660px) {
@@ -59,12 +63,12 @@ export const PopNewCardBlock = styled.div`
 `;
 
 export const PopNewCardContent = styled.div`
-    display: block;
-    text-align: left;
+  display: block;
+  text-align: left;
 `;
 
 export const PopNewCardTitle = styled.h3`
-  color: ${({theme})=> theme.text};
+  color: ${({ theme }) => theme.text};
   font-size: 20px;
   font-weight: 600;
   line-height: 24px;
@@ -72,15 +76,15 @@ export const PopNewCardTitle = styled.h3`
 `;
 
 export const PopNewCardClose = styled.a`
- position: absolute;
+  position: absolute;
   top: 20px;
   right: 30px;
-  color: #94A6BE;
+  color: #94a6be;
   cursor: pointer;
-  
+
   &:hover {
-  color: ${({theme})=> theme.text};
-}
+    color: ${({ theme }) => theme.text};
+  }
 `;
 
 export const PopNewCardWrap = styled.div`
@@ -95,7 +99,6 @@ export const PopNewCardWrap = styled.div`
 
 export const PopNewCardForm = styled.form`
   width: 370px;
-  //width: 100%;
   display: block;
   margin-bottom: 20px;
 
@@ -107,8 +110,16 @@ export const PopNewCardForm = styled.form`
 `;
 
 export const FormNewBlock = styled.div`
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+`;
+
+export const Subttl = styled.h4`
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  color: ${({ theme }) => theme.text}; 
+  margin-bottom: 10px;
 `;
 
 export const FormNewInput = styled.input`
@@ -116,72 +127,58 @@ export const FormNewInput = styled.input`
     width: 370px;
     outline: none;
     padding: 14px;
-    background: transparent;
-    border: 0.7px solid rgba(148, 166, 190, 0.4);
+    background: ${({ theme }) => theme.cardBg};
+    border: 0.7px solid ${({ theme }) => theme.categoryBorder};
     border-radius: 8px;
     font-size: 14px;
     line-height: 1;
     letter-spacing: -0.14px;
-    color: ${({theme})=> theme.text};
+    color: ${({ theme }) => theme.text};
+    font-family: Roboto;
 
-    &::-moz-placeholder {
+      &::placeholder {
+        font-family: Roboto;
         font-weight: 400;
         font-size: 14px;
         line-height: 1px;
-        color: #94A6BE;
-        letter-spacing: -0.14px;
-}
-
-    &::placeholder {
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 1px;
-        color: #94A6BE;
+        color: ${({ theme }) => theme.textSecondary};
         letter-spacing: -0.14px;
 }
 `;
 
 export const FormNewArea = styled.textarea`
-     width: 370px;
-     margin-top: 14px;
-     height: 200px;
-     //width: 100%;
-
-     //width: 100%;
-    outline: none;
-    padding: 14px;
-    background: transparent;
-    border: 0.7px solid rgba(148, 166, 190, 0.4);
-    border-radius: 8px;
-    font-size: 14px;
-    line-height: 1;
-    letter-spacing: -0.14px;
-
-    color: ${({theme})=> theme.text};
-
-    &::-moz-placeholder {
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 1px;
-        color: #94A6BE;
-        letter-spacing: -0.14px;
+ max-width: 370px;
+  width: 100%;
+  outline: none;
+  padding: 14px;
+  background: ${({ theme }) => theme.textAreaBg}; 
+  color: ${({ theme }) => theme.text}; 
+  border: 0.7px solid ${({ theme }) => theme.categoryBorder};
+  border-radius: 10px;
+  font-family: Roboto;
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: -0.14px;
+  margin-top: 14px;
+  height: 200px;
 
   &::placeholder {
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 1px;
-        color: #94A6BE;
-        letter-spacing: -0.14px;
-}
-}
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1px;
+    color: #94A6BE;    
+    letter-spacing: -0.14px;
+    padding-top: 10px;
+  }
 `;
 
 export const PopNewCardCategories = styled.div`
- margin-bottom: 20px; 
+  margin-bottom: 20px;
 
- p {
+  p {
     margin-bottom: 14px;
-    color: ${({theme})=> theme.text};
+    color: ${({ theme }) => theme.text};
     font-size: 14px;
     font-weight: 600;
     line-height: 1;
@@ -189,8 +186,8 @@ export const PopNewCardCategories = styled.div`
 `;
 
 export const CategoriesPSubttl = styled.label`
-    margin-bottom: 14px;
-    color: ${({theme})=> theme.text};
+  margin-bottom: 14px;
+  color: ${({ theme }) => theme.text};
   font-size: 14px;
   font-weight: 600;
   line-height: 1;
@@ -201,6 +198,7 @@ export const CategoriesThemes = styled.div`
   flex-wrap: nowrap;
   align-items: flex-start;
   justify-content: flex-start;
+  margin-top: 14px;
 `;
 
 export const InputRadio = styled.input`
@@ -209,35 +207,41 @@ export const InputRadio = styled.input`
   &:checked + label {
     opacity: 100%;
   }
-`
+`;
 
 export const RadioToolbarLabel1 = styled.label`
   display: inline-block;
   padding: 8px 20px 8px 20px;
   border-radius: 24px;
-  color: #ff6d00;
-  background: #ffe4c2;
+  color: ${({ theme, checked }) => checked ? theme.colors.orangeBg : theme.colors.orangeText};
+  background: ${({ theme, checked }) => checked ? theme.colors.orangeText : theme.colors.orangeBg};
   cursor: pointer;
   margin-right: 7px;
-  opacity: 40%;
+  opacity: ${({ checked }) => (checked ? '100%' : '40%')};
+  transition: background 0.3s ease, opacity 0.3s ease;
 
   &:hover {
+    background: ${({ theme }) => theme.colors.orangeText};
+    color: ${({ theme }) => theme.colors.orangeBg};
     opacity: 100%;
   }
-`
+`;
 
 export const RadioToolbarLabel2 = styled.label`
   display: inline-block;
   padding: 8px 20px 8px 20px;
   border-radius: 24px;
-  color: #06b16e;
-  background: #b4fdd1;
+  color: ${({ theme, checked }) => checked ? theme.colors.greenBg : theme.colors.greenText};
+  background: ${({ theme, checked }) => checked ? theme.colors.greenText : theme.colors.greenBg};
   cursor: pointer;
   margin-right: 7px;
-  opacity: 40%;
+  opacity: ${({ checked }) => (checked ? '100%' : '40%')};
+  transition: background 0.3s ease, opacity 0.3s ease;
 
-  &:hover {
-    opacity: 100%;
+  &:hover {    
+    background: ${({ theme }) => theme.colors.greenText};
+    color: ${({ theme }) => theme.colors.greenBg}; 
+    opacity: 100%;    
   }
 `;
 
@@ -245,33 +249,32 @@ export const RadioToolbarLabel3 = styled.label`
   display: inline-block;
   padding: 8px 20px 8px 20px;
   border-radius: 24px;
-  color: #9a48f1;
-  background: #E9D4FF;
+  color: ${({ theme, checked }) => checked ? theme.colors.purpleBg : theme.colors.purpleText};
+  background: ${({ theme, checked }) => checked ? theme.colors.purpleText : theme.colors.purpleBg};
   cursor: pointer;
   margin-right: 7px;
-  opacity: 50%;
+  opacity: ${({ checked }) => (checked ? '100%' : '40%')};
+  transition: background 0.3s ease, opacity 0.3s ease;
 
-  &:hover {
+  &:hover {    
+    background: ${({ theme }) => theme.colors.purpleText};
+    color: ${({ theme }) => theme.colors.purpleBg};
     opacity: 100%;
   }
 `;
 
 export const FormNewCreate = styled.button`
-    width: 132px;
-    height: 30px;
-    background-color: #565EEF;
-    border-radius: 4px;
-    border: 0;
-    outline: none;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 1;
-    color: #FFFFFF;
-    float: right;
+  width: 132px;
+  height: 30px;
+  background-color:#565EEF;
+  border-radius: 4px;
+  border: 0;
+  outline: none;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  color: #ffffff;
+  float: right;
 
-    ${Hover01}
+  ${Hover01}
 `;
-
-
-
-    

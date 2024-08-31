@@ -7,10 +7,8 @@ export const CalendarContent  = styled.div`
   margin-left: 20px;
 `;
 
-export const CalendarTtl = styled.p`
-  // margin-bottom: 14px;
+export const CalendarTtl = styled.p` 
   padding: 0 7px;
-
   color: ${({theme})=> theme.text};
   font-size: 14px;
   font-weight: 600;
@@ -25,8 +23,7 @@ export const StyledDayPicker = styled(DayPicker)`
   margin-top: 14px;
   margin: 0 0px;
   padding: 0 10px;
-
-  background-color: #ffffff;
+  background-color: ${({ theme }) => theme.calendarBg}; 
   color: #94A6BE;
 
   .rdp {
@@ -37,7 +34,6 @@ export const StyledDayPicker = styled(DayPicker)`
 
 }
   .rdp-caption_label {
-
     color: #94A6BE;
     font-size: 14px;
     line-height: 25px;
@@ -54,19 +50,32 @@ export const StyledDayPicker = styled(DayPicker)`
     flex-wrap: nowrap;
     align-items: center;
     justify-content: center;
-    color: #94A6BE;
+    /* color: #94A6BE; */
     font-size: 10px;
     line-height: 1;
     letter-spacing: -0.2px;
     cursor: pointer;
+    position: relative;
   }
   .rdp-button_reset.rdp-button.rdp-day {
     width: 22px;
     height: 22px;
     font-size: 10px;   
   }
+  .rdp-day {
+    width: 22px;
+    height: 22px;
+    font-size: 10px;
+    color: #94A6BE; /* Цвет текста по умолчанию */
+  }
   .rdp-day_selected {
-    background-color: #94A6BE;
+    background-color: #EAEEF6;
+    color: #94A6BE
+  }
+  .rdp-day_today {
+    background-color: #94A6BE; /* Цвет фона для текущей даты */
+    color: #FFFFFF; /* Цвет текста для текущей даты */
+    border-radius: 50%;
   }
   .rdp-nav_icon {
     Width: 14px;
@@ -80,46 +89,27 @@ export const StyledDayPicker = styled(DayPicker)`
   }
 `
 
-export const CalendarContentP  = styled.p`
-margin-left: 20px;
+export const CalendarContentDiv = styled.div`
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+  color: #94A6BE;
+  font-size: 10px;
+  font-weight: 400;
 `;
 
-// export const CalendarDaysNames  = styled.div`
-// display: flex;
-// flex-wrap: nowrap;
-// align-items: center;
-// justify-content: space-between;
-// margin: 7px 0;
-// padding: 0 7px;
-// `;
+export const DeadLineLable = styled.p`
+  color: #94A6BE;
+  font-size: 10px;
+  font-weight: 400;
+  margin-top: 10px;
+`;
 
-// export const CalendarDaysName  = styled.div`
-// color: #94A6BE;
-//   font-size: 10px;
-//   font-weight: 500;
-//   line-height: normal;
-//   letter-spacing: -0.2px;
-// `;
+export const DeadLineDate = styled.p`
+  margin-left: 4px;
+  color: ${({theme})=> theme.text};
+  font-size: 10px;
+  font-weight: 400;
+  margin-top: 10px;
+`;
 
-// export const СalendarСells = styled.div`
-// width: 182px;
-// height: 126px;
-// display: flex;
-// flex-wrap: wrap;
-// `;
-
-// export const СalendarСell = styled.div`
-// width: 22px;
-//   height: 22px;
-//   margin: 2px;
-//   border-radius: 50%;
-//   display: flex;
-//   flex-wrap: nowrap;
-//   align-items: center;
-//   justify-content: center;
-//   color: #94A6BE;
-//   font-size: 10px;
-//   line-height: 1;
-//   letter-spacing: -0.2px;
-//   cursor: pointer;
-// `;

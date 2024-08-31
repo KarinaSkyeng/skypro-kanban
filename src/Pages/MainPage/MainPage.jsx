@@ -17,7 +17,7 @@ export const MainPage = ({ setUser, isDarkTheme, setIsDarkTheme }) => {
        
     
       useEffect(() => { 
-        console.log("user:", user);       
+             
         if (!user || !user.token) {
           console.error("Пользователь не авторизован");
           setError("Пользователь не авторизован");
@@ -30,8 +30,7 @@ export const MainPage = ({ setUser, isDarkTheme, setIsDarkTheme }) => {
         .then((res) => {
           setTasks(res.tasks)         
         })
-        .catch((error) => {
-          console.log("Error loading tasks:", error.message);
+        .catch((error) => {          
           setError(error.message);
         })
         .finally(() => {
