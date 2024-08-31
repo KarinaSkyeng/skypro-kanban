@@ -212,9 +212,10 @@ export const FormBrowseArea = styled.textarea`
   padding-left: 14px;
   padding-top: 24px;
   background: ${({ theme }) => theme.body}; 
-  color: ${({ theme }) => theme.textSecondary}; 
+  color: ${({ theme }) => theme.text}; 
   border: 0.7px solid ${({ theme }) => theme.categoryBorder};
   border-radius: 10px;
+  font-family: Roboto;
   font-size: 14px;
   line-height: 1;
   letter-spacing: -0.14px;
@@ -222,11 +223,12 @@ export const FormBrowseArea = styled.textarea`
   height: 200px;
 
   &::placeholder {
+    font-family: Roboto;
     font-weight: 400;
     font-size: 14px;
     line-height: 1px;
     color: #94A6BE;    
-    letter-spacing: -0.14px;
+    letter-spacing: -0.14px;    
   }
 `;
 
@@ -269,6 +271,7 @@ export const BrowseStatusP = styled.div`
 
 export const BrowseStatusThemes = styled.div`
   display: flex;  
+  flex-wrap: wrap;
   align-items: flex-start;
   justify-content: flex-start;  
   border-radius: 24px;
@@ -296,9 +299,10 @@ export const StatusThemeLabel_1 = styled.p`
 
 export const StatusThemeLabel = styled.label`
   display: inline-block;
-  height: 30px;
-  padding: 5px 14px 5px 14px;
-  border: solid 0.7px ${({theme}) => theme.purpleBorder};
+  height: 30px;  
+  padding: 5px 14px;
+  border: solid 0.7px ${({ $isSelected, theme }) => 
+        $isSelected ? theme.primary : theme.purpleBorder};
   border-radius: 24px;
   cursor: pointer;
   margin-right: 8px;
@@ -306,14 +310,16 @@ export const StatusThemeLabel = styled.label`
     $isSelected ? theme.colors.selectedCategoryBg : theme.colors.categoryBg}; 
   color: ${({ $isSelected, theme }) =>
     $isSelected ? theme.colors.selectedCategoryText : theme.colors.categoryText}; 
-  opacity: ${({ $isSelected }) => ($isSelected ? '100%' : '100%')}; 
+  opacity: 100%; 
+  white-space: nowrap;
+
   &:hover {
     opacity: 100%;
-    border: solid 1px ${({theme})=> theme.primary};
+    border: ${({theme})=> theme.primary};
     color: ${({theme})=> theme.colors.hoverCategoryText};
     background-color: ${({theme})=> theme.colors.hoverCategoryBg};
   }
-  white-space: nowrap;
+ 
 `;
 
 export const CalendarContentP = styled.p`

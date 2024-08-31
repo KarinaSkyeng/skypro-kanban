@@ -1,7 +1,7 @@
 import { Calendar } from "../Calendar/Calendar";
 import * as S from "./popNewCard.styled.js";
 import { routes } from "../../router/routes.js";
-import { useEffect, useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { UserContext } from "../../context/UserContext";
 import { TaskContext } from '../../context/TasksContext';
 import { addTask as addTaskApi } from '../../api/tasks';

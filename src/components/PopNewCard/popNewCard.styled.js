@@ -133,17 +133,11 @@ export const FormNewInput = styled.input`
     font-size: 14px;
     line-height: 1;
     letter-spacing: -0.14px;
-    color: ${({ theme }) => theme.textSecondary};
+    color: ${({ theme }) => theme.text};
+    font-family: Roboto;
 
-    /* &::-moz-placeholder {
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 1px;
-        color: #94A6BE;
-        letter-spacing: -0.14px;
-} */
-
-    &::placeholder {
+      &::placeholder {
+        font-family: Roboto;
         font-weight: 400;
         font-size: 14px;
         line-height: 1px;
@@ -158,9 +152,10 @@ export const FormNewArea = styled.textarea`
   outline: none;
   padding: 14px;
   background: ${({ theme }) => theme.textAreaBg}; 
-  color: ${({ theme }) => theme.textSecondary}; 
+  color: ${({ theme }) => theme.text}; 
   border: 0.7px solid ${({ theme }) => theme.categoryBorder};
   border-radius: 10px;
+  font-family: Roboto;
   font-size: 14px;
   line-height: 1;
   letter-spacing: -0.14px;
@@ -168,6 +163,7 @@ export const FormNewArea = styled.textarea`
   height: 200px;
 
   &::placeholder {
+    font-family: Roboto;
     font-weight: 400;
     font-size: 14px;
     line-height: 1px;

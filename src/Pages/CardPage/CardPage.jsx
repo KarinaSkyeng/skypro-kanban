@@ -74,7 +74,7 @@ export function CardPage() {
       setTasks(res.tasks);
       navigate(routes.main);
     } catch (error) {
-      console.error(error);
+      console.error(error);      
       setError(error.message);
     }
   };

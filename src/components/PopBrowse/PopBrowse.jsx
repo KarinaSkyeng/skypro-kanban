@@ -27,7 +27,7 @@ export const PopBrowse = () => {
   });
 
   useEffect(() => {
-    console.log(openedCard)
+   
     if (openedCard) {
       setEditCard({
         title: openedCard.title,
@@ -58,7 +58,6 @@ export const PopBrowse = () => {
     }
   };
 
-  console.log(111)
   const handleEditTask = async (e) => {
     e.preventDefault();
     const taskData = { ...editCard, date: editCard.date.toISOString() };
